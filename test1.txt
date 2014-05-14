@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 opuiopu
 fewfwefwef
+=======
+opuiopu
+>>>>>>> 3e3cd092be5ef8481074f2e449b8bfdf16369b76
