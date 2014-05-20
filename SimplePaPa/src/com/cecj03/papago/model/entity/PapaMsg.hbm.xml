@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-20 15:38:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cecj03.papago.model.entity.PapaMsg" table="PapaMsg">
+        <id name="msgId" type="int">
+            <column name="msgId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="papaShop" class="com.cecj03.papago.model.entity.PapaShop" fetch="select">
+            <column name="shopId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="papaMem" class="com.cecj03.papago.model.entity.PapaMem" fetch="select">
+            <column name="memId" not-null="true" />
+        </many-to-one>
+        <property name="msgDate" type="timestamp">
+            <column name="msgDate" length="23" not-null="true" />
+        </property>
+        <property name="msgContent" type="java.lang.String">
+            <column name="msgContent" not-null="true" />
+        </property>
+        <set name="reportMsgs" table="ReportMsg" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="msgId" not-null="true" />
+            </key>
+            <one-to-many class="com.cecj03.papago.model.entity.ReportMsg" />
+        </set>
+    </class>
+</hibernate-mapping>

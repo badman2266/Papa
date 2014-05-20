@@ -1,4 +1,4 @@
-package model.dao;
+package com.cecj03.papago.model.dao.impl;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -13,7 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.MemberBean;
+import com.cecj03.papago.model.entity.*;
 
 public class RegisterDAOjdbc {
 
@@ -51,26 +51,26 @@ public class RegisterDAOjdbc {
 
 	private static final String SELECT_BY_Account = "select * from PapaMem where account = ?";
 
-	public MemberBean selectAccount(String account) {
+	public PapaMem selectAccount(String account) {
 		ResultSet rset = null;
-		MemberBean result = null;
+		PapaMem result = null;
 		try {
 			this.conn();
 			pstmt = conn.prepareStatement(SELECT_BY_Account);
 			pstmt.setString(1, account);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
-				result = new MemberBean();
+				result = new PapaMem();
 				result.setAccount(rset.getString("account"));
 				result.setName(rset.getString("name"));
-				result.setmPassword(rset.getString("mPassword"));
+				result.setMemPassword(rset.getString("mPassword"));
 				result.setEmail(rset.getString("email"));
 				result.setSex(rset.getString("sex"));
 				result.setBirth(rset.getDate("birth"));
 				result.setPhone(rset.getString("phone"));
-				result.setmAddress(rset.getString("mAddress"));
-				result.setmStatusId(rset.getInt("mStatusId"));
-				result.setmTypeId(rset.getInt("mTypeId"));
+				result.setMemAddress(rset.getString("mAddress"));
+				result.setMemStatusType(getrset.getInt("mStatusId"));
+				result.setMemtypeId(rset.getInt("mTypeId"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -190,8 +190,8 @@ public class RegisterDAOjdbc {
 	
 	
 	private static final String INSERT = "INSERT INTO PapaMem (account ,name, mPassword, email, sex, memPic, birth, phone, mAddress, mDate,mTypeId , mStatusId ) VALUES(? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?)";
-	// public int insertMember(MemberBean mb, InputStream is, int size) {
-	public int insertMember(MemberBean mb) {
+	// public int insertMember(PapaMem mb, InputStream is, int size) {
+	public int insertMember(PapaMem mb) {
 		// Connection conn = null;
 		// PreparedStatement pstmt = null;
 		int count = 0;
@@ -258,7 +258,7 @@ public class RegisterDAOjdbc {
 	public static void main(String[] args) {
 		RegisterDAOjdbc rd = new RegisterDAOjdbc();
 		 rd.deleteMember("A");
-//		MemberBean bean=new MemberBean();
+//		PapaMem bean=new PapaMem();
 //		bean.setAccount("B");
 //		bean.setName("A");
 //		bean.setmPassword("A");
@@ -274,8 +274,8 @@ public class RegisterDAOjdbc {
 //		rd.updateMember("B","E" ,"BB", "女", new java.util.Date(), "0903934", "女", 1, 1, "B");
 		//System.out.print(bean);
 		//rd.selectAccount("A");
-		//MemberBean bean=rd.selectAccount("A");
-		//MemberBean bean=rd.selectAccount("A");
+		//PapaMem bean=rd.selectAccount("A");
+		//PapaMem bean=rd.selectAccount("A");
 		
 		//System.out.print(bean.getBirth());
 		

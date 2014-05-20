@@ -1,4 +1,4 @@
-package controller;
+package com.cecj03.papago.controller;
 
 import com.opensymphony.xwork2.Action;
 

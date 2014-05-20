@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-20 15:38:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cecj03.papago.model.entity.PapaShop" table="PapaShop">
+        <id name="shopId" type="int">
+            <column name="shopId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="shopStatusType" class="com.cecj03.papago.model.entity.ShopStatusType" fetch="select">
+            <column name="shopstatusId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="priceType" class="com.cecj03.papago.model.entity.PriceType" fetch="select">
+            <column name="pricetypeId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="shopType" class="com.cecj03.papago.model.entity.ShopType" fetch="select">
+            <column name="shoptypeId" not-null="true" />
+        </many-to-one>
+        <property name="name" type="java.lang.String">
+            <column name="name" not-null="true" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone" not-null="true" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" />
+        </property>
+        <property name="shopPic" type="java.lang.String">
+            <column name="shopPic" />
+        </property>
+        <property name="shopAddress" type="java.lang.String">
+            <column name="shopAddress" not-null="true" />
+        </property>
+        <property name="shopDate" type="timestamp">
+            <column name="shopDate" length="23" not-null="true" />
+        </property>
+        <property name="contactName" type="java.lang.String">
+            <column name="contactName" />
+        </property>
+        <property name="contactPhone" type="java.lang.String">
+            <column name="contactPhone" />
+        </property>
+        <property name="price" type="java.lang.String">
+            <column name="price" not-null="true" />
+        </property>
+        <property name="web" type="java.lang.String">
+            <column name="web" />
+        </property>
+        <property name="note" type="java.lang.String">
+            <column name="note" />
+        </property>
+        <set name="papaScores" table="PapaScore" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="shopId" not-null="true" />
+            </key>
+            <one-to-many class="com.cecj03.papago.model.entity.PapaScore" />
+        </set>
+        <set name="papaMsgs" table="PapaMsg" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="shopId" not-null="true" />
+            </key>
+            <one-to-many class="com.cecj03.papago.model.entity.PapaMsg" />
+        </set>
+        <set name="updateShops" table="UpdateShop" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="shopId" not-null="true" />
+            </key>
+            <one-to-many class="com.cecj03.papago.model.entity.UpdateShop" />
+        </set>
+        <set name="favoritesLists" table="FavoritesList" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="shopId" not-null="true" />
+            </key>
+            <one-to-many class="com.cecj03.papago.model.entity.FavoritesList" />
+        </set>
+    </class>
+</hibernate-mapping>
