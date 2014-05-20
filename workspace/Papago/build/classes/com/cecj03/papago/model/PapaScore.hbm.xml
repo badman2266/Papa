@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014/5/19 ?U?? 03:55:39 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.cecj03.papago.model.PapaScore" table="PapaScore">
+        <composite-id name="id" class="com.cecj03.papago.model.PapaScoreId">
+            <key-property name="shopId" type="int">
+                <column name="shopId" />
+            </key-property>
+            <key-property name="memId" type="int">
+                <column name="memId" />
+            </key-property>
+            <key-property name="score" type="int">
+                <column name="score" />
+            </key-property>
+            <key-property name="scoreDate" type="java.util.Date">
+                <column name="scoreDate" length="23" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="papaShop" class="com.cecj03.papago.model.PapaShop" update="false" insert="false" fetch="select">
+            <column name="shopId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="papaMem" class="com.cecj03.papago.model.PapaMem" update="false" insert="false" fetch="select">
+            <column name="memId" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

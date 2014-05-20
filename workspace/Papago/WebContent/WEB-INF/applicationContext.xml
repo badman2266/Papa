@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+		<property name="url" value="jdbc:sqlserver://localhost:1433;database=Papago"></property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="gf4444"></property>
+		
+	</bean>
+	
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		destroy-method="destroy">
+		<property name="dataSource" >
+			<ref bean="dataSource"/>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/cecj03/papago/model/FavoritesList.hbm.xml</value>
+				<value>com/cecj03/papago/model/MemStatusType.hbm.xml</value>
+				<value>com/cecj03/papago/model/MemType.hbm.xml</value>
+				<value>com/cecj03/papago/model/PapaMem.hbm.xml</value>
+				<value>com/cecj03/papago/model/PapaMsg.hbm.xml</value>
+				<value>com/cecj03/papago/model/PapaRec.hbm.xml</value>
+				<value>com/cecj03/papago/model/PapaScore.hbm.xml</value>
+				<value>com/cecj03/papago/model/PapaShop.hbm.xml</value>
+				<value>com/cecj03/papago/model/PriceType.hbm.xml</value>
+				<value>com/cecj03/papago/model/ReportMsg.hbm.xml</value>
+				<value>com/cecj03/papago/model/ShopStatusType.hbm.xml</value>
+				<value>com/cecj03/papago/model/ShopType.hbm.xml</value>
+				<value>com/cecj03/papago/model/UpdateShop.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.current_session_context_class">
+					thread
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		
+	</bean>
+	<!-- dao -->
+	<bean id="PapaShopDao" class="com.cecj03.papago.model.dao.impl.PapaShopDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- service -->
+	
+	
+	
+
+	
+	
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014/5/19 ?U?? 03:55:39 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.cecj03.papago.model.ReportMsg" table="ReportMsg">
+        <id name="repId" type="int">
+            <column name="repId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="papaMsg" class="com.cecj03.papago.model.PapaMsg" fetch="select">
+            <column name="msgId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="papaMem" class="com.cecj03.papago.model.PapaMem" fetch="select">
+            <column name="memId" not-null="true" />
+        </many-to-one>
+        <property name="reportDate" type="timestamp">
+            <column name="reportDate" length="23" not-null="true" />
+        </property>
+        <property name="report" type="java.util.Date">
+            <column name="report" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
