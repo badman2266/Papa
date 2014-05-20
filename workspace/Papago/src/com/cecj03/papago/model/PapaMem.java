@@ -30,12 +30,12 @@ public class PapaMem implements java.io.Serializable {
 	private String phone;
 	private String memAddress;
 	private Timestamp memDate;
-	private Set updateShops = new HashSet(0);
-	private Set reportMsgs = new HashSet(0);
-	private Set papaScores = new HashSet(0);
-	private Set favoritesLists = new HashSet(0);
-	private Set papaRecs = new HashSet(0);
-	private Set papaMsgs = new HashSet(0);
+	private Set<?> updateShops = new HashSet(0);
+	private Set<?> reportMsgs = new HashSet(0);
+	private Set<?> papaScores = new HashSet(0);
+	private Set<?> favoritesLists = new HashSet(0);
+	private Set<?> papaRecs = new HashSet(0);
+	private Set<?> papaMsgs = new HashSet(0);
 
 	public PapaMem() {
 	}
@@ -62,8 +62,8 @@ public class PapaMem implements java.io.Serializable {
 			String account, String name, String memPassword,
 			byte[] memPic, String email, String sex, java.util.Date birth,
 			String phone, String memAddress, Timestamp memDate,
-			Set updateShops, Set reportMsgs, Set papaScores,
-			Set favoritesLists, Set papaRecs, Set papaMsgs) {
+			Set<?> updateShops, Set<?> reportMsgs, Set<?> papaScores,
+			Set<?> favoritesLists, Set<?> papaRecs, Set<?> papaMsgs) {
 		this.memId = memId;
 		this.memType = memType;
 		this.memStatusType = memStatusType;
@@ -189,51 +189,51 @@ public class PapaMem implements java.io.Serializable {
 		this.memDate = memDate;
 	}
 
-	public Set getUpdateShops() {
+	public Set<?> getUpdateShops() {
 		return this.updateShops;
 	}
 
-	public void setUpdateShops(Set updateShops) {
+	public void setUpdateShops(Set<?> updateShops) {
 		this.updateShops = updateShops;
 	}
 
-	public Set getReportMsgs() {
+	public Set<?> getReportMsgs() {
 		return this.reportMsgs;
 	}
 
-	public void setReportMsgs(Set reportMsgs) {
+	public void setReportMsgs(Set<?> reportMsgs) {
 		this.reportMsgs = reportMsgs;
 	}
 
-	public Set getPapaScores() {
+	public Set<?> getPapaScores() {
 		return this.papaScores;
 	}
 
-	public void setPapaScores(Set papaScores) {
+	public void setPapaScores(Set<?> papaScores) {
 		this.papaScores = papaScores;
 	}
 
-	public Set getFavoritesLists() {
+	public Set<?> getFavoritesLists() {
 		return this.favoritesLists;
 	}
 
-	public void setFavoritesLists(Set favoritesLists) {
+	public void setFavoritesLists(Set<?> favoritesLists) {
 		this.favoritesLists = favoritesLists;
 	}
 
-	public Set getPapaRecs() {
+	public Set<?> getPapaRecs() {
 		return this.papaRecs;
 	}
 
-	public void setPapaRecs(Set papaRecs) {
+	public void setPapaRecs(Set<?> papaRecs) {
 		this.papaRecs = papaRecs;
 	}
 
-	public Set getPapaMsgs() {
+	public Set<?> getPapaMsgs() {
 		return this.papaMsgs;
 	}
 
-	public void setPapaMsgs(Set papaMsgs) {
+	public void setPapaMsgs(Set<?> papaMsgs) {
 		this.papaMsgs = papaMsgs;
 	}
 
