@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/5/19 ?U?? 03:55:39 by Hibernate Tools 4.0.0 -->
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-20 15:38:07 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.cecj03.papago.model.PapaScore" table="PapaScore">
         <composite-id name="id" class="com.cecj03.papago.model.PapaScoreId">
@@ -14,7 +14,7 @@
             <key-property name="score" type="int">
                 <column name="score" />
             </key-property>
-            <key-property name="scoreDate" type="java.util.Date">
+            <key-property name="scoreDate" type="timestamp">
                 <column name="scoreDate" length="23" />
             </key-property>
         </composite-id>

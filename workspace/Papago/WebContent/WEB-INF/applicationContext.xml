@@ -3,8 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
 		<property name="url" value="jdbc:sqlserver://localhost:1433;database=Papago"></property>
 		<property name="username" value="sa"></property>
@@ -13,9 +12,7 @@
 	</bean>
 	
 	
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
-		destroy-method="destroy">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" destroy-method="destroy">
 		<property name="dataSource" >
 			<ref bean="dataSource"/>
 		</property>
@@ -48,20 +45,139 @@
 				<prop key="hibernate.format_sql">true</prop>
 			</props>
 		</property>
-		
 	</bean>
-	<!-- dao -->
+	
+	<!-- Dao -->
+<!-- 	<bean id="FavoritesListDao" class="com.cecj03.papago.model.dao.impl.FavoritesListDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="MemStatusTypeDao" class="com.cecj03.papago.model.dao.impl.MemStatusTypeDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="MemTypeDao" class="com.cecj03.papago.model.dao.impl.MemTypeDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="PapaMemDao" class="com.cecj03.papago.model.dao.impl.PapaMemDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<bean id="PapaMsgDao" class="com.cecj03.papago.model.dao.impl.PapaMsgDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+<!-- 	<bean id="PapaRecDao" class="com.cecj03.papago.model.dao.impl.PapaRecDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!--  	<bean id="PapaScoreDao" class="com.cecj03.papago.model.dao.impl.PapaScoreDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	<bean id="PapaShopDao" class="com.cecj03.papago.model.dao.impl.PapaShopDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="PriceTypeDao" class="com.cecj03.papago.model.dao.impl.PriceTypeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ReportMsgDao" class="com.cecj03.papago.model.dao.impl.ReportMsgDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+<!-- 	<bean id="ShopStatusTypeDao" class="com.cecj03.papago.model.dao.impl.ShopStatusTypeDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="ShopTypeDao" class="com.cecj03.papago.model.dao.impl.ShopTypeDaoImpl"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref bean="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<bean id="UpdateShopDao" class="com.cecj03.papago.model.dao.impl.UpdateShopDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 	
-	<!-- service -->
-	
-	
-	
-
-	
-	
+	<!-- Service -->
+<!-- 	<bean id="FavoritesListService" class="com.cecj03.papago.model.crud.services.FavoritesListService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="FavoritesListDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="MemStatusTypeService" class="com.cecj03.papago.model.crud.services.MemStatusTypeService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="MemStatusTypeDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="MemTypeService" class="com.cecj03.papago.model.crud.services.MemTypeService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="MemTypeDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="PapaMemService" class="com.cecj03.papago.model.crud.services.PapaMemService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="PapaMemDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<bean id="PapaMsgService" class="com.cecj03.papago.model.crud.services.PapaMsgService">
+		<property name="dao">
+			<ref bean="PapaMsgDao" />
+		</property>
+	</bean>
+<!-- 	<bean id="PapaRecService" class="com.cecj03.papago.model.crud.services.PapaRecService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="PapaRecDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!--  	<bean id="PapaScoreService" class="com.cecj03.papago.model.crud.services.PapaScoreService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="PapaScoreDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="PapaShopService" class="com.cecj03.papago.model.crud.services.PapaShopService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="PapaShopDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<bean id="PriceTypeService" class="com.cecj03.papago.model.crud.services.PriceTypeService">
+		<property name="dao">
+			<ref bean="PriceTypeDao" />
+		</property>
+	</bean>
+	<bean id="ReportMsgService" class="com.cecj03.papago.model.crud.services.ReportMsgService">
+		<property name="dao">
+			<ref bean="ReportMsgDao" />
+		</property>
+	</bean>
+<!-- 	<bean id="ShopStatusTypeService" class="com.cecj03.papago.model.crud.services.ShopStatusTypeService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="ShopStatusTypeDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="ShopTypeService" class="com.cecj03.papago.model.crud.services.ShopTypeService"> -->
+<!-- 		<property name="dao"> -->
+<!-- 			<ref bean="ShopTypeDao" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<bean id="UpdateShopService" class="com.cecj03.papago.model.crud.services.UpdateShopService">
+		<property name="dao">
+			<ref bean="UpdateShopDao" />
+		</property>
+	</bean>
 </beans>

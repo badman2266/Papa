@@ -33,6 +33,17 @@ public class PriceType implements java.io.Serializable {
 		this.papaShops = papaShops;
 	}
 
+	public static int convertInt(String data) {
+		int result = 0;
+		try {
+			result = Integer.parseInt(data);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			result = -1000;
+		}
+		return result;
+	}
+
 	public int getPricetypeId() {
 		return this.pricetypeId;
 	}
