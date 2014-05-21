@@ -50,12 +50,17 @@
 		</property>
 		
 	</bean>
+	
+	
 	<!-- dao -->
 	<bean id="PapaShopDao" class="model.dao.impl.PapaShopDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	
+	
+	
 	
 	<!-- service -->
 	
