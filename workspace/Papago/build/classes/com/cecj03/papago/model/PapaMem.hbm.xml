@@ -8,10 +8,10 @@
             <column name="memId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="memType" class="com.cecj03.papago.model.MemType" fetch="select">
+        <many-to-one name="memType" class="com.cecj03.papago.model.MemType" fetch="join">
             <column name="memtypeId" not-null="true" />
         </many-to-one>
-        <many-to-one name="memStatusType" class="com.cecj03.papago.model.MemStatusType" fetch="select">
+        <many-to-one name="memStatusType" class="com.cecj03.papago.model.MemStatusType" fetch="join">
             <column name="memstatusId" not-null="true" />
         </many-to-one>
         <property name="account" type="java.lang.String">
