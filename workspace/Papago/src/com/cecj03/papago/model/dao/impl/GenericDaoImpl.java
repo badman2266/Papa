@@ -15,14 +15,14 @@ import com.cecj03.papago.model.dao.GenericDao;
  * 實做層
  */
 @SuppressWarnings("unchecked")
-public class GenericDaoImp<T> implements GenericDao<T> {
+public class GenericDaoImpl<T> implements GenericDao<T> {
 
 	private Class<T> clazz;
 
 	/**
 	 * 通過建構子指定DAO的具體實現類
 	 */
-	public GenericDaoImp() {
+	public GenericDaoImpl() {
 		ParameterizedType type=(ParameterizedType) this.getClass().getGenericSuperclass();
 		clazz=(Class<T>) type.getActualTypeArguments()[0];
 		System.out.println("DAO的真實實現類是：" + this.clazz.getName());  
