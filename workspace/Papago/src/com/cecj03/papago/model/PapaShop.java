@@ -3,7 +3,7 @@ package com.cecj03.papago.model;
 // Generated 2014/5/19 �U�� 03:55:39 by Hibernate Tools 4.0.0
 
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,7 +25,7 @@ public class PapaShop implements java.io.Serializable {
 	private String email;
 	private String shopPic;
 	private String shopAddress;
-	private Date shopDate;
+	private Timestamp shopDate;
 	private String contactName;
 	private String contactPhone;
 	private String price;
@@ -41,7 +41,7 @@ public class PapaShop implements java.io.Serializable {
 
 	public PapaShop(int shopId, ShopStatusType shopStatusType,
 			PriceType priceType, ShopType shopType, String name,
-			String phone, String shopAddress, Date shopDate,
+			String phone, String shopAddress, Timestamp shopDate,
 			String price) {
 		this.shopId = shopId;
 		this.shopStatusType = shopStatusType;
@@ -57,7 +57,7 @@ public class PapaShop implements java.io.Serializable {
 	public PapaShop(int shopId, ShopStatusType shopStatusType,
 			PriceType priceType, ShopType shopType, String name,
 			String phone, String email, String shopPic,
-			String shopAddress, Date shopDate, String contactName,
+			String shopAddress, Timestamp shopDate, String contactName,
 			String contactPhone, String price, String web,
 			String note, Set papaScores, Set papaMsgs, Set updateShops,
 			Set favoritesLists) {
@@ -154,11 +154,11 @@ public class PapaShop implements java.io.Serializable {
 		this.shopAddress = shopAddress;
 	}
 
-	public Date getShopDate() {
+	public Timestamp getShopDate() {
 		return this.shopDate;
 	}
 
-	public void setShopDate(Date shopDate) {
+	public void setShopDate(Timestamp shopDate) {
 		this.shopDate = shopDate;
 	}
 

@@ -6,7 +6,7 @@
     <class name="com.cecj03.papago.model.PapaShop" table="PapaShop">
         <id name="shopId" type="int">
             <column name="shopId" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <many-to-one name="shopStatusType" class="com.cecj03.papago.model.ShopStatusType" fetch="select">
             <column name="shopstatusId" not-null="true" />

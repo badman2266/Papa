@@ -150,11 +150,11 @@
 <!-- 			<ref bean="PapaScoreDao" /> -->
 <!-- 		</property> -->
 <!-- 	</bean> -->
-<!-- 	<bean id="PapaShopService" class="com.cecj03.papago.model.crud.services.PapaShopService"> -->
-<!-- 		<property name="dao"> -->
-<!-- 			<ref bean="PapaShopDao" /> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
+	<bean id="PapaShopService" class="com.cecj03.papago.model.crud.services.PapaShopService">
+		<property name="dao">
+			<ref bean="PapaShopDao" />
+		</property>
+	</bean>
 	<bean id="PriceTypeService" class="com.cecj03.papago.model.crud.services.PriceTypeService">
 		<property name="dao">
 			<ref bean="PriceTypeDao" />
