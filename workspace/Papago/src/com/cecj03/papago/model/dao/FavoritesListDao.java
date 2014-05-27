@@ -1,5 +1,7 @@
 package com.cecj03.papago.model.dao;
 
-public interface FavoritestListDao {
+import com.cecj03.papago.model.FavoritesList;
+
+public interface FavoritesListDao extends GenericDao<FavoritesList>{
 
 }

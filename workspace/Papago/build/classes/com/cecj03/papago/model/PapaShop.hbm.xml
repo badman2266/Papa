@@ -8,13 +8,13 @@
             <column name="shopId" />
             <generator class="native" />
         </id>
-        <many-to-one name="shopStatusType" class="com.cecj03.papago.model.ShopStatusType" fetch="select">
+        <many-to-one name="shopStatusType" class="com.cecj03.papago.model.ShopStatusType" fetch="select" lazy="false">
             <column name="shopstatusId" not-null="true" />
         </many-to-one>
-        <many-to-one name="priceType" class="com.cecj03.papago.model.PriceType" fetch="select">
+        <many-to-one name="priceType" class="com.cecj03.papago.model.PriceType" fetch="select" lazy="false">
             <column name="pricetypeId" not-null="true" />
         </many-to-one>
-        <many-to-one name="shopType" class="com.cecj03.papago.model.ShopType" fetch="select">
+        <many-to-one name="shopType" class="com.cecj03.papago.model.ShopType" fetch="select" lazy="false">
             <column name="shoptypeId" not-null="true" />
         </many-to-one>
         <property name="name" type="java.lang.String">
