@@ -2,8 +2,8 @@ package com.cecj03.papago.model.crud.services;
 
 import java.util.*;
 
-import com.cecj03.papago.model.dao.ReportMsgDao;
 import com.cecj03.papago.model.ReportMsg;
+import com.cecj03.papago.model.dao.ReportMsgDao;
 
 public class ReportMsgService {
 	
@@ -45,6 +45,16 @@ public class ReportMsgService {
 		boolean result = false;
 		if (bean != null) {
 			result = dao.delete(bean.getRepId());
+		}
+		return result;
+	}
+	public int convertInt(String data) {
+		int result = 0;
+		try {
+			result = Integer.parseInt(data);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			result = -1000;
 		}
 		return result;
 	}

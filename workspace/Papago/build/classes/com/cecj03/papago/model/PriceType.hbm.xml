@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/5/19 ?U?? 03:55:39 by Hibernate Tools 4.0.0 -->
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-20 15:38:07 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.cecj03.papago.model.PriceType" table="PriceType" >
+    <class name="com.cecj03.papago.model.PriceType" table="PriceType">
         <id name="pricetypeId" type="int">
             <column name="pricetypeId" />
             <generator class="assigned" />

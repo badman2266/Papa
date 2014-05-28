@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+#menuBox-1 {
+	margin-bottom:10px;
+	border: 5px solid #E8E8E8;
+	background-repeat: repeat;
+	height: auto;
+	width: 1140px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+} /*選單的方框大小and邊線*/
+
+#menuBox-1 h4 {
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #666;
+	line-height: 30px;
+} /*標題下方虛線*/
+
+.menuBox-bg-color-1 {
+	background-color: #E6FDBB;
+}/*選單的方框底色*/
+
+.menuBox-bg-color-2 {
+	background-color: #FC0;
+}/*選單的方框底色*/
+
+.menuBox-bg-color-3 {
+	background-color: #fff;
+}/*選單的方框底色*/

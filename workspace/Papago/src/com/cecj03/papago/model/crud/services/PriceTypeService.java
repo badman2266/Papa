@@ -2,8 +2,8 @@ package com.cecj03.papago.model.crud.services;
 
 import java.util.*;
 
-import com.cecj03.papago.model.dao.PriceTypeDao;
 import com.cecj03.papago.model.PriceType;
+import com.cecj03.papago.model.dao.PriceTypeDao;
 
 public class PriceTypeService {
 	
@@ -45,6 +45,16 @@ public class PriceTypeService {
 		boolean result = false;
 		if (bean != null) {
 			result = dao.delete(bean.getPricetypeId());
+		}
+		return result;
+	}
+	public int convertInt(String data) {
+		int result = 0;
+		try {
+			result = Integer.parseInt(data);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			result = -1000;
 		}
 		return result;
 	}

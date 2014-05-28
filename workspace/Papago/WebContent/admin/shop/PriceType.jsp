@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>價位類型</title>
+<title>【美食趴趴Go評價網】今天想吃什麼？</title>
 <script type="text/javascript">
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
@@ -16,11 +16,12 @@ function clearForm() {
 }
 </script>
 <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
-</head>
 <link href="../../css/website.css" rel="stylesheet" media="screen">
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
+</head>
 <body>
+	<!-- body container -->
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -62,9 +63,9 @@ function clearForm() {
 			<ul class="nav nav-tabs nav-justified">
 				<!-- <li><a href="#">最新消息</a></li> -->
 				<li class="active"><a href="#">商家搜尋</a></li>
-				<li><a href="#">地圖搜尋</a></li>
-				<li><a href="#">商家排行</a></li>
-				<li><a href="#">店家推薦</a></li>
+				<li><a href="../../shop/map.jsp">地圖搜尋</a></li>
+				<li><a href="../../rank/rank.jsp">店家排行</a></li>
+				<li><a href="../../recommend/recommend.jsp">店家推薦</a></li>
 			</ul>
 			</nav>
 		</div>
@@ -78,37 +79,29 @@ function clearForm() {
 						<tr>
 							<td><label class="control-label">價位類型編號 : </label></td>
 							<td><input type="text" name="pricetypeId" value="${param.pricetypeId}" class="form-control"></td>
-							<td>${ErrorsMags.pricetypeId}</td>
+							<td>${ErrorsMsg.pricetypeId}</td>
 						</tr>
 						
 						<tr>
 							<td><label class="control-label">價位類型 : </label></td>
 							<td><input type="text" name="priceType" value="${param.priceType}" class="form-control"></td>
-							<td>${ErrorsMags.priceType}</td>
+							<td>${ErrorsMsg.priceType}</td>
 						</tr>
 						
 						<tr>
 							<td colspan="2" class="text-center">
-								<input type="submit" class="btn btn-default" name="production" value="Insert">
-								<input type="submit" class="btn btn-default" name="production" value="Update">
-								<input type="submit" class="btn btn-default" name="production" value="Delete">
-								<input type="submit" class="btn btn-default" name="production" value="Select">
-								<input type="button" class="btn btn-default" value="Clear" onclick="clearForm()">
+								<button type="submit" class="btn btn-default" name="production" value="Insert">新增</button>
+								<button type="submit" class="btn btn-default" name="production" value="Update">修改</button>
+								<button type="submit" class="btn btn-default" name="production" value="Delete">刪除</button>
+								<button type="submit" class="btn btn-default" name="production" value="Select">查詢</button>
+								<button type="button" class="btn btn-default" value="Clear" onclick="clearForm()">清除</button>
 							</td>
-						</tr>
-						
-						<tr>
-							<td>${select.pricetypeId}</td>
-						</tr>
-						
-						<tr>
-							<td>${select.priceType}</td>
 						</tr>
 					</table>
 				</div>
 			</form>
 			
-			<h3>${ErrorsMags.action}</h3>
+			<h3>${ErrorsMsg.action}</h3>
 				<c:if test="${not empty insert}">
 					<h3>新增成功！</h3>
 					<table class="table table-hover">
@@ -130,7 +123,7 @@ function clearForm() {
 	<!-- footer -->
 	<footer>
 	<div class="container">
-		<p class="pull-right">&copy; PaPaGo Team</p>
+		<p class="pull-right">&copy; Copyright 2013-2014 PaPaGo 美食團隊</p>
 	</div>
 	</footer>
 	<!--end of footer -->

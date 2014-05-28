@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:setBundle basename="com.cecj03.papago.misc.BoundleMessage_zh_TW" var="message" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>店家清單</title>
+<title>【美食趴趴Go評價網】今天想吃什麼？</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-</head>
-<link href="../css/bootstrap-theme.min.css" rel="stylesheet"
-	media="screen">
+<link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link href="../css/website.css" rel="stylesheet" media="screen">
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -19,8 +20,7 @@
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
@@ -47,7 +47,7 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container-fluid --> </nav>
-
+	
 	<!-- header  -->
 	<div class="container">
 		<div class="page-header">
@@ -64,14 +64,72 @@
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
 				<!-- <li><a href="#">最新消息</a></li> -->
-				<li class="active"><a href="#">商家搜尋</a></li>
-				<li><a href="#">地圖搜尋</a></li>
-				<li><a href="#">商家排行</a></li>
-				<li><a href="#">店家推薦</a></li>
+				<li><a href="search.jsp">店家搜尋</a></li>
+				<li><a href="map.jsp">地圖搜尋</a></li>
+				<li><a href="../rank/rank.jsp">店家排行</a></li>
+				<li><a href="../recommend/recommend.jsp">店家推薦</a></li>
 			</ul>
 			</nav>
 		</div>
-		<h4 class="text-success">店家搜尋結果</h4>
+		
+		<div class="container">
+			<ul class="breadcrumb" style="margin-bottom: 5px; font-size: 18pX;">
+				<li><a href="search.jsp">美食趴趴Go評價網</a></li>
+				<li class="active"><fmt:message bundle="${message}" key="shoplist"/></li>
+			</ul>
+		</div>
+		
+		<div class="col-md-8">
+			<h4 class="text-success">發現 ${fn:length(shoplist)} 筆資料。</h4>
+			<c:if test="${not empty shoplist}">
+				<table class="table table-hover">
+					<c:forEach var="bean" items="${shoplist}" >
+						<tr>
+							<td bgcolor="#F4F4F4">
+								<strong><a href="papashop.controller?production=Select&shopId=${bean.shopId}"><font size="4">${bean.name}</font></a></strong><br>
+								類型：${bean.shopType.shopType}　價格：${bean.price}<br>
+								<span class="text-right"><a href="papashop.controller?production=Select&shopId=${bean.shopId}"><font color="#0000FF">更多【${bean.name}】的資料</font></a></span><br>
+<!-- 								<blockquote>最新食記<br> -->
+<!-- 									巧克力以及原味泡芙差別只在外酥皮的口味　內餡都是一樣的,基本上酥皮是吃不太出來有巧克力的味道　味覺很敏捷的人就另當別論了！！一盒總共有２０顆小泡芙　　大小與豆酥朋差不多<br> -->
+<!-- 								</blockquote> -->
+<%-- 								${bean.phone} --%>
+<%-- 								${bean.email} --%>
+<%-- 								${bean.shopPic} --%>
+<%-- 								${bean.shopAddress} --%>
+<%-- 								${bean.shopType.shopType} --%>
+<%-- 								${bean.shopStatusType.shopStatus} --%>
+<%-- 								${bean.shopDate} --%>
+<%-- 								${bean.contactName} --%>
+<%-- 								${bean.contactPhone} --%>
+<%-- 								${bean.price} --%>
+<%-- 								${bean.web} --%>
+<%-- 								${bean.note} --%>
+<%-- 								${bean.priceType.priceType} --%>
+							</td>
+						</tr>
+							
+<!-- 							<tr> -->
+<!-- 								<td> -->
+<!-- 									<strong><a href="restaurant.php?rsn=269"><font size="4">提拉米蘇精緻蛋糕 - 台中店</font></a></strong> -->
+<!-- 									<a href="JavaScript:ShowLogin();"><img src="images/11.png" width="108" height="21" border="0" align="absmiddle"></a> -->
+<!-- 									<br> -->
+<%-- 									類型：${bean.shopType.shopType}　價格：${bean.price}<br> --%>
+<%-- 									<span class="label label-primary"><a href="restaurant.php?rsn=269"><font color="#0000FF">更多【${bean.name}】的資料</font></a></span> --%>
+<!-- 									<span class="label label-default"> -->
+<!-- 										最新食記<br> -->
+<!-- 										巧克力以及原味泡芙差別只在外酥皮的口味　內餡都是一樣的,基本上酥皮是吃不太出來有巧克力的味道　味覺很敏捷的人就另當別論了！！一盒總共有２０顆小泡芙　　大小與豆酥朋差不多<br> -->
+<!-- 									</span> -->
+									
+<!-- 									<span class="bg1"> -->
+<!-- 										09-08-01 <a href="http://www.wretch.cc/blog/r5951817/12662471" target="_blank"> [台中] 花蓮提拉米蘇PART2</a><br> -->
+<!-- 										摘錄自 <a href="http://www.wretch.cc/blog/r5951817/12662471" target="_blank">小丸子吃喝玩樂篇!!</a> -->
+<!-- 									</span> -->
+<!-- 								</td> -->
+<!-- 							</tr> -->
+						</c:forEach>
+				</table>
+			</c:if>
+		</div>
 
 	</div>
 	<!-- / body container -->
@@ -79,7 +137,7 @@
 	<!-- footer -->
 	<footer>
 	<div class="container">
-		<p class="pull-right">&copy; PaPaGo Team</p>
+		<p class="pull-right">&copy; Copyright 2013-2014 PaPaGo 美食團隊</p>
 	</div>
 	</footer>
 	<!--end of footer -->

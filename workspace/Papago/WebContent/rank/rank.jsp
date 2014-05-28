@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>商家排行</title>
+<title>【美食趴趴Go評價網】今天想吃什麼？</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-</head>
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet"
 	media="screen">
 <link href="../css/website.css" rel="stylesheet" media="screen">
@@ -19,8 +17,7 @@
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
@@ -64,11 +61,11 @@
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
 				<!-- <li><a href="#">最新消息</a></li> -->
-				<li><a href="#">商家搜尋</a></li>
-				<li><a href="#">我的最愛清單</a></li>
-				<li><a href="#">商家列表</a></li>
-				<li><a href="#">店家推薦</a></li>
-				<li class="active"><a href="#">商家排行</a></li>
+				<li><a href="../shop/search.jsp">店家搜尋</a></li>
+				<li><a href="../shop/map.jsp">地圖搜尋</a></li>
+<!-- 				<li><a href="#">我的最愛清單</a></li> -->
+				<li class="active"><a href="#">店家排行</a></li>
+				<li><a href="../recommend/recommend.jsp">店家推薦</a></li>
 			</ul>
 			</nav>
 		</div>
@@ -134,7 +131,7 @@
 	<!-- footer -->
 	<footer>
 	<div class="container">
-		<p class="pull-right">&copy; PaPaGo Team</p>
+		<p class="pull-right">&copy; Copyright 2013-2014 PaPaGo 美食團隊</p>
 	</div>
 	</footer>
 	<!--end of footer -->

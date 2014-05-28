@@ -1,6 +1,7 @@
 package com.cecj03.papago.model.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -108,7 +109,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 	@Override
 	public boolean delete(int id) {
 		//Session session = DefaultFactory.getSessionFactory().openSession();
-		Session session = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.openSession();
 		T entity=this.findById(id);
 		if(entity!=null){
 			Transaction tx = session.beginTransaction();

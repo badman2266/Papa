@@ -6,77 +6,77 @@
     <class name="com.cecj03.papago.model.PapaMem" table="PapaMem">
         <id name="memId" type="int">
             <column name="memId" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
-        <many-to-one name="memType" class="com.cecj03.papago.model.MemType" fetch="join">
-            <column name="memtypeId" not-null="true" />
+        <many-to-one name="memType" class="com.cecj03.papago.model.MemType" fetch="select" lazy="false">
+            <column name="memtypeId" not-null="false"/>
         </many-to-one>
-        <many-to-one name="memStatusType" class="com.cecj03.papago.model.MemStatusType" fetch="join">
-            <column name="memstatusId" not-null="true" />
+        <many-to-one name="memStatusType" class="com.cecj03.papago.model.MemStatusType" fetch="select" lazy="false">
+            <column name="memstatusId" not-null="false"/>
         </many-to-one>
         <property name="account" type="java.lang.String">
-            <column name="account" not-null="true" />
+            <column name="account" not-null="false" />
         </property>
         <property name="name" type="java.lang.String">
-            <column name="name" not-null="true" />
+            <column name="name" not-null="false" />
         </property>
         <property name="memPassword" type="java.lang.String">
-            <column name="memPassword" not-null="true" />
+            <column name="memPassword" not-null="false"/>
         </property>
         <property name="memPic" type="binary">
             <column name="memPic" />
         </property>
         <property name="email" type="java.lang.String">
-            <column name="email" not-null="true" />
+            <column name="email" not-null="false" />
         </property>
         <property name="sex" type="java.lang.String">
-            <column name="sex" not-null="true" />
+            <column name="sex" not-null="false" />
         </property>
         <property name="birth" type="java.util.Date">
-            <column name="birth" length="23" not-null="true" />
+            <column name="birth" length="23" not-null="false" />
         </property>
         <property name="phone" type="java.lang.String">
-            <column name="phone" not-null="true" />
+            <column name="phone" not-null="false" />
         </property>
         <property name="memAddress" type="java.lang.String">
-            <column name="memAddress" not-null="true" />
+            <column name="memAddress" not-null="false"/>
         </property>
         <property name="memDate" type="timestamp">
-            <column name="memDate" length="23" not-null="true" />
+            <column name="memDate" length="23" not-null="false"/>
         </property>
         <set name="updateShops" table="UpdateShop" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="memId" not-null="true" />
+                <column name="memId" not-null="false" />
             </key>
             <one-to-many class="com.cecj03.papago.model.UpdateShop" />
         </set>
-        <set name="reportMsgs" table="ReportMsg" inverse="true" lazy="false" fetch="select">
+        <set name="reportMsgs" table="ReportMsg" inverse="true" lazy="false" fetch="join">
             <key>
-                <column name="memId" not-null="true" />
+                <column name="memId" not-null="false" />
             </key>
             <one-to-many class="com.cecj03.papago.model.ReportMsg" />
         </set>
-        <set name="papaScores" table="PapaScore" inverse="true" lazy="false" fetch="select">
+        <set name="papaScores" table="PapaScore" inverse="true" lazy="false" fetch="join">
             <key>
-                <column name="memId" not-null="true" />
+                <column name="memId" not-null="false" />
             </key>
             <one-to-many class="com.cecj03.papago.model.PapaScore" />
         </set>
         <set name="favoritesLists" table="FavoritesList" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="memId" not-null="true" />
+                <column name="memId" not-null="false" />
             </key>
             <one-to-many class="com.cecj03.papago.model.FavoritesList" />
         </set>
         <set name="papaRecs" table="PapaRec" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="memId" not-null="true" />
+                <column name="memId" not-null="false" />
             </key>
             <one-to-many class="com.cecj03.papago.model.PapaRec" />
         </set>
         <set name="papaMsgs" table="PapaMsg" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="memId" not-null="true" />
+                <column name="memId" not-null="false" />
             </key>
             <one-to-many class="com.cecj03.papago.model.PapaMsg" />
         </set>

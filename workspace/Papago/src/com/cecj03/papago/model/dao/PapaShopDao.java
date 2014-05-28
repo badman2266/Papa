@@ -13,5 +13,9 @@ public interface PapaShopDao {
 
 	public abstract PapaShop update(PapaShop bean);
 
+	public abstract List<PapaShop> selectLikeHQL(String hql);
+
+	public abstract List<PapaShop> selectByHQL(String hql, Object... params);
+
 	public abstract PapaShop insert(PapaShop bean);
 }

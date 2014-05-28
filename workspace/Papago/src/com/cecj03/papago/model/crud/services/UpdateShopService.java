@@ -2,8 +2,8 @@ package com.cecj03.papago.model.crud.services;
 
 import java.util.*;
 
-import com.cecj03.papago.model.dao.UpdateShopDao;
 import com.cecj03.papago.model.UpdateShop;
+import com.cecj03.papago.model.dao.UpdateShopDao;
 
 public class UpdateShopService {
 	
@@ -45,6 +45,16 @@ public class UpdateShopService {
 		boolean result = false;
 		if (bean != null) {
 			result = dao.delete(bean.getUpdateId());
+		}
+		return result;
+	}
+	public int convertInt(String data) {
+		int result = 0;
+		try {
+			result = Integer.parseInt(data);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			result = -1000;
 		}
 		return result;
 	}
