@@ -15,7 +15,7 @@ import com.cecj03.papago.model.dao.PapaShopDao;
 import com.cecj03.papago.model.dao.impl.PapaShopDaoImpl;
 
 
-public class PapaShopService {
+public class PapaShopService extends GenericCrudService<PapaShop>{
 	private PapaShopDao dao;
 	
 	public void setDao(PapaShopDao dao) {

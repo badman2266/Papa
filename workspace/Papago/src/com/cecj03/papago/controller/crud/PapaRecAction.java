@@ -14,7 +14,8 @@ public class PapaRecAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private PapaRec bean;
-	private ShopType st;
+	private int shoptypeId;
+	private int memId;
 	private String papaAction;
 
 	@Override
@@ -25,8 +26,8 @@ public class PapaRecAction extends ActionSupport {
 		PapaRecService service = (PapaRecService) context
 				.getBean("PapaRecService");
 		if (papaAction != null && papaAction.equals("Insert")) {
-			bean.setShopType(st);
-			PapaRec result = service.insertRecShop(bean);
+			//bean.setShopType(st);
+			PapaRec result = service.createRecShop(bean, memId, shoptypeId);
 			if (result != null) {
 			} else {
 				this.addFieldError("action",
@@ -49,20 +50,28 @@ public class PapaRecAction extends ActionSupport {
 		this.bean = bean;
 	}
 
-	public ShopType getSt() {
-		return st;
-	}
-
-	public void setSt(ShopType st) {
-		this.st = st;
-	}
-
 	public String getPapaAction() {
 		return papaAction;
 	}
 
 	public void setPapaAction(String papaAction) {
 		this.papaAction = papaAction;
+	}
+
+	public int getShoptypeId() {
+		return shoptypeId;
+	}
+
+	public void setShoptypeId(int shoptypeId) {
+		this.shoptypeId = shoptypeId;
+	}
+
+	public int getMemId() {
+		return memId;
+	}
+
+	public void setMemId(int memId) {
+		this.memId = memId;
 	}
 
 }
