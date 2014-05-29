@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 <<<<<<< HEAD
-<<<<<<< HEAD
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 =======
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
@@ -18,7 +15,6 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 >>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
-<<<<<<< HEAD
 <<<<<<< HEAD
 		<property name="url"
 			value="jdbc:sqlserver://localhost:1433;database=Papago"></property>
@@ -40,12 +36,6 @@
 		<property name="dataSource">
 			<ref bean="dataSource" />
 =======
-=======
-		<property name="url" value="jdbc:sqlserver://zgm2bsdmnp.database.windows.net:1433;database=papagodb;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;security=true;"></property>
-		<property name="username" value="papago00@zgm2bsdmnp" />
-		<property name="password" value="2Password!" />
-	</bean>
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" destroy-method="destroy">
 		<property name="dataSource" >
@@ -91,7 +81,6 @@
 		</property>
 	</bean>
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 	<!-- Dao -->
 	<!-- <bean id="FavoritesListDao" class="com.cecj03.papago.model.dao.impl.FavoritesListDaoImpl"> -->
@@ -116,8 +105,6 @@
 	</bean>
 	
 =======
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	
 <!-- 	Dao -->
 	<bean id="FavoritesListDao" class="com.cecj03.papago.model.dao.impl.FavoritesListDaoImpl">
@@ -140,16 +127,12 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	<bean id="PapaMsgDao" class="com.cecj03.papago.model.dao.impl.PapaMsgDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-<<<<<<< HEAD
 <<<<<<< HEAD
 	<!-- <bean id="PapaRecDao" class="com.cecj03.papago.model.dao.impl.PapaRecDaoImpl"> -->
 	<!-- <property name="sessionFactory"> -->
@@ -162,8 +145,6 @@
 	<!-- </property> -->
 	<!-- </bean> -->
 =======
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	<bean id="PapaRecDao" class="com.cecj03.papago.model.dao.impl.PapaRecDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -174,10 +155,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	<bean id="PapaShopDao" class="com.cecj03.papago.model.dao.impl.PapaShopDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -194,7 +172,6 @@
 		</property>
 	</bean>
 <<<<<<< HEAD
-<<<<<<< HEAD
 	<!-- <bean id="ShopStatusTypeDao" class="com.cecj03.papago.model.dao.impl.ShopStatusTypeDaoImpl"> -->
 	<!-- <property name="sessionFactory"> -->
 	<!-- <ref bean="sessionFactory" /> -->
@@ -206,8 +183,6 @@
 	<!-- </property> -->
 	<!-- </bean> -->
 =======
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	<bean id="ShopStatusTypeDao" class="com.cecj03.papago.model.dao.impl.ShopStatusTypeDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -218,10 +193,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	<bean id="UpdateShopDao" class="com.cecj03.papago.model.dao.impl.UpdateShopDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -300,16 +272,12 @@
 			<ref bean="PapaMemDao" />
 		</property>
 	</bean>
-<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	<bean id="PapaMsgService" class="com.cecj03.papago.model.crud.services.PapaMsgService">
 		<property name="dao">
 			<ref bean="PapaMsgDao" />
 		</property>
 	</bean>
-<<<<<<< HEAD
 <<<<<<< HEAD
 	<!-- <bean id="PapaRecService" class="com.cecj03.papago.model.crud.services.PapaRecService"> -->
 	<!-- <property name="dao"> -->
@@ -322,8 +290,6 @@
 	<!-- </property> -->
 	<!-- </bean> -->
 =======
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	<bean id="PapaRecService" class="com.cecj03.papago.model.crud.services.PapaRecSerivce">
 		<property name="dao">
 			<ref bean="PapaRecDao" />
@@ -366,7 +332,6 @@
 		</property>
 	</bean>
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 
 
@@ -392,8 +357,6 @@
 
 
 =======
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 	
 	<!-- struts 注入 -->
 	<bean id="PapaMemAction" class="com.cecj03.papago.controller.crud.PapaMemAction"
@@ -414,8 +377,5 @@
 			<ref bean="PapaMemCrudService" />
 		</property>
 	</bean>
-<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
-=======
->>>>>>> ebf3ef785a8a1aa65a70abf38ef98b2825977994
 </beans>

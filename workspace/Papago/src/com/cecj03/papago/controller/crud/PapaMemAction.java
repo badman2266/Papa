@@ -138,5 +138,4 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 	public void setCrudAction(String crudAction) {
 		this.crudAction = crudAction;
 	}
-//>>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
 }
