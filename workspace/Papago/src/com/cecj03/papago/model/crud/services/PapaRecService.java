@@ -3,7 +3,7 @@ package com.cecj03.papago.model.crud.services;
 import com.cecj03.papago.model.PapaRec;
 import com.cecj03.papago.model.dao.PapaRecDao;
 
-public class PapaRecSerivce {
+public class PapaRecService {
 	PapaRecDao dao;
 
 	public void setDao(PapaRecDao dao) {

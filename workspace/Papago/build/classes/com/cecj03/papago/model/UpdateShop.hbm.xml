@@ -9,11 +9,11 @@
    <generator class="assigned"/>
   </id>
   <many-to-one class="com.cecj03.papago.model.PapaShop"
-   fetch="select" name="papaShop">
-   <column name="shopId" not-null="true"/>
+   fetch="select" name="papaShop" lazy="false">
+   <column name="shopId" not-null="true" />
   </many-to-one>
   <many-to-one class="com.cecj03.papago.model.PapaMem"
-   fetch="select" name="papaMem">
+   fetch="select" name="papaMem" lazy="false">
    <column name="memId" not-null="true"/>
   </many-to-one>
   <property generated="never" lazy="false" name="updateDate" type="timestamp">

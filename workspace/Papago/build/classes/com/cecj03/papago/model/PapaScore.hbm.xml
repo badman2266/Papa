@@ -8,10 +8,10 @@
             <column name="scoreId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="papaShop" class="com.cecj03.papago.model.PapaShop" fetch="select">
+        <many-to-one name="papaShop" class="com.cecj03.papago.model.PapaShop" fetch="select" lazy="false">
             <column name="shopId" not-null="true" />
         </many-to-one>
-        <many-to-one name="papaMem" class="com.cecj03.papago.model.PapaMem" fetch="select">
+        <many-to-one name="papaMem" class="com.cecj03.papago.model.PapaMem" fetch="select" lazy="false">
             <column name="memId" not-null="true" />
         </many-to-one>
         <property name="score" type="int">

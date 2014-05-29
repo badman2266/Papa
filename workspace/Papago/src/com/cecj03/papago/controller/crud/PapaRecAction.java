@@ -6,7 +6,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.cecj03.papago.model.PapaRec;
 import com.cecj03.papago.model.ShopType;
-import com.cecj03.papago.model.crud.services.PapaRecSerivce;
+import com.cecj03.papago.model.crud.services.PapaRecService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,7 +22,7 @@ public class PapaRecAction extends ActionSupport {
 		WebApplicationContext context = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(ServletActionContext
 						.getServletContext());
-		PapaRecSerivce service = (PapaRecSerivce) context
+		PapaRecService service = (PapaRecService) context
 				.getBean("PapaRecService");
 		if (papaAction != null && papaAction.equals("Insert")) {
 			bean.setShopType(st);
