@@ -27,7 +27,7 @@ public class PapaMsgService {
 		}
 		return result;
 	}
-	public PapaMsg insert(PapaMsg bean) {
+	public PapaMsg insertMessage(PapaMsg bean) {
 		PapaMsg result = null;
 		if (bean != null) {
 			result = dao.insert(bean);
