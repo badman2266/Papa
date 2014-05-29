@@ -9,11 +9,11 @@
             <generator class="assigned" />
         </id>
         <property name="memStatus" type="java.lang.String">
-            <column name="memStatus" not-null="true" />
+            <column name="memStatus" not-null="false"  />
         </property>
         <set name="papaMems" table="PapaMem" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="memstatusId" not-null="true" />
+                <column name="memstatusId" not-null="false"  />
             </key>
             <one-to-many class="com.cecj03.papago.model.PapaMem" />
         </set>

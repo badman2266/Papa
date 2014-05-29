@@ -28,6 +28,7 @@ public class PriceTypeServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		service = (PriceTypeService) context.getBean("PriceTypeService");
 		
@@ -38,7 +39,7 @@ public class PriceTypeServlet extends HttpServlet {
 		
 	// 驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
-		request.setAttribute("ErrorsMags", errors);
+		request.setAttribute("ErrorsMsg", errors);
 		
 		if (production != null) {
 			if (production.equals("Insert") || production.equals("Update") || production.equals("Delete")) {
@@ -57,7 +58,7 @@ public class PriceTypeServlet extends HttpServlet {
 	//轉換資料
 		int pricetypeId = 0;
 		if (cols1 != null && cols1.trim().length() != 0) {		
-			pricetypeId = PriceType.convertInt(cols1);
+			pricetypeId = service.convertInt(cols1);
 			if (pricetypeId == -1000) {
 				errors.put("pricetypeId", "價位類型編號 必須為整數！");
 			}
@@ -75,7 +76,7 @@ public class PriceTypeServlet extends HttpServlet {
 				
 		if (production != null && production.equals("Select")) {
 			List<PriceType> result = service.select(bean);
-			request.setAttribute("select", result);
+			session.setAttribute("select", result);
 			request.getRequestDispatcher("/admin/shop/display.jsp").forward(request, response);
 		} else if (production != null && production.equals("Insert")) {
 			 PriceType result = service.insert(bean);

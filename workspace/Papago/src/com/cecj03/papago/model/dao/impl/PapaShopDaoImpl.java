@@ -1,15 +1,9 @@
 package com.cecj03.papago.model.dao.impl;
 
-
 import java.util.List;
 
-
-
-
-
-
-
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -23,6 +17,7 @@ import com.cecj03.papago.model.dao.PapaShopDao;
 
 public  class PapaShopDaoImpl implements PapaShopDao{
 	private SessionFactory sessionFactory = null;
+		
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
@@ -67,14 +62,40 @@ public  class PapaShopDaoImpl implements PapaShopDao{
 
 	@Override
 	public boolean delete(int id) {
+		Session session = sessionFactory.openSession();
 		return false;
 	}
 
 	@Override
 	public PapaShop update(PapaShop bean) {
+		Session session = sessionFactory.openSession();
 		return null;
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<PapaShop> selectByHQL(String hql, Object... params) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql);
+		for (int i = 0; params != null && i < params.length; i++) {
+			query.setParameter(i, params[i]);
+		}
+		List<PapaShop> result = query.list();
+		session.close();
+		return result;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<PapaShop> selectLikeHQL(String hql) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql);
+		List<PapaShop> result = query.list();
+		session.close();
+		return result;
+	}
+	
+	
 	@Override
 	public PapaShop insert(PapaShop bean) {
 		Session session = sessionFactory.openSession();

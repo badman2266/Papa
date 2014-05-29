@@ -1,18 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.cecj03.papago.misc.BoundleMessage_zh_TW" var="message" />
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>價位類型清單</title>
 <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
-</head>
 <link href="../../css/website.css" rel="stylesheet" media="screen">
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
+</head>
 <body>
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
@@ -95,7 +95,7 @@
 	<!-- footer -->
 	<footer>
 	<div class="container">
-		<p class="pull-right">&copy; PaPaGo Team</p>
+		<p class="pull-right">&copy; Copyright 2013-2014 PaPaGo 美食團隊</p>
 	</div>
 	</footer>
 	<!--end of footer -->

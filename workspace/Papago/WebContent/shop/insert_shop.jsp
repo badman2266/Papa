@@ -16,11 +16,13 @@
 <script type="text/javascript">
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
+	var options = document.getElementsByTagName("option");
 	for(var i=0; i<inputs.length; i++) {
 		if(inputs[i].type=="text") {
 			inputs[i].value="";
 		}
 	}
+	for(var i=0; i<options.length; i++)
 }
 </script>
 </head>
@@ -94,7 +96,7 @@ function clearForm() {
 			<form class="form-horizontal" role="form" method="get"
 				action="<c:url value="/shop/papashop.action" />">
 				<fieldset>
-					<legend>推薦店家</legend>
+					<legend>新增店家</legend>
 					<div class="form-group">
 						<label for="inputName" class="col-sm-2 control-label">店家名稱</label>
 						<div class="col-sm-6">
@@ -194,7 +196,7 @@ function clearForm() {
 
 					<div class="form-group">
 						<div class="col-md-6 col-md-offset-2">
-							<button type="button" value="Clear" onclick="clearForm()" class="btn btn-default">Cancel</button>
+							<button type="reset" value="Clear" class="btn btn-default">Cancel</button>
 							<button type="submit" name="papaAction" value="Insert" class="btn btn-primary">確認新增 </button>
 						</div>
 					</div>

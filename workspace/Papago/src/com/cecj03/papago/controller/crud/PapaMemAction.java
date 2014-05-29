@@ -1,10 +1,10 @@
 package com.cecj03.papago.controller.crud;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -37,8 +37,6 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 	private PapaMem entity;
 	private int type;
 	private int status;
-	
-	private List<PapaMem> results;
 
 	private String crudAction;
 
@@ -84,18 +82,6 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 		return Action.INPUT;
 
 	}
-	
-	public String json() throws Exception{
-		
-		 results =service.readAll();	
-		
-		
-		
-		return Action.SUCCESS;
-	}
-	
-	
-	
 
 	public PapaMem getEntity() {
 		return entity;
@@ -152,14 +138,5 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 	public void setCrudAction(String crudAction) {
 		this.crudAction = crudAction;
 	}
-
-	public List<PapaMem> getResults() {
-		return results;
-	}
-
-	public void setResults(List<PapaMem> results) {
-		this.results = results;
-	}
-	
-	
+//>>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
 }

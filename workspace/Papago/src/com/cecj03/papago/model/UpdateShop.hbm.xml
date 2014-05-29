@@ -1,24 +1,26 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/5/19 ?U?? 03:55:39 by Hibernate Tools 4.0.0 -->
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-20 15:38:07 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.cecj03.papago.model.UpdateShop" table="UpdateShop">
-        <id name="updateId" type="int">
-            <column name="updateId" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="papaShop" class="com.cecj03.papago.model.PapaShop" fetch="select">
-            <column name="shopId" not-null="true" />
-        </many-to-one>
-        <many-to-one name="papaMem" class="com.cecj03.papago.model.PapaMem" fetch="select">
-            <column name="memId" not-null="true" />
-        </many-to-one>
-        <property name="updateDate" type="timestamp">
-            <column name="updateDate" length="23" not-null="true" />
-        </property>
-        <property name="updateContent" type="java.lang.String">
-            <column name="updateContent" not-null="true" />
-        </property>
-    </class>
+ <class name="com.cecj03.papago.model.UpdateShop" table="UpdateShop">
+  <id name="updateId" type="int">
+   <column name="updateId"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.cecj03.papago.model.PapaShop"
+   fetch="select" name="papaShop">
+   <column name="shopId" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.cecj03.papago.model.PapaMem"
+   fetch="select" name="papaMem">
+   <column name="memId" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="updateDate" type="timestamp">
+   <column length="23" name="updateDate" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="updateContent" type="java.lang.String">
+   <column name="updateContent" not-null="true"/>
+  </property>
+ </class>
 </hibernate-mapping>

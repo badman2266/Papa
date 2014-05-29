@@ -74,15 +74,19 @@ public class PapaMemCrudService extends GenericCrudService<PapaMem> {
 	
 	
 
-	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				"beans.config.xml");
-		PapaMemCrudService service = (PapaMemCrudService) context
-				.getBean("PapaMemCrudService");
-		System.out.println(service.readAll());
-		
-		//System.out.println(service.changePassword("q", "q", "qa"));
-	}
+//	public static void main(String[] args) {
+//		ApplicationContext context = new ClassPathXmlApplicationContext(
+//				"beans.config.xml");
+//		PapaMemCrudService service = (PapaMemCrudService) context
+//				.getBean("PapaMemCrudService");
+//<<<<<<< HEAD
+//		System.out.println(service.readAll());
+//		
+//		//System.out.println(service.changePassword("q", "q", "qa"));
+//=======
+//		System.out.println(service.changePassword("q", "q", "qa"));
+//>>>>>>> branch 'master' of https://github.com/badman2266/Papa.git
+//	}
 
 	// 測試Service
 /*

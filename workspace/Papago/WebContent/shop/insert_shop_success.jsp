@@ -83,7 +83,7 @@
 	<h3>${errors.action}</h3>
 <c:if test="${not empty insert}">
 	<h3>新增店家成功!!</h3>
-%-- 	<table>
+<%-- 	<table>
 		<tr><td>shopId</td><td>${insert.shopId}</td></tr>
 		<tr><td>Name</td><td>${insert.name}</td></tr>
 		<tr><td>Phone</td><td>${insert.phone}</td></tr>
