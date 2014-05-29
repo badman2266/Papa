@@ -1,6 +1,5 @@
 package com.cecj03.papago.controller.crud;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.UnsupportedEncodingException;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.IOUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
+import com.cecj03.papago.model.MemType;
 import com.cecj03.papago.model.PapaMem;
 import com.cecj03.papago.model.crud.services.PapaMemCrudService;
 import com.opensymphony.xwork2.Action;
