@@ -6,12 +6,16 @@
 <struts>
 
 	<constant name="struts.action.extension" value="action" />
-	<constant name="struts.multipart.saveDir" value="/tmp"/>
 	<package name="shop" namespace="/shop" extends="struts-default">
 		<action name="papashop" class="com.cecj03.papago.controller.crud.PapaShopAction">
 			<result name="success" type="dispatcher">/shop/insert_shop_success.jsp</result>
 			<result name="input" type="dispatcher">/shop/insert_shop.jsp</result>
 		</action>
 	</package>
-
+	<package name="admin" namespace="/admin" extends="struts-default">
+		<action name="papamsg" class="com.cecj03.papago.controller.crud.PapaMsgAction">
+			<result name="success" type="dispatcher">/admin/message/message.jsp</result>
+			<result name="input" type="dispatcher">/admin/message/message.jsp</result>
+		</action>
+	</package>
 </struts>

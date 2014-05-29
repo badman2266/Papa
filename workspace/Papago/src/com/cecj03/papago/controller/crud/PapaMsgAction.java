@@ -1,6 +1,9 @@
 package com.cecj03.papago.controller.crud;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -8,7 +11,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.cecj03.papago.model.PapaMsg;
-import com.cecj03.papago.model.crud.services.PapaMsgService;
+import com.cecj03.papago.model.crud.services.benchenService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -31,22 +34,22 @@ public class PapaMsgAction extends ActionSupport implements ServletRequestAware{
 		WebApplicationContext context = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(ServletActionContext
 						.getServletContext());
-		PapaMsgService service = (PapaMsgService) context.getBean("PapaMsgService");
+		benchenService service = (benchenService) context.getBean("benchenService");
+		List<PapaMsg> result1 = service.showMessage(bean);
+		request.setAttribute("select", result1);
 		if(papaAction != null && papaAction.equals("Insert")){
-			java.util.Date date = new java.util.Date();
-			long temp = date.getTime();
-			bean.setMsgDate(new java.sql.Timestamp(temp));
-			PapaMsg result = service.insertMessage(bean);
+			PapaMsg result = service.writeMessage(bean);
 			
 			if (result != null) {
 				
 				request.setAttribute("insert", result);
+				
 			} else {
 				this.addFieldError("action",
 						this.getText("papashopForm.insert.fail"));
 			}
 			return Action.SUCCESS;
-		} else {
+		}else {
 			this.addFieldError("action",
 					this.getText("papashopForm.action.unknown"));
 			return Action.INPUT;

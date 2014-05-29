@@ -167,11 +167,11 @@
 			<ref bean="PapaMemDao" />
 		</property>
 	</bean>
-	<bean id="PapaMsgService" class="com.cecj03.papago.model.crud.services.PapaMsgService">
+<!-- 	<bean id="PapaMsgService" class="com.cecj03.papago.model.crud.services.PapaMsgService">
 		<property name="dao">
 			<ref bean="PapaMsgDao" />
 		</property>
-	</bean>
+	</bean> -->
 	<bean id="PapaRecService" class="com.cecj03.papago.model.crud.services.PapaRecService">
 		<property name="dao">
 			<ref bean="PapaRecDao" />
@@ -211,21 +211,6 @@
 		<property name="dao">
 			<ref bean="UpdateShopDao" />
 		</property>
-	</bean>
-	<bean id="benchenService" class="com.cecj03.papago.model.crud.services.benchenService">
-		<property name="FavoritesListDao" ref="FavoritesListDao" />
-		<property name="MemStatusTypeDao" ref="MemStatusTypeDao" />
-		<property name="MemTypeDao" ref="MemTypeDao" />
-		<property name="PapaMemDao" ref="PapaMemDao" />
-		<property name="PapaMsgDao" ref="PapaMsgDao" />
-		<property name="PapaRecDao" ref="PapaRecDao" />
-		<property name="PapaScoreDao" ref="PapaScoreDao" />
-		<property name="PapaShopDao" ref="PapaShopDao" />
-		<property name="PriceTypeDao" ref="PriceTypeDao" />
-		<property name="ReportMsgDao" ref="ReportMsgDao" />
-		<property name="ShopStatusTypeDao" ref="ShopStatusTypeDao" />
-		<property name="ShopTypeDao" ref="ShopTypeDao" />
-		<property name="UpdateShopDao" ref="UpdateShopDao" />
 	</bean>
 	
 	<!-- struts 注入 -->
