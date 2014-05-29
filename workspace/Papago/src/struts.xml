@@ -4,8 +4,9 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<constant name="struts.action.extension" value="action" />
 
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
 	<package name="shop" namespace="/shop" extends="struts-default">
 		<action name="papashop" class="com.cecj03.papago.controller.crud.PapaShopAction">
 			<result name="success" type="dispatcher">/shop/insert_shop_success.jsp

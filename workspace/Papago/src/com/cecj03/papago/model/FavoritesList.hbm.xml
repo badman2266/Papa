@@ -12,10 +12,10 @@
                 <column name="shopId" />
             </key-property>
         </composite-id>
-        <many-to-one name="papaShop" class="com.cecj03.papago.model.PapaShop" update="false" insert="false" fetch="select">
+        <many-to-one name="papaShop" class="com.cecj03.papago.model.PapaShop" update="false" insert="false" fetch="select" lazy="false">
             <column name="shopId" not-null="true" />
         </many-to-one>
-        <many-to-one name="papaMem" class="com.cecj03.papago.model.PapaMem" update="false" insert="false" fetch="select">
+        <many-to-one name="papaMem" class="com.cecj03.papago.model.PapaMem" update="false" insert="false" fetch="select" lazy="false">
             <column name="memId" not-null="true" />
         </many-to-one>
     </class>
