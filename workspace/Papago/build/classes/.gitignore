@@ -2,3 +2,4 @@
 /applicationContext.xml
 /bean.config.xml
 /beans.config.xml
+/xwork-conversion.properties

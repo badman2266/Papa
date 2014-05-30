@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>管理員註冊</title>
+<title>管理員會員更新</title>
 <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../../css/bootstrap-theme.min.css" rel="stylesheet"
 	media="screen">
@@ -81,8 +81,8 @@
 		<!-- subbar list -->
 			<div class="col-sm-3">
 				<ul class="nav nav-tabs nav-stacked navbar-default">
-					<li class="active text-success"><a href="#">新增會員</a></li>
-					<li ><a href="#">改會員資訊</a></li>
+					<li ><a href="#">新增會員</a></li>
+					<li class="active text-success"><a href="#">改會員資訊</a></li>
 					<li><a href="#">停用會員資訊</a></li>
 					<li><a href="#">查詢會員資訊</a></li>
 				</ul>
@@ -94,7 +94,7 @@
 			<form class="form-horizontal" role="form"
 				action="<c:url value='/admin/member/resigter.action'/>" enctype="multipart/form-data" method="post">
 				<fieldset>
-					<legend>新增公司會員</legend>
+					<legend>修改公司會員</legend>
 					<div class="form-group">
 						<label for="inputAccount" class="col-sm-2 control-label">會員帳號</label>
 						<div class="col-sm-6">

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.IOUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
-import com.cecj03.papago.model.MemType;
 import com.cecj03.papago.model.PapaMem;
 import com.cecj03.papago.model.crud.services.PapaMemCrudService;
 import com.opensymphony.xwork2.Action;
@@ -33,6 +32,7 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 		}
 		this.request = request;
 	}
+
 	// 型別
 	private PapaMem entity;
 	private int type;
@@ -54,7 +54,7 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 
 	@Override
 	public String execute() throws Exception {
-		
+
 		// 檢查是否有上傳圖檔 有的話把圖檔轉成byte[] 並放入entity
 		if (userImage != null && userImage.length() != 0) {
 			byte[] temp = IOUtils.toByteArray(new FileInputStream(userImage
@@ -80,9 +80,16 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 			}
 		}
 		return Action.INPUT;
-
 	}
 
+	private File getImageFile(String imageId) {
+		String filePath = request.getSession().getServletContext().getRealPath("/");
+		File file = new File(filePath + "/Image/", imageId);
+		System.out.println(file.toString());
+		return file;
+	}
+
+	
 	public PapaMem getEntity() {
 		return entity;
 	}
@@ -138,4 +145,5 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 	public void setCrudAction(String crudAction) {
 		this.crudAction = crudAction;
 	}
+
 }

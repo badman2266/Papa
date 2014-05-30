@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +42,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<!-- 管理員 -->
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">${user.account}管理員<b class="caret"></b></a>
+					data-toggle="dropdown">管理員<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">網站首頁</a></li>
 						<li><a href="#">管理員頁面</a></li>
@@ -79,138 +80,83 @@
 		</div>
 
 		<!-- subbar list -->
-			<div class="col-sm-3">
-				<ul class="nav nav-tabs nav-stacked navbar-default">
-					<li class="active text-success"><a href="#">新增會員</a></li>
-					<li ><a href="#">改會員資訊</a></li>
-					<li><a href="#">停用會員資訊</a></li>
-					<li><a href="#">查詢會員資訊</a></li>
-				</ul>
-			</div>
+		<div class="col-sm-3">
+			<ul class="nav nav-tabs nav-stacked navbar-default">
+				<li class="active text-success"><a href="#">新增會員</a></li>
+				<li><a href="#">改會員資訊</a></li>
+				<li><a href="#">停用會員資訊</a></li>
+				<li><a href="#">查詢會員資訊</a></li>
+			</ul>
+		</div>
 		<!--end of subbar list -->
 
 
 		<div class="container">
-			<form class="form-horizontal" role="form"
-				action="<c:url value='/admin/member/resigter.action'/>" enctype="multipart/form-data" method="post">
+			<form class="form-horizontal" role="form">
 				<fieldset>
-					<legend>新增公司會員</legend>
+					<legend>會員新增成功</legend>
 					<div class="form-group">
 						<label for="inputAccount" class="col-sm-2 control-label">會員帳號</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputAccount"
-								name="entity.account" placeholder="帳號">
+							<p class="form-control-static">
+								<s:property value="entity.account" />
+							</p>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputName" class="col-sm-2 control-label">會員姓名</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="entity.name" placeholder="姓名">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPassword" class="col-sm-2 control-label">密碼</label>
-						<div class="col-sm-6">
-							<input type="password" class="form-control" id="inputPassword"
-								name="entity.memPassword" placeholder="Password">
+							<p class="form-control-static">
+								<s:property value="entity.name" />
+							</p>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputEmail" class="col-sm-2 control-label">Email</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputEmail"
-								name="entity.email" placeholder="Email">
+							<p class="form-control-static">
+								<s:property value="entity.email" />
+							</p>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">性別</label>
 						<div class="col-sm-6">
-							<div class="radio">
-								<label> <input type="radio" name="entity.sex"
-									id="optionsRadios1" value="男" checked="">男
-								</label>
-							</div>
-							<div class="radio">
-								<label> <input type="radio" name="entity.sex"
-									id="optionsRadios2" value="女">女
-								</label>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="exampleInputFile" class="col-sm-2 control-label">照片</label>
-						<div class="col-sm-6">
-							<input type="file" id="exampleInputFile" name="userImage" size="40">
-							<p class="help-block">有圖有真相</p>
+							<p class="form-control-static">
+								<s:property value="entity.sex" />
+							</p>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputDate" class="col-sm-2 control-label">生日</label>
 						<div class="col-sm-6">
-							<div class="input-group date" id="datetimepicker1"
-								data-date-format="YYYY-MM-DD">
-								<input type="text" class="form-control" name="entity.birth"/><span
-									class="input-group-addon"><span
-									class="glyphicon glyphicon-time"></span> </span>
-							</div>
+							<p class="form-control-static">
+								<s:property value="entity.birth" />
+							</p>
 						</div>
-						<script type="text/javascript">
-							$(function() {
-								$('#datetimepicker1').datetimepicker({
-									pickTime : false
-								});
-							});
-						</script>
 					</div>
 
 					<div class="form-group">
 						<label for="inputPhone" class="col-sm-2 control-label">手機號碼</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputPhone"
-								placeholder="Phone" name="entity.phone">
+							<p class="form-control-static">
+								<s:property value="entity.phone" />
+							</p>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputAddr" class="col-sm-2 control-label">地址</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputAddr"
-								placeholder="地址" name="entity.memAddress">
+							<p class="form-control-static">
+								<s:property value="entity.memAddress" />
+							</p>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="select1" class="col-sm-2 control-label">帳號類別</label>
-						<div class="col-sm-6">
-							<select class="form-control" id="select1" name="type">
-								<option value="1">會員</option>
-								<option value="2">管理員</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="select2" class="col-sm-2 control-label">帳號狀態</label>
-						<div class="col-sm-6">
-							<select class="form-control" id="select2"  name="status">
-								<option value="1">正常</option>
-								<option value="2">停用</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="col-md-6 col-md-offset-2">
-							<button class="btn btn-default" type="reset">Cancel</button>
-							<button type="submit" class="btn btn-primary" name="crudAction" value="Insert">Submit</button>
-						</div>
-					</div>
 				</fieldset>
 			</form>
 		</div>

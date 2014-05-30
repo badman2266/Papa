@@ -2,15 +2,16 @@
 /* CSS Document */
 
 #menuBox-1 {
-	margin-bottom:10px;
+	margin-bottom: 10px;
 	border: 5px solid #E8E8E8;
 	background-repeat: repeat;
 	height: auto;
-	width: 1140px;
+	width: auto;
 	padding-top: 5px;
 	padding-right: 10px;
 	padding-bottom: 5px;
 	padding-left: 10px;
+	/*border-radius: 12px;*//*圓角*/
 } /*選單的方框大小and邊線*/
 
 #menuBox-1 h4 {
@@ -31,3 +32,5 @@
 .menuBox-bg-color-3 {
 	background-color: #fff;
 }/*選單的方框底色*/
+
+.col-md-8{width:100%}
