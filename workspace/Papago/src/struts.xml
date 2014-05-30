@@ -6,37 +6,16 @@
 <struts>
 
 	<constant name="struts.action.extension" value="action" />
-	<constant name="struts.multipart.saveDir" value="/tmp"/>
 	<package name="shop" namespace="/shop" extends="struts-default">
 		<action name="papashop" class="com.cecj03.papago.controller.crud.PapaShopAction">
-			<result name="success" type="dispatcher">/shop/insert_shop_success.jsp
-			</result>
+			<result name="success" type="dispatcher">/shop/insert_shop_success.jsp</result>
 			<result name="input" type="dispatcher">/shop/insert_shop.jsp</result>
 		</action>
 	</package>
-	
-	<!-- insert 會員 -->
-	<package name="member" namespace="/admin/member" extends="struts-default">
-		<action name="resigter" class="PapaMemAction">
-			<result name="success">/admin/member/succesmember.jsp</result>
-			<result name="input">/admin/member/resigter.jsp</result>
+	<package name="admin" namespace="/admin" extends="struts-default">
+		<action name="papamsg" class="com.cecj03.papago.controller.crud.PapaMsgAction">
+			<result name="success" type="dispatcher">/admin/message/message.jsp</result>
+			<result name="input" type="dispatcher">/admin/message/message.jsp</result>
 		</action>
 	</package>
-
-	<!-- Add packages here -->
-	<!-- 登入 /登出-->
-	<package name="login" namespace="/login" extends="struts-default">
-		<action name="login" class="LoginAction">
-			<result name="input" type="dispatcher">/login/login.jsp</result>
-			<result name="success" type="redirect">/enter.jsp</result>
-			<result name="adminSuccess" type="redirect">/admin/inform/news.jsp
-			</result>
-		</action>
-		<action name="logout" class="LoginAction" method="logout">
-			<result name="success" type="redirect">/login/login.jsp</result>
-			<result name="input" type="dispatcher">/enter.jsp</result>
-		</action>
-	</package>
-	
-	
 </struts>
