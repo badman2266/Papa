@@ -37,7 +37,7 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 	private PapaMem entity;
 	private int type;
 	private int status;
-
+	private int memid;
 	private String crudAction;
 
 	// injection setter on Spring
@@ -77,6 +77,29 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 				System.out.println("失敗");
 				this.addFieldError("action",
 						this.getText("crud.form.insert.failed"));
+			}
+		}else if(crudAction != null && crudAction.equals("Update")){
+			entity.setMemDate(new Timestamp(new java.util.Date().getTime()));
+			PapaMem result = service.updateMem( memid ,entity, type, status);
+			if (result != null) {
+				request.setAttribute("update",
+						service.readById(result.getMemId()));
+				return "updateSuccess";
+			} else {
+				System.out.println("失敗");
+				this.addFieldError("action",
+						this.getText("crud.form.insert.failed"));
+				return "updateFail";
+			}
+		}else if(crudAction!=null && crudAction.equals("Delete")) {
+			boolean result = service.delete(memid);
+			if (result ) {
+				return "updateSuccess";
+			} else {
+				System.out.println("失敗");
+				this.addFieldError("action",
+						this.getText("crud.form.insert.failed"));
+				return "updateFail";
 			}
 		}
 		return Action.INPUT;
@@ -145,5 +168,15 @@ public class PapaMemAction extends ActionSupport implements ServletRequestAware 
 	public void setCrudAction(String crudAction) {
 		this.crudAction = crudAction;
 	}
+
+	public int getMemid() {
+		return memid;
+	}
+
+	public void setMemid(int memid) {
+		this.memid = memid;
+	}
+
+	
 
 }

@@ -51,9 +51,12 @@
 			 	for(var i=0;i<size;i++){
 			 		srt += $(this).find("td").eq(i).html()+"---";
 			 	}
-			 	alert(srt);
+			 	//alert(srt);
 			 	document.location.href="<c:url value='/admin/member/UpdateMember.controller'/>?srt="+srt;
 				//alert($(this).find("td").eq(0).html());
+			 	function page2(srt){
+			 		document.location.href="http://localhost:8080/SimplePaPa/admin/member/test.jsp";
+			 	}
 				//document.location.href="http://google.com";
 				
 		    } );

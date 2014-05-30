@@ -72,7 +72,21 @@ public class PapaMemCrudService extends GenericCrudService<PapaMem> {
 		return false;
 	}
 	
-	
+	public PapaMem updateMem(int memId,PapaMem entity, int type, int status) {
+		MemType entity1 = new MemType();
+		MemStatusType entity2 = new MemStatusType();
+		entity1.setMemtypeId(type);
+		entity2.setMemstatusId(status);
+		entity.setMemType(entity1);
+		entity.setMemStatusType(entity2);
+		entity.setMemId(memId);
+		PapaMem result = dao.update(entity);
+		if (result != null) {
+			return result;
+		} else {
+			return null;
+		}
+	}
 
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext(

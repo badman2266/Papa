@@ -1,5 +1,4 @@
-/com
-/applicationContext.xml
-/bean.config.xml
-/beans.config.xml
+/struts.xml
 /xwork-conversion.properties
+/beans.config.xml
+/com

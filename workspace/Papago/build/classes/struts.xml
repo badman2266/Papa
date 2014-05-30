@@ -45,9 +45,10 @@
 		<action name="resigter" class="PapaMemAction">
 			<result name="success">/admin/member/succesmember.jsp</result>
 			<result name="input">/admin/member/resigter.jsp</result>
+			<result name="updateSuccess" type="redirect">/admin/member/displayallmember.jsp</result>
+			<result name="updateFail">/admin/member/updatemember.jsp</result>
 		</action>
 	</package>
-	
 	
 	<package name="admin" namespace="/admin" extends="struts-default">
 		<action name="papamsg" class="com.cecj03.papago.controller.crud.PapaMsgAction">

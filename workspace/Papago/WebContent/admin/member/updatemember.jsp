@@ -17,214 +17,188 @@
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/moment.min.js"></script>
 <script src="../../js/bootstrap-datetimepicker.js"></script>
-
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">美食趴趴Go評價網 管理員</a>
-		</div>
+	<!-- set up the modal to start hidden and fade in and out -->
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- dialog body -->
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal"
+						onclick="history.back()">&times;</button>
+					<div class="container">
+						<form class="form-horizontal" role="form"
+							action="<c:url value='/admin/member/resigter.action'/>"
+							enctype="multipart/form-data" method="post">
+							<fieldset>
+								<legend>修改公司會員</legend>
+								<div class="form-group">
+									<label for="inputAccount" class="col-sm-2 control-label">會員ID</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="inputAccount"
+											name="memid" placeholder="ID"
+											value="${select.memId}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputAccount" class="col-sm-2 control-label">會員帳號</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="inputAccount"
+											name="entity.account" placeholder="帳號"
+											value="${select.account}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputName" class="col-sm-2 control-label">會員姓名</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="inputName"
+											name="entity.name" placeholder="姓名" value="${select.name}">
+									</div>
+								</div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<!-- 管理員 -->
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">${user.account}管理員<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">網站首頁</a></li>
-						<li><a href="#">管理員頁面</a></li>
-						<li><a href="#">訊息通知</a></li>
-						<li class="divider"></li>
-						<li><a href="#">登出</a></li>
-					</ul></li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid --> </nav>
-	<div class="container">
-		<div class="page-header">
-			<h1>
-				美食趴趴Go評價網 <small>今天想吃什麼？</small>
-			</h1>
-		</div>
-	</div>
-	<!-- container-body -->
-	<div class="container">
-		<!-- container-subnavbar -->
+								<div class="form-group">
+									<label for="inputPassword" class="col-sm-2 control-label">密碼</label>
+									<div class="col-sm-6">
+										<input type="password" class="form-control" id="inputPassword"
+											name="entity.memPassword" placeholder="Password"
+											value="${select.memPassword}">
+									</div>
+								</div>
 
-		<div class="container">
-			<nav class="navbar" role="navigation">
-			<ul class="nav nav-tabs nav-justified">
-				<!-- <li><a href="#">最新消息</a></li> -->
-				<li><a href="#">訊息通知</a></li>
-				<li class="active"><a href="#">會員系統</a></li>
-				<li><a href="#">商家系統</a></li>
-				<li><a href="#">排名系統</a></li>
-				<li><a href="#">留言系統</a></li>
-			</ul>
-			</nav>
-		</div>
+								<div class="form-group">
+									<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="inputEmail"
+											name="entity.email" placeholder="Email"
+											value="${select.email}">
+									</div>
+								</div>
 
-		<!-- subbar list -->
-			<div class="col-sm-3">
-				<ul class="nav nav-tabs nav-stacked navbar-default">
-					<li ><a href="#">新增會員</a></li>
-					<li class="active text-success"><a href="#">改會員資訊</a></li>
-					<li><a href="#">停用會員資訊</a></li>
-					<li><a href="#">查詢會員資訊</a></li>
-				</ul>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">性別</label>
+									<div class="col-sm-6">
+										<div class="radio">
+											<label> <input type="radio" name="entity.sex"
+												id="optionsRadios1" value="男" checked="">男
+											</label>
+										</div>
+										<div class="radio">
+											<label> <input type="radio" name="entity.sex"
+												id="optionsRadios2" value="女">女
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="exampleInputFile" class="col-sm-2 control-label">照片</label>
+									<div class="col-sm-6">
+										<input type="file" id="exampleInputFile" name="userImage"
+											size="40">
+										<p class="help-block">不可超過2MB</p>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputDate" class="col-sm-2 control-label">生日</label>
+									<div class="col-sm-6">
+										<div class="input-group date" id="datetimepicker1"
+											data-date-format="YYYY-MM-DD">
+											<input type="text" class="form-control" name="entity.birth"
+												value="${select.birth}" /><span class="input-group-addon"><span
+												class="glyphicon glyphicon-time"></span> </span>
+										</div>
+									</div>
+									<script type="text/javascript">
+										$(function() {
+											$('#datetimepicker1')
+													.datetimepicker({
+														pickTime : false
+													});
+										});
+									</script>
+								</div>
+
+								<div class="form-group">
+									<label for="inputPhone" class="col-sm-2 control-label">手機號碼</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="inputPhone"
+											placeholder="Phone" name="entity.phone"
+											value="${select.phone}" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputAddr" class="col-sm-2 control-label">地址</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="inputAddr"
+											placeholder="地址" name="entity.memAddress"
+											value="${select.memAddress}" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="select1" class="col-sm-2 control-label">帳號類別</label>
+									<div class="col-sm-6">
+										<select class="form-control" id="select1" name="type">
+											<option value="1">會員</option>
+											<option value="2">管理員</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="select2" class="col-sm-2 control-label">帳號狀態</label>
+									<div class="col-sm-6">
+										<select class="form-control" id="select2" name="status">
+											<option value="1">正常</option>
+											<option value="2">停用</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="modal-footer">
+										<button class="btn btn-default" type="button"  onClick="window.location='displayallmember.jsp'">取消</button>
+										<button class="btn btn-danger" type="submit" value="Delete" name="crudAction">刪除</button>
+										<button type="submit" class="btn btn-primary"
+											name="crudAction" value="Update">修改</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				<!-- dialog buttons -->
+
 			</div>
-		<!--end of subbar list -->
-
-
-		<div class="container">
-			<form class="form-horizontal" role="form"
-				action="<c:url value='/admin/member/resigter.action'/>" enctype="multipart/form-data" method="post">
-				<fieldset>
-					<legend>修改公司會員</legend>
-					<div class="form-group">
-						<label for="inputAccount" class="col-sm-2 control-label">會員帳號</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputAccount"
-								name="entity.account" placeholder="帳號">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputName" class="col-sm-2 control-label">會員姓名</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="entity.name" placeholder="姓名">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPassword" class="col-sm-2 control-label">密碼</label>
-						<div class="col-sm-6">
-							<input type="password" class="form-control" id="inputPassword"
-								name="entity.memPassword" placeholder="Password">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputEmail" class="col-sm-2 control-label">Email</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputEmail"
-								name="entity.email" placeholder="Email">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">性別</label>
-						<div class="col-sm-6">
-							<div class="radio">
-								<label> <input type="radio" name="entity.sex"
-									id="optionsRadios1" value="男" checked="">男
-								</label>
-							</div>
-							<div class="radio">
-								<label> <input type="radio" name="entity.sex"
-									id="optionsRadios2" value="女">女
-								</label>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="exampleInputFile" class="col-sm-2 control-label">照片</label>
-						<div class="col-sm-6">
-							<input type="file" id="exampleInputFile" name="userImage" size="40">
-							<p class="help-block">有圖有真相</p>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputDate" class="col-sm-2 control-label">生日</label>
-						<div class="col-sm-6">
-							<div class="input-group date" id="datetimepicker1"
-								data-date-format="YYYY-MM-DD">
-								<input type="text" class="form-control" name="entity.birth"/><span
-									class="input-group-addon"><span
-									class="glyphicon glyphicon-time"></span> </span>
-							</div>
-						</div>
-						<script type="text/javascript">
-							$(function() {
-								$('#datetimepicker1').datetimepicker({
-									pickTime : false
-								});
-							});
-						</script>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPhone" class="col-sm-2 control-label">手機號碼</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputPhone"
-								placeholder="Phone" name="entity.phone">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputAddr" class="col-sm-2 control-label">地址</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputAddr"
-								placeholder="地址" name="entity.memAddress">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="select1" class="col-sm-2 control-label">帳號類別</label>
-						<div class="col-sm-6">
-							<select class="form-control" id="select1" name="type">
-								<option value="1">會員</option>
-								<option value="2">管理員</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="select2" class="col-sm-2 control-label">帳號狀態</label>
-						<div class="col-sm-6">
-							<select class="form-control" id="select2"  name="status">
-								<option value="1">正常</option>
-								<option value="2">停用</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="col-md-6 col-md-offset-2">
-							<button class="btn btn-default" type="reset">Cancel</button>
-							<button type="submit" class="btn btn-primary" name="crudAction" value="Insert">Submit</button>
-						</div>
-					</div>
-				</fieldset>
-			</form>
 		</div>
-
-
-
-
 	</div>
-	<!-- footer -->
-	<footer>
-	<div class="container">
-		<p class="pull-right">&copy; PaPaGo Team</p>
-	</div>
-	</footer>
-	<!--end of footer -->
+
+	<!-- sometime later, probably inside your on load event callback -->
+	<script>
+		$("#myModal").on("show", function() { // wire up the OK button to dismiss the modal when shown
+			$("#myModal a.btn").on("click", function(e) {
+				console.log("button pressed"); // just as an example...
+				$("#myModal").modal('hide'); // dismiss the dialog
+			});
+		});
+
+		$("#myModal").on("hide", function() { // remove the event listeners when the dialog is dismissed
+			$("#myModal a.btn").off("click");
+		});
+
+		$("#myModal").on("hidden", function() { // remove the actual elements from the DOM when fully hidden
+			$("#myModal").remove();
+		});
+
+		$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true
+		// ensure the modal is shown immediately
+		});
+	</script>
 </body>
 </html>
