@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2014/5/19 ?U?? 03:55:39 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="com.cecj03.papago.model.PapaRec" table="PapaRec">
+    <class name="com.cecj03.papago.model.PapaRec" table="PapaRec" >
         <id name="recId" type="int">
             <column name="recId" />
             <generator class="assigned" />
@@ -36,7 +36,7 @@
             <column name="price" not-null="true" />
         </property>
         <property name="web" type="java.lang.String">
-            <column name="web" />
+            <column name="web"  />
         </property>
         <property name="note" type="java.lang.String">
             <column name="note" />

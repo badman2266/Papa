@@ -7,7 +7,7 @@
 <title>【美食趴趴Go評價網】今天想吃什麼？</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../css/website.css" rel="stylesheet" media="screen">
-<link href="../css/page-style.css" rel="stylesheet">
+<!-- <link href="../css/page-style.css" rel="stylesheet"> -->
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>

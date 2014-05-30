@@ -7,11 +7,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>【美食趴趴Go評價網】今天想吃什麼？</title>
+<style type="text/css">
+.map {
+	width: 300px;
+	height: 300px
+}
+</style>
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link href="../css/website.css" rel="stylesheet" media="screen">
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<!-- Include Google Maps API (Google Maps API v3 已不需使用 API Key) -->
+<script
+	src="http://maps.google.com/maps/api/js?sensor=false&amp;language=zh-TW"></script>
+<!-- Require jQuery v1.7.0 or newer -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../js/jquery.tinyMap.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var addr=$('span#address').html();
+		$('.map').tinyMap({
+			center :  addr,
+			zoom : 15,
+			marker : [ {
+				addr : addr,
+				text : addr,
+			} ]
+		});
+	});
+</script>
 </head>
 <body>
 	<!-- body container -->
@@ -85,7 +112,7 @@
 		</div>
 		
 		
-		
+		<div class="map" id="m1"></div>
 
 
 		<h4 class="text-success">留言</h4>
@@ -101,7 +128,7 @@
 							<td>
 								<strong><font size="4">${bean.name}</font></strong><br>
 								類型：${bean.shopType.shopType}<br>
-								地址：${bean.shopAddress}<br>
+								地址：<span id="address">${bean.shopAddress}</span><br>
 								　電子信箱：${bean.email}<br>
  								<c:if test="${not empty bean.web}">
  									官方網站：<a href="${bean.web}" target="_blank">有</a><br>

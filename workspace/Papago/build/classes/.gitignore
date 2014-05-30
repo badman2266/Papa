@@ -1,1 +1,4 @@
 /com
+/applicationContext.xml
+/bean.config.xml
+/beans.config.xml

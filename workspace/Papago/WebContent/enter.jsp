@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,7 +42,7 @@ body {
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">管理員<b class="caret"></b></a>
+						data-toggle="dropdown">管理員${user.memType.memType}<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">排名系統</a></li>
 							<li><a href="#">會員系統</a></li>
@@ -52,12 +53,12 @@ body {
 						</ul></li>
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">會員<b class="caret"></b></a>
+						data-toggle="dropdown">${user.account}會員<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">會員設定</a></li>
-							<li><a href="#">更改密碼</a></li>
+							<li><a href="account/password.jsp">更改密碼</a></li>
 							<li class="divider"></li>
-							<li><a href="#">登出</a></li>
+							<li><a href="<c:url value='/login/logout.action'/>">登出</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -68,7 +69,7 @@ body {
 	<div class="jumbotron">
 		<div class="container">
 			<h2>美食趴趴Go評價網</h2>
-			<p><s:property value="name"/>想不到要吃甚麼嗎?</p>
+			<p><s:property value="memAccount"/>${user.account}想不到要吃甚麼嗎?</p>
 			<p>
 				<a class="btn btn-success btn-lg" role="button">隨機好手氣 &raquo;</a>
 			</p>
