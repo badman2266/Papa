@@ -53,10 +53,10 @@
 					thread
 				</prop>
 				<prop key="hibernate.show_sql">
-					true
+					false
 				</prop>
 				<prop key="hibernate.format_sql">
-					true
+					false
 				</prop>
 				<prop key="hibernate.cache.use_second_level_cache">  
 					false 

@@ -1,6 +1,6 @@
 package com.cecj03.papago.controller.crud;
 
-import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -35,8 +35,8 @@ public class PapaMsgAction extends ActionSupport implements ServletRequestAware{
 				.getRequiredWebApplicationContext(ServletActionContext
 						.getServletContext());
 		benchenService service = (benchenService) context.getBean("benchenService");
-		List<PapaMsg> result1 = service.showMessage(bean);
-		request.setAttribute("select", result1);
+		
+		
 		if(papaAction != null && papaAction.equals("Insert")){
 			PapaMsg result = service.writeMessage(bean);
 			

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 import com.cecj03.papago.model.PapaMem;
 import com.cecj03.papago.model.PapaMsg;
 import com.cecj03.papago.model.PapaShop;
@@ -73,18 +74,8 @@ public class benchenService {
 		public void setUpdateShopDao(UpdateShopDao updateShopDao) {
 			this.updateShopDao = updateShopDao;
 		}
-		public List<PapaMsg> showMessage(PapaMsg bean) {
-			List<PapaMsg> result = null;
-			if(bean!=null && bean.getMsgId()!=0) {
-				PapaMsg temp = papaMsgDao.select(bean.getMsgId());
-				if(temp!=null) {
-					result = new ArrayList<PapaMsg>();
-					result.add(temp);
-				}
-			} else {
-				result = papaMsgDao.select(); 
-			}
-			return result;
+		public List<PapaMsg> findShopMessage(int shopId) {
+			return papaMsgDao.findByHQL("from PapaMsg where shopId = ?", shopId);
 		}
 		
 		public PapaMsg writeMessage(PapaMsg bean) {
@@ -92,13 +83,12 @@ public class benchenService {
 			PapaMem pm = new PapaMem();
 			PapaShop ps = new PapaShop();
 			pm.setMemId(papaMemDao.findById(2).getMemId());
-			ps.setShopId(papaShopDao.select(1).getShopId());
+			ps.setShopId(papaShopDao.select(9).getShopId());
 			if (bean != null) {
-				java.util.Date date = new java.util.Date();
-				long temp = date.getTime();
-				bean.setMsgDate(new java.sql.Timestamp(temp));
+				bean.setMsgDate(new java.sql.Timestamp(System.currentTimeMillis()));
 				bean.setPapaMem(pm);
 				bean.setPapaShop(ps);
+				
 				result = papaMsgDao.insert(bean);
 			}
 			return result;
