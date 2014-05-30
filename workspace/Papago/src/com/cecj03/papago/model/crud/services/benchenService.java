@@ -75,7 +75,7 @@ public class benchenService {
 			this.updateShopDao = updateShopDao;
 		}
 		public List<PapaMsg> findShopMessage(int shopId) {
-			return papaMsgDao.findByHQL("from PapaMsg where shopId = ?", shopId);
+			return papaMsgDao.selectByHQL("from PapaMsg where shopId = ?", shopId);
 		}
 		
 		public PapaMsg writeMessage(PapaMsg bean) {

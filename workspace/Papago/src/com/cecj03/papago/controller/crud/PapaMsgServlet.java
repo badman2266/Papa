@@ -101,7 +101,7 @@ public class PapaMsgServlet extends HttpServlet {
 			request.getRequestDispatcher("/admin/message/display.jsp").forward(request, response);
 		} else if (production != null && production.equals("Insert")) {
 			 bean.setMsgDate(new Timestamp(System.currentTimeMillis()));
-			 PapaMsg result = service.insert(bean);
+			 PapaMsg result = service.writeMessage(bean);
 			 if (result != null) {
 				 request.setAttribute("insert", result);
 			 } else {
