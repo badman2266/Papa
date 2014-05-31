@@ -8,12 +8,23 @@
 	<constant name="struts.devMode" value="true" />
 
 
+
+
 	<constant name="struts.action.extension" value="action" />
 	<package name="shop" namespace="/shop" extends="struts-default">
 		<action name="papashop" class="com.cecj03.papago.controller.crud.PapaShopAction">
 			<result name="success" type="dispatcher">/shop/insert_shop_success.jsp
 			</result>
 			<result name="input" type="dispatcher">/shop/insert_shop.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 店家crud -->
+	<package name="shop1" namespace="/admin1/shop" extends="struts-default">
+		<action name="papashop" class="com.cecj03.papago.controller.crud.PapaShopAction">
+			<result name="success" type="dispatcher">/admin/shop/insert_shop_success.jsp
+			</result>
+			<result name="input" type="dispatcher">/admin/shop/Insertshop.jsp</result>
 		</action>
 	</package>
 
