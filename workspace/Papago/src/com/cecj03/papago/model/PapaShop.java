@@ -23,7 +23,7 @@ public class PapaShop implements java.io.Serializable {
 	private String name;
 	private String phone;
 	private String email;
-	private String shopPic;
+	private byte[] shopPic;
 	private String shopAddress;
 	private Timestamp shopDate;
 	private String contactName;
@@ -56,7 +56,7 @@ public class PapaShop implements java.io.Serializable {
 
 	public PapaShop(int shopId, ShopStatusType shopStatusType,
 			PriceType priceType, ShopType shopType, String name,
-			String phone, String email, String shopPic,
+			String phone, String email, byte[] shopPic,
 			String shopAddress, Timestamp shopDate, String contactName,
 			String contactPhone, String price, String web,
 			String note, Set papaScores, Set papaMsgs, Set updateShops,
@@ -138,11 +138,11 @@ public class PapaShop implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public String getShopPic() {
+	public byte[] getShopPic() {
 		return this.shopPic;
 	}
 
-	public void setShopPic(String shopPic) {
+	public void setShopPic(byte[] shopPic) {
 		this.shopPic = shopPic;
 	}
 
@@ -202,35 +202,35 @@ public class PapaShop implements java.io.Serializable {
 		this.note = note;
 	}
 
-	public Set getPapaScores() {
+	public Set<?> getPapaScores() {
 		return this.papaScores;
 	}
 
-	public void setPapaScores(Set papaScores) {
+	public void setPapaScores(Set<?> papaScores) {
 		this.papaScores = papaScores;
 	}
 
-	public Set getPapaMsgs() {
+	public Set<?> getPapaMsgs() {
 		return this.papaMsgs;
 	}
 
-	public void setPapaMsgs(Set papaMsgs) {
+	public void setPapaMsgs(Set<?> papaMsgs) {
 		this.papaMsgs = papaMsgs;
 	}
 
-	public Set getUpdateShops() {
+	public Set<?> getUpdateShops() {
 		return this.updateShops;
 	}
 
-	public void setUpdateShops(Set updateShops) {
+	public void setUpdateShops(Set<?> updateShops) {
 		this.updateShops = updateShops;
 	}
 
-	public Set getFavoritesLists() {
+	public Set<?> getFavoritesLists() {
 		return this.favoritesLists;
 	}
 
-	public void setFavoritesLists(Set favoritesLists) {
+	public void setFavoritesLists(Set<?> favoritesLists) {
 		this.favoritesLists = favoritesLists;
 	}
 

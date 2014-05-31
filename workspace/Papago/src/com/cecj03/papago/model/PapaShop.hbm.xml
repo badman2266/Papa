@@ -26,7 +26,7 @@
         <property name="email" type="java.lang.String">
             <column name="email" />
         </property>
-        <property name="shopPic" type="java.lang.String">
+        <property name="shopPic" type="binary">
             <column name="shopPic" />
         </property>
         <property name="shopAddress" type="java.lang.String">

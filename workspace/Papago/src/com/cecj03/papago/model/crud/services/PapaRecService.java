@@ -32,7 +32,7 @@ public class PapaRecService extends GenericCrudService<PapaRec> {
 		
 		entity.setPapaMem(bean1);
 		entity.setShopType(bean2);
-		
+		System.out.println(entity.getName());
 		PapaRec result = dao.insert(entity);
 		if (result != null) {
 			return result;
@@ -55,9 +55,8 @@ public class PapaRecService extends GenericCrudService<PapaRec> {
 		entity.setPhone("02-223");
 		entity.setPrice("204");
 		entity.setNote("很小~");
-		entity.setRecAddress("台樓");
-		entity.setWeb("http:/.tw/");
-		entity.setRecId(1);
+		entity.setRecAddress("");
+		entity.setWeb("http:/papago.com.tw/");
 		System.out.println(service.createRecShop(entity, 1 , 4 ));
 	}
 	

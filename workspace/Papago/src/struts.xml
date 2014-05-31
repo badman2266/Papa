@@ -16,8 +16,8 @@
 			<result name="input" type="dispatcher">/shop/insert_shop.jsp</result>
 		</action>
 	</package>
-	
-	<!-- 登入 /登出-->
+
+	<!-- 登入 /登出 -->
 	<package name="login" namespace="/login" extends="struts-default">
 		<action name="login" class="LoginAction">
 			<result name="input" type="dispatcher">/login/login.jsp</result>
@@ -38,18 +38,29 @@
 			<result name="success" type="redirect">/enter.jsp</result>
 		</action>
 	</package>
-	
-	
-	<!-- 會員crud -->
+
+
+	<!-- 管理員對會員crud -->
 	<package name="member" namespace="/admin/member" extends="struts-default">
 		<action name="resigter" class="PapaMemAction">
 			<result name="success">/admin/member/succesmember.jsp</result>
 			<result name="input">/admin/member/resigter.jsp</result>
-			<result name="updateSuccess" type="redirect">/admin/member/displayallmember.jsp</result>
+			<result name="updateSuccess" type="redirect">/admin/member/displayallmember.jsp
+			</result>
 			<result name="updateFail">/admin/member/updatemember.jsp</result>
 		</action>
 	</package>
-	
+
+	<!-- 推薦店家 -->
+	<package name="RecShop" namespace="/recommend" extends="struts-default">
+		<action name="rec" class="PapaRecAction">
+			<result name="success" type="dispatcher">/recommend/recommemd_success.jsp
+			</result>
+			<result name="input" type="dispatcher">/recommend/recommend.jsp</result>
+		</action>
+	</package>
+
+
 	<package name="admin" namespace="/admin" extends="struts-default">
 		<action name="papamsg" class="com.cecj03.papago.controller.crud.PapaMsgAction">
 			<result name="success" type="dispatcher">/admin/message/message.jsp
@@ -57,8 +68,8 @@
 			<result name="input" type="dispatcher">/admin/message/message.jsp</result>
 		</action>
 	</package>
-	
-	
-	
-	
+
+
+
+
 </struts>

@@ -69,7 +69,7 @@ body {
 	<div class="jumbotron">
 		<div class="container">
 			<h2>美食趴趴Go評價網</h2>
-			<p><s:property value="memAccount"/>${user.account}想不到要吃甚麼嗎?</p>
+			<p>${user.account}想不到要吃甚麼嗎?</p>
 			<p>
 				<a class="btn btn-success btn-lg" role="button">隨機好手氣 &raquo;</a>
 			</p>
@@ -85,8 +85,7 @@ body {
 					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
 					magna mollis euismod. Donec sed odio dui.</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
+					<a class="btn btn-default" href="recommend/recommend.jsp" role="button">推薦店家</a>
 				</p>
 			</div>
 			<div class="col-md-12">

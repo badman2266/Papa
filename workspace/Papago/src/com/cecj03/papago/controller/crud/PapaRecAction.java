@@ -1,11 +1,6 @@
 package com.cecj03.papago.controller.crud;
 
-import org.apache.struts2.ServletActionContext;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
 import com.cecj03.papago.model.PapaRec;
-import com.cecj03.papago.model.ShopType;
 import com.cecj03.papago.model.crud.services.PapaRecService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,27 +8,36 @@ import com.opensymphony.xwork2.ActionSupport;
 public class PapaRecAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
-	private PapaRec bean;
-	private int shoptypeId;
-	private int memId;
-	private String papaAction;
+	
+	//需要的表格欄位
+	private PapaRec bean; //推薦bean
+	private int memId; //推薦會員id
+	private int shoptypeId; //推薦店家型別
+	private String papaAction; //action
+	PapaRecService service; //spring 注入
+	
+	public void setService(PapaRecService service) {
+		this.service = service;
+	}
 
 	@Override
 	public String execute() throws Exception {
-		WebApplicationContext context = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(ServletActionContext
-						.getServletContext());
-		PapaRecService service = (PapaRecService) context
-				.getBean("PapaRecService");
+		
 		if (papaAction != null && papaAction.equals("Insert")) {
-			//bean.setShopType(st);
+			System.out.println(bean.getName());
+			
 			PapaRec result = service.createRecShop(bean, memId, shoptypeId);
 			if (result != null) {
+				
+				
+				
+				return Action.SUCCESS;
+				
 			} else {
 				this.addFieldError("action",
 						this.getText("papashopForm.insert.fail"));
 			}
-			return Action.SUCCESS;
+			return Action.INPUT;
 		} else {
 			this.addFieldError("action",
 					this.getText("papashopForm.action.unknown"));
@@ -58,14 +62,6 @@ public class PapaRecAction extends ActionSupport {
 		this.papaAction = papaAction;
 	}
 
-	public int getShoptypeId() {
-		return shoptypeId;
-	}
-
-	public void setShoptypeId(int shoptypeId) {
-		this.shoptypeId = shoptypeId;
-	}
-
 	public int getMemId() {
 		return memId;
 	}
@@ -74,4 +70,12 @@ public class PapaRecAction extends ActionSupport {
 		this.memId = memId;
 	}
 
+	public int getShoptypeId() {
+		return shoptypeId;
+	}
+
+	public void setShoptypeId(int shoptypeId) {
+		this.shoptypeId = shoptypeId;
+	}
+	
 }

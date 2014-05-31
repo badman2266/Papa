@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -77,118 +78,83 @@
 	<!-- / body container -->
 	<div class="container">
 		<div class="container">
-			<form class="form-horizontal" role="form" method="get"
-				action="<c:url value="/recommend/rec.action" />">
+			<form class="form-horizontal" role="form" method="get">
 				<fieldset>
-					<legend>推薦店家</legend>
+					<legend>推薦店家成功</legend>
 
 					<div class="form-group">
 						<label for="inputName" class="col-sm-2 control-label">推薦會員ID</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="memId" placeholder="推薦會員" value="${user.memId}">
+							<p class="form-control-static">
+								<s:property value="memId" />
+							</p>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputName" class="col-sm-2 control-label">店家名稱</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="bean.name" placeholder="店家名稱">
+							<p class="form-control-static">
+								<s:property value="bean.name" />
+							</p>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputPhone" class="col-sm-2 control-label">店家電話</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputPhone"
-								name="bean.phone" placeholder="店家電話">
+							<p class="form-control-static">
+								<s:property value="bean.phone" />
+							</p>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputEmail" class="col-sm-2 control-label">店家E-Mail</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputEmail"
-								name="bean.email" placeholder="店家Email">
+							<p class="form-control-static">
+								<s:property value="bean.email" />
+							</p>
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputAddr" class="col-sm-2 control-label">店家地址</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputAddr"
-								name="bean.recAddress" placeholder="地址">
+							<p class="form-control-static">
+								<s:property value="bean.recAddress" />
+							</p>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="inputName" class="col-sm-2 control-label">價位</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="bean.price" placeholder="店家價位">
+							<p class="form-control-static">
+								<s:property value="bean.price" />
+							</p>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="inputName" class="col-sm-2 control-label">網站</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="bean.web" placeholder="沒有則填無">
+							<p class="form-control-static">
+								<s:property value="bean.web" />
+							</p>
 						</div>
 					</div>
-					
-					
-					<div class="form-group">
-						<label for="select1" class="col-sm-2 control-label">餐廳類型</label>
-						<div class="col-sm-6">
-							<select class="form-control" id="select1" name="shoptypeId">
-								<option value="1">素食</option>
-								<option value="2">速食店</option>
-								<option value="3">比薩</option>
-								<option value="4">飯</option>
-								<option value="5">麵</option>
-								<option value="6">糕點</option>
-								<option value="7">咖啡店</option>
-								<option value="8">自助餐</option>
-								<option value="9">小吃</option>
-								<option value="10">火鍋</option>
-								<option value="11">快炒</option>
-								<option value="12">甜點</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="inputName" class="col-sm-2 control-label">聯絡人</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="bean.contactName" placeholder="選填">
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="inputName" class="col-sm-2 control-label">聯絡人電話</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="bean.contactPhone" placeholder="選填">
-						</div>
-					</div>
+
 
 					<div class="form-group">
 						<label for="note" class="col-sm-2 control-label">備註</label>
 						<div class="col-sm-6">
-							<textarea class="form-control" rows="3" id="note"
-								name="bean.note" placeholder="備註"></textarea>
+							<p class="form-control-static">
+								<s:property value="bean.note" />
+							</p>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<div class="col-md-6 col-md-offset-2">
-							<button type="reset" value="Clear" class="btn btn-default">Cancel</button>
-							<button type="submit" name="papaAction" value="Insert"
-								class="btn btn-primary">確認推薦新增</button>
-						</div>
-					</div>
 				</fieldset>
 			</form>
 		</div>
