@@ -1,14 +1,32 @@
 package com.cecj03.papago.controller.crud;
 
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
+
 import com.cecj03.papago.model.PapaRec;
+import com.cecj03.papago.model.PapaShop;
 import com.cecj03.papago.model.crud.services.PapaRecService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class PapaRecAction extends ActionSupport {
+public class PapaRecAction extends ActionSupport implements
+ServletRequestAware{
 	private static final long serialVersionUID = 1L;
 
-	
+	HttpServletRequest request;
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		this.request = request;
+	}
 	//需要的表格欄位
 	private PapaRec bean; //推薦bean
 	private int memId; //推薦會員id
@@ -28,9 +46,6 @@ public class PapaRecAction extends ActionSupport {
 			
 			PapaRec result = service.createRecShop(bean, memId, shoptypeId);
 			if (result != null) {
-				
-				
-				
 				return Action.SUCCESS;
 				
 			} else {
@@ -38,11 +53,25 @@ public class PapaRecAction extends ActionSupport {
 						this.getText("papashopForm.insert.fail"));
 			}
 			return Action.INPUT;
-		} else {
+		} else if (papaAction != null && papaAction.equals("Select")){
+			List<PapaRec> result = service.readAll();
+			request.setAttribute("select", result);
+			if(result!= null){
+				return Action.SUCCESS;
+			}
+			return Action.INPUT;
+		} else if(papaAction != null && papaAction.equals("Delete")){
+			boolean result = service.delete(bean.getRecId());
+			if (result){
+				request.setAttribute("delete", result);
+				return Action.INPUT;
+			}else{
+				return Action.INPUT;
+			}
+		}else{
 			this.addFieldError("action",
 					this.getText("papashopForm.action.unknown"));
 			return Action.INPUT;
-			
 		}
 	}
 
@@ -77,5 +106,7 @@ public class PapaRecAction extends ActionSupport {
 	public void setShoptypeId(int shoptypeId) {
 		this.shoptypeId = shoptypeId;
 	}
+
+	
 	
 }

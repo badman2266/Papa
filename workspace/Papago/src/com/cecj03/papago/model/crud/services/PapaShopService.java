@@ -1,6 +1,8 @@
 package com.cecj03.papago.model.crud.services;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -92,9 +94,32 @@ public class PapaShopService extends GenericCrudService<PapaShop>{
 					
 	}
 	
-//	public static void main(String args[]){
-//		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//		PapaShopService service	 = (PapaShopService) context.getBean("PapaShopService");
-//		System.out.print(service.select());
-//	}
+	public static void main(String args[]){
+		ApplicationContext context = new ClassPathXmlApplicationContext("beans.config.xml");
+		PapaShopService service	 = (PapaShopService) context.getBean("PapaShopService");
+		PapaShop bean=new PapaShop();
+		PriceType priceType=new PriceType();
+		priceType.setPricetypeId(1);
+		ShopStatusType shopStatusType=new ShopStatusType();
+		shopStatusType.setShopstatusId(1);
+		
+		ShopType shopType=new ShopType();
+		shopType.setShoptypeId(1);
+		
+		bean.setName("ddddd");
+		bean.setPhone("333333");
+		bean.setPrice("dddddd");
+		bean.setEmail("ddddd");
+		bean.setContactName("dddd");
+		bean.setContactPhone("ddddd");
+		bean.setNote("ddddd");
+		bean.setPriceType(priceType);
+		bean.setShopAddress("ssssss");
+		bean.setShopDate(new Timestamp(new java.util.Date().getTime()));
+		bean.setShopStatusType(shopStatusType);
+		bean.setWeb("dddddd");
+		bean.setShopType(shopType);
+		
+		System.out.print(service.delete(1));
+	}
 }

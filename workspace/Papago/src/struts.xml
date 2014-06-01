@@ -7,24 +7,23 @@
 	<!-- 除錯開發模式 -->
 	<constant name="struts.devMode" value="true" />
 
-
-
-
 	<constant name="struts.action.extension" value="action" />
-	<package name="shop" namespace="/shop" extends="struts-default">
-		<action name="papashop" class="com.cecj03.papago.controller.crud.PapaShopAction">
-			<result name="success" type="dispatcher">/shop/insert_shop_success.jsp
-			</result>
-			<result name="input" type="dispatcher">/shop/insert_shop.jsp</result>
-		</action>
-	</package>
 	
 	<!-- 店家crud -->
-	<package name="shop1" namespace="/admin1/shop" extends="struts-default">
-		<action name="papashop" class="com.cecj03.papago.controller.crud.PapaShopAction">
-			<result name="success" type="dispatcher">/admin/shop/insert_shop_success.jsp
+	<package name="shop" namespace="/admin/shop" extends="struts-default">
+		<action name="papashop" class="PapaShopAction">
+			<result name="success" type="dispatcher">/admin/shop/Displayallshop.jsp
 			</result>
-			<result name="input" type="dispatcher">/admin/shop/Insertshop.jsp</result>
+			<result name="RUDfaill" type="dispatcher">/admin/shop/RUD_shop.jsp
+			</result>
+			<result name="RUDsuccess" type="dispatcher">/admin/shop/shop_success.jsp
+			</result>
+			<result name="input" type="dispatcher">/admin/shop/shop_success.jsp</result>
+		</action>
+		<action name="rec" class="PapaRecAction">
+			<result name="success" type="dispatcher">/admin/shop/DisplayRecShop.jsp
+			</result>
+			<result name="input" type="dispatcher">/admin/shop/Insert_shop.jsp</result>
 		</action>
 	</package>
 
@@ -62,7 +61,7 @@
 		</action>
 	</package>
 
-	<!-- 推薦店家 -->
+	<!-- 會員推薦店家 -->
 	<package name="RecShop" namespace="/recommend" extends="struts-default">
 		<action name="rec" class="PapaRecAction">
 			<result name="success" type="dispatcher">/recommend/recommemd_success.jsp

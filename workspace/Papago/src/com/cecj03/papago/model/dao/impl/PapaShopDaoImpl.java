@@ -10,20 +10,22 @@ import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.cecj03.papago.model.PapaMem;
 import com.cecj03.papago.model.PapaShop;
 import com.cecj03.papago.model.dao.PapaShopDao;
 
 
 
-public  class PapaShopDaoImpl implements PapaShopDao{
+public  class PapaShopDaoImpl extends GenericDaoImpl<PapaShop> implements PapaShopDao {
 	private SessionFactory sessionFactory = null;
-		
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
 
+	//注入spring
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+	//拿到session
+	protected Session getSession() {
+		return this.sessionFactory.getCurrentSession();
 	}
 
 	@Override
@@ -37,7 +39,7 @@ public  class PapaShopDaoImpl implements PapaShopDao{
 	@Override
 	public List<PapaShop> select() {
 		//Session session = sessionFactory.openSession();
-		 Session session = sessionFactory.getCurrentSession();
+		 Session session = sessionFactory.openSession();
 		List<PapaShop> result = (List<PapaShop>) session.createCriteria(PapaShop.class).list();
 		
 		session.close();
@@ -63,13 +65,37 @@ public  class PapaShopDaoImpl implements PapaShopDao{
 	@Override
 	public boolean delete(int id) {
 		Session session = sessionFactory.openSession();
-		return false;
+		Transaction tx = session.beginTransaction();
+		PapaShop entity=this.select(id);
+		try {
+			session.delete(entity);
+			tx.commit();
+			return true;
+		} catch (HibernateException e) {
+			tx.rollback();
+			e.printStackTrace();
+			System.out.println("deleting fail on Transaction");
+			return false;
+		} finally {
+			session.close();
+		}
 	}
 
 	@Override
 	public PapaShop update(PapaShop bean) {
 		Session session = sessionFactory.openSession();
-		return null;
+		Transaction tx = session.beginTransaction();
+		try {
+			session.update(bean);
+			tx.commit();
+			return bean;
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+			return null;
+		}finally{
+			session.close();
+		}
 	}
 
 	@Override
@@ -117,11 +143,8 @@ public  class PapaShopDaoImpl implements PapaShopDao{
 		
 	}
 	public static void main(String arg[]){
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("beans.config.xml");
 		PapaShopDaoImpl dao = (PapaShopDaoImpl)context.getBean("PapaShopDao");
-		System.out.println(dao.select());
-//		System.out.println(dao.select());
-//		System.out.println(dao.select(9));
-//		System.out.println(dao.insert(bean));
+
 	}
 }

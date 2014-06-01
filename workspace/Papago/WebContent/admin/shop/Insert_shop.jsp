@@ -15,8 +15,6 @@
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/moment.min.js"></script>
-<script src="../../js/bootstrap-datetimepicker.js"></script>
 
 </head>
 <body>
@@ -80,9 +78,10 @@
 
 		<!-- subbar list 看自己需不需要-->
 		<div class="col-sm-3">
-			<ul class="nav nav-tabs nav-stacked navbar-default">
-				<li class="active text-success"><a href="#">新增店家</a></li>
-				<li><a href="#">查詢及刪除修改店家</a></li>
+			<ul class="nav nav-stacked nav-pills">
+				<li class="active text-success"><a href="#" style="text-align:center">商家系統</a></li>
+				<li><a href="Insert_shop.jsp">新增店家</a></li>
+				<li><a href="RUD_shop.jsp">查詢及刪除修改店家</a></li>
 			</ul>
 		</div>
 		<!--end of subbar list -->
@@ -92,7 +91,13 @@
 			<div class="container">
 				<form class="form-horizontal" role="form"
 					enctype="multipart/form-data" method="post"
-					action="<c:url value='/admin1/shop/papashop.action'/>">
+					action="<c:url value='/admin/shop/rec.action'/>">
+					<button type="submit" name="papaAction" value="Select"
+						class="btn btn-default">查詢會員推薦店家</button>
+				</form>
+				<form class="form-horizontal" role="form"
+					enctype="multipart/form-data" method="post"
+					action="<c:url value='/admin/shop/papashop.action'/>">
 					<fieldset>
 						<legend>新增店家</legend>
 						<div class="form-group">
@@ -126,9 +131,10 @@
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="inputAddr"
 									name="bean.shopAddress" placeholder="請輸入地址"
-									value="${param['bean.shopAddress']}">
+									value="${param['bean.recAddress']}">
 							</div>
 						</div>
+
 
 						<div class="form-group">
 							<label for="inputName" class="col-sm-2 control-label">價位</label>
@@ -152,7 +158,7 @@
 							<label for="inputName" class="col-sm-2 control-label">聯絡人</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="inputName"
-									name="bean.contactName" placeholder="選填">
+									name="bean.contactName" placeholder="選填" value="${param['bean.contactName']}">
 							</div>
 						</div>
 
@@ -160,7 +166,7 @@
 							<label for="inputName" class="col-sm-2 control-label">聯絡人電話</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="inputName"
-									name="bean.contactPhone" placeholder="選填">
+									name="bean.contactPhone" placeholder="選填" value="${param['bean.contactPhone']}">
 							</div>
 						</div>
 
@@ -168,7 +174,7 @@
 							<label for="inputName" class="col-sm-2 control-label">網站</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="inputName"
-									name="bean.web" placeholder="沒有則填無">
+									name="bean.web" placeholder="沒有則填無" value="${param['bean.web']}">
 							</div>
 						</div>
 
@@ -218,7 +224,7 @@
 							<label for="note" class="col-sm-2 control-label">備註</label>
 							<div class="col-sm-6">
 								<textarea class="form-control" rows="3" id="note"
-									name="bean.note" placeholder="備註"></textarea>
+									name="bean.note" placeholder="備註">${param['bean.note']}</textarea>
 							</div>
 						</div>
 
