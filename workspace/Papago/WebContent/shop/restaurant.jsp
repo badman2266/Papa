@@ -101,7 +101,6 @@
 		<div class="container">
 			<ul class="breadcrumb" style="margin-bottom: 5px; font-size: 18pX;">
 				<li><a href="search.jsp">美食趴趴Go評價網</a></li>
-<%-- 				<li><a href="search.jsp"><fmt:message bundle="${message}" key="shoplist"/></a></li> --%>
 				<c:if test="${not empty select}">
 					<c:forEach var="bean" items="${select}" >
 						<li><a href="#">${bean.shopType.shopType}</a></li>
@@ -110,108 +109,128 @@
 				</c:if>
 			</ul>
 		</div>
-		
-		
+				
 		<div class="map" id="m1"></div>
-
-
-		<h4 class="text-success">留言</h4>
+		
 		<div class="col-md-8">
 			<c:if test="${not empty select}">
+				<div class="container">
 				<table class="table table-hover">
 					<c:forEach var="bean" items="${select}" >
-<%-- 						<c:url var="path" value="/admin/shop/PriceType.jsp"> --%>
-<%-- 							<c:param name="pricetypeId" value="${bean.pricetypeId}" /> --%>
-<%-- 							<c:param name="priceType" value="${bean.priceType}" /> --%>
-<%-- 						</c:url> --%>
 						<tr>
 							<td>
-								<strong><font size="4">${bean.name}</font></strong><br>
-								類型：${bean.shopType.shopType}<br>
+								<strong><font size="4">${bean.name}</font></strong>
+									<figure style="float: right;">
+										<c:if test="${not empty bean.shopPic}">
+											<img src="${bean.shopPic}" width="100" border="0">
+										</c:if>
+									</figure><br>
+								類型：${bean.shopType.shopType}　店家狀態：${bean.shopStatusType.shopStatus}<br>
 								地址：<span id="address">${bean.shopAddress}</span><br>
-								　電子信箱：${bean.email}<br>
+								電子信箱：${bean.email}<br>
  								<c:if test="${not empty bean.web}">
  									官方網站：<a href="${bean.web}" target="_blank">有</a><br>
  								</c:if>
  								電話：${bean.phone}<br>
-								價格：${bean.price}<br>
-								<blockquote>最新食記<br>
-									巧克力以及原味泡芙差別只在外酥皮的口味　內餡都是一樣的,基本上酥皮是吃不太出來有巧克力的味道　味覺很敏捷的人就另當別論了！！一盒總共有２０顆小泡芙　　大小與豆酥朋差不多<br>
-								</blockquote>
-								<div align="right">
-									<a href="guest.php?do=report&amp;rsn=269" target="_blank" class="smalla">店家資料錯誤回報</a>
-								</div>
-								
-								
-								${bean.shopPic}
-								
-								${bean.shopStatusType.shopStatus}
-								${bean.shopDate}
-								${bean.contactName}
-								${bean.contactPhone}
-								${bean.price}
-								${bean.web}
-								${bean.note}
-								${bean.priceType.priceType}
+								價格：${bean.price}　價位區間：${bean.priceType.priceType}<br>
+								<c:if test="${not empty bean.note}">
+									<blockquote>店家備註<br>
+										${bean.note}<br>
+									</blockquote>
+								</c:if>
 							</td>
 						</tr>
 						
 						<tr>
-							<td bgcolor="#F4F4F4">
-							提拉米蘇精緻蛋糕 - 台中店
-							<a href="JavaScript:ShowLogin();">&nbsp;<img src="images/11.png" width="108" height="21" border="0" align="absmiddle"></a><br>
-							類型：糕點<br>
-							地址：台中市西區五權西路一段126號<br>
-							官方網站：<a href="http://www.tiramisu.com.tw/" target="_blank">有</a><br>
-							電話：04-23753318<br>
-							營業時間 / 價格： <br>
-							　10:00~20:00<br>
-							　25元起<br>
-							<div align="right">
-								<a href="guest.php?do=report&amp;rsn=269" target="_blank" class="smalla">店家資料錯誤回報</a>
-							</div>
-                      </td>
-                  </tr>
+							<td>
+								<c:if test="${not empty bean.contactName}">聯絡人：${bean.contactName}　聯絡人電話：${bean.contactPhone}<br></c:if>
+								<div align="right">
+									最後更新日期：${bean.shopDate}<br>
+									<a href="" target="_blank" class="smalla">店家資料錯誤回報</a>
+								</div>
+							</td>
+						</tr>
 					</c:forEach>
 				</table>
+				</div>
 			</c:if>
 			
-			
-			<ul class="pagination">
-<%-- 				<c:set value="1" target="${pageNo}" /> --%>
-<%-- 				<c:set value="1" target="${pages}" /> --%>
-<%-- 				<c:set value="10" target="${totalPages}" /> --%>
-			
-				<c:if test="${pageNo > 1}">
-					<li><a href="list.do?pageNo=${pageNo-1}">«</a></li>
-				</c:if>
-				<c:if test="${pageNo <= 1}">
-					<li class="disabled">«</li>
-				</c:if>
-				
-				<c:forEach items="${pages}" var="page">
-					<c:choose>
-						<c:when test="${page == pageNo}">
-							<li class="active"><a href="list.do?pageNo=${page}">${page}</a></li>
-						</c:when>
+			<!-- 這裡以下是顯示留言區 -->
+<%-- 			<c:if test="${not empty select}"> --%>
+<!-- 				<div class="container"> -->
+<!-- 				<table class="table table-hover"> -->
+<%-- 					<c:forEach var="bean" items="${select}" > --%>
+<!-- 						<tr> -->
+<!-- 							<td> -->
+<%-- 								<strong><font size="4">${bean.name}</font></strong> --%>
+<!-- 									<figure style="float: right;"> -->
+<%-- 										<c:if test="${not empty bean.shopPic}"> --%>
+<%-- 											<img src="${bean.shopPic}" width="100" border="0"> --%>
+<%-- 										</c:if> --%>
+<!-- 									</figure><br> -->
+<%-- 								類型：${bean.shopType.shopType}　店家狀態：${bean.shopStatusType.shopStatus}<br> --%>
+<%-- 								地址：<span id="address">${bean.shopAddress}</span><br> --%>
+<%-- 								電子信箱：${bean.email}<br> --%>
+<%--  								<c:if test="${not empty bean.web}"> --%>
+<%--  									官方網站：<a href="${bean.web}" target="_blank">有</a><br> --%>
+<%--  								</c:if> --%>
+<%--  								電話：${bean.phone}<br> --%>
+<%-- 								價格：${bean.price}　價位區間：${bean.priceType.priceType}<br> --%>
+<%-- 								<c:if test="${not empty bean.note}"> --%>
+<!-- 									<blockquote>店家備註<br> -->
+<%-- 										${bean.note}<br> --%>
+<!-- 									</blockquote> -->
+<%-- 								</c:if> --%>
+<!-- 							</td> -->
+<!-- 						</tr> -->
 						
-						<c:otherwise>
-							<li><a href="list.do?pageNo=${page}">${page}</a></li>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
+<!-- 						<tr> -->
+<!-- 							<td> -->
+<%-- 								<c:if test="${not empty bean.contactName}">聯絡人：${bean.contactName}　聯絡人電話：${bean.contactPhone}<br></c:if> --%>
+<!-- 								<div align="right"> -->
+<%-- 									最後更新日期：${bean.shopDate}<br> --%>
+<!-- 									<a href="guest.php?do=report&amp;rsn=269" target="_blank" class="smalla">店家資料錯誤回報</a> -->
+<!-- 								</div> -->
+<!-- 							</td> -->
+<!-- 						</tr> -->
+<%-- 					</c:forEach> --%>
+<!-- 				</table> -->
+<!-- 				</div> -->
 				
-				<c:if test="${pageNo < totalPages}">
-					<a href="list.do?pageNo=${pageNo+1}">»</a>
-				</c:if>
+<!-- 				<ul class="pagination"> -->
+			
+<%-- 				<c:if test="${pageNo > 1}"> --%>
+<%-- 					<li><a href="list.do?pageNo=${pageNo-1}">«</a></li> --%>
+<%-- 				</c:if> --%>
+<%-- 				<c:if test="${pageNo <= 1}"> --%>
+<!-- 					<li class="disabled">«</li> -->
+<%-- 				</c:if> --%>
 				
-				<c:if test="${pageNo < totalPages}">
-					<li><a href="list.do?pageNo=${pageNo+1}">»</a></li>
-				</c:if>
-				<c:if test="${pageNo >= totalPages}">
-					<li class="disabled">»</li>
-				</c:if>
-			</ul>
+<%-- 				<c:forEach items="${pages}" var="page"> --%>
+<%-- 					<c:choose> --%>
+<%-- 						<c:when test="${page == pageNo}"> --%>
+<%-- 							<li class="active"><a href="list.do?pageNo=${page}">${page}</a></li> --%>
+<%-- 						</c:when> --%>
+						
+<%-- 						<c:otherwise> --%>
+<%-- 							<li><a href="list.do?pageNo=${page}">${page}</a></li> --%>
+<%-- 						</c:otherwise> --%>
+<%-- 					</c:choose> --%>
+<%-- 				</c:forEach> --%>
+				
+<%-- 				<c:if test="${pageNo < totalPages}"> --%>
+<%-- 					<a href="list.do?pageNo=${pageNo+1}">»</a> --%>
+<%-- 				</c:if> --%>
+				
+<%-- 				<c:if test="${pageNo < totalPages}"> --%>
+<%-- 					<li><a href="list.do?pageNo=${pageNo+1}">»</a></li> --%>
+<%-- 				</c:if> --%>
+<%-- 				<c:if test="${pageNo >= totalPages}"> --%>
+<!-- 					<li class="disabled">»</li> -->
+<%-- 				</c:if> --%>
+<!-- 			</ul> -->
+				
+<%-- 			</c:if> --%>
 		</div>
 
 
