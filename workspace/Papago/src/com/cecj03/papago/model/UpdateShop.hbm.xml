@@ -6,7 +6,7 @@
  <class name="com.cecj03.papago.model.UpdateShop" table="UpdateShop">
   <id name="updateId" type="int">
    <column name="updateId"/>
-   <generator class="assigned"/>
+   <generator class="native"/>
   </id>
   <many-to-one class="com.cecj03.papago.model.PapaShop"
    fetch="select" name="papaShop" lazy="false">

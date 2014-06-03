@@ -83,13 +83,7 @@
 			 method="post">
 			<fieldset>
 				<legend>更改密碼</legend>
-				<div class="form-group">
-					<label for="inputPhone" class="col-sm-2 control-label">帳號</label>
-					<div class="col-sm-6">
-					<input type="text" id="disabledTextInput" class="form-control" placeholder="${user.account}" name="account" value="${user.account}" >
-					</div>
-				</div>
-
+					<input type="hidden" id="disabledTextInput" class="form-control" placeholder="${user.account}" name="account" value="${user.account}" >
 				<div class="form-group">
 					<label for="inputAddr" class="col-sm-2 control-label">舊密碼</label>
 					<div class="col-sm-6">

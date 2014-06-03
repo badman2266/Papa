@@ -81,7 +81,8 @@
 		<!-- subbar list 看自己需不需要-->
 		<div class="col-sm-3">
 			<ul class="nav nav-stacked nav-pills">
-				<li class="active text-success"><a href="#" style="text-align:center">商家系統</a></li>
+				<li class="active text-success"><a href="#"
+					style="text-align: center">商家系統</a></li>
 				<li><a href="Insert_shop.jsp">新增店家</a></li>
 				<li><a href="RUD_shop.jsp">查詢及刪除修改店家</a></li>
 			</ul>
@@ -90,165 +91,173 @@
 
 		<!--其他東西寫在這裡 -->
 		<div class="container">
-				<div class="container">
-					<form class="form-horizontal" role="form"
-						enctype="multipart/form-data" method="post"
-						action="<c:url value='/admin/shop/papashop.action'/>">
-						<button type="submit" name="papaAction" value="Select"
-							class="btn btn-default" >查詢所有店家資訊</button>
-						<fieldset>
-							<legend>修改及刪除店家</legend>
-							<div class="form-group">
-								<label for="inputName" class="col-sm-2 control-label">店家ID</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputName"
-										name="bean.shopId" placeholder="店家ID"
-										value="${param['bean.shopId']}">
-								</div>
+			<div class="container">
+				<form class="form-horizontal" role="form" method="get" 
+					action="<c:url value='/admin/shop/updateshop.controller'/>">
+					<button type="submit" name="production" value="Select"
+						class="btn btn-info">查詢回報店家資訊</button>
+				</form>
+				<form class="form-horizontal" role="form"
+					enctype="multipart/form-data" method="post"
+					action="<c:url value='/admin/shop/papashop.action'/>">
+					<button type="submit" name="papaAction" value="Select"
+						class="btn btn-default">查詢所有店家資訊</button>
+					<fieldset>
+						<legend>修改及刪除店家</legend>
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">店家ID</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputName"
+									name="bean.shopId" placeholder="店家ID"
+									value="${param['bean.shopId']}">
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="inputName" class="col-sm-2 control-label">店家名稱</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputName"
-										name="bean.name" placeholder="請輸入名稱"
-										value="${param['bean.name']}">
-								</div>
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">店家名稱</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputName"
+									name="bean.name" placeholder="請輸入名稱"
+									value="${param['bean.name']}">
 							</div>
-							<div class="form-group">
-								<label for="inputPhone" class="col-sm-2 control-label">店家電話</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputPhone"
-										name="bean.phone" placeholder="請輸入電話"
-										value="${param['bean.phone']}">
-								</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPhone" class="col-sm-2 control-label">店家電話</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputPhone"
+									name="bean.phone" placeholder="請輸入電話"
+									value="${param['bean.phone']}">
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="inputEmail" class="col-sm-2 control-label">店家E-Mail</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputEmail"
-										name="bean.email" placeholder="Email"
-										value="${param['bean.email']}">
-								</div>
+						<div class="form-group">
+							<label for="inputEmail" class="col-sm-2 control-label">店家E-Mail</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputEmail"
+									name="bean.email" placeholder="Email"
+									value="${param['bean.email']}">
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="inputAddr" class="col-sm-2 control-label">店家地址</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputAddr"
-										name="bean.shopAddress" placeholder="請輸入地址"
-										value="${param['bean.shopAddress']}">
-								</div>
+						<div class="form-group">
+							<label for="inputAddr" class="col-sm-2 control-label">店家地址</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputAddr"
+									name="bean.shopAddress" placeholder="請輸入地址"
+									value="${param['bean.shopAddress']}">
 							</div>
+						</div>
 
 
-							<div class="form-group">
-								<label for="inputName" class="col-sm-2 control-label">價位</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputName"
-										name="bean.price" placeholder="price"
-										value="${param['bean.price']}">
-								</div>
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">價位</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputName"
+									name="bean.price" placeholder="price"
+									value="${param['bean.price']}">
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="exampleInputFile" class="col-sm-2 control-label">店家圖片</label>
-								<div class="col-sm-6">
-									<input type="file" id="exampleInputFile" name="userImage"
-										size="40">
-									<p class="help-block">不得超過2MB</p>
-								</div>
+						<div class="form-group">
+							<label for="exampleInputFile" class="col-sm-2 control-label">店家圖片</label>
+							<div class="col-sm-6">
+								<input type="file" id="exampleInputFile" name="userImage"
+									size="40">
+								<p class="help-block">不得超過2MB</p>
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="inputName" class="col-sm-2 control-label">聯絡人</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputName"
-										name="bean.contactName" placeholder="選填" value="${param['bean.contactName']}">
-								</div>
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">聯絡人</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputName"
+									name="bean.contactName" placeholder="選填"
+									value="${param['bean.contactName']}">
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="inputName" class="col-sm-2 control-label">聯絡人電話</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputName"
-										name="bean.contactPhone" placeholder="選填" value="${param['bean.contactPhone']}">
-								</div>
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">聯絡人電話</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputName"
+									name="bean.contactPhone" placeholder="選填"
+									value="${param['bean.contactPhone']}">
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="inputName" class="col-sm-2 control-label">網站</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" id="inputName"
-										name="bean.web" placeholder="沒有則填無" value="${param['bean.web']}">
-								</div>
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">網站</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputName"
+									name="bean.web" placeholder="沒有則填無"
+									value="${param['bean.web']}">
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="select1" class="col-sm-2 control-label">營業狀態</label>
-								<div class="col-sm-6">
-									<select class="form-control" id="select1"
-										name="sst.shopstatusId">
-										<option value="1">營業中</option>
-										<option value="2">歇業</option>
-									</select>
-								</div>
+						<div class="form-group">
+							<label for="select1" class="col-sm-2 control-label">營業狀態</label>
+							<div class="col-sm-6">
+								<select class="form-control" id="select1"
+									name="sst.shopstatusId">
+									<option value="1">營業中</option>
+									<option value="2">歇業</option>
+								</select>
 							</div>
-							<div class="form-group">
-								<label for="select1" class="col-sm-2 control-label">餐廳類型</label>
-								<div class="col-sm-6">
-									<select class="form-control" id="select1" name="st.shoptypeId" >
-										<option value="1">素食</option>
-										<option value="2">速食店</option>
-										<option value="3">比薩</option>
-										<option value="4">飯</option>
-										<option value="5">麵</option>
-										<option value="6">糕點</option>
-										<option value="7">咖啡店</option>
-										<option value="8">自助餐</option>
-										<option value="9">小吃</option>
-										<option value="10">火鍋</option>
-										<option value="11">快炒</option>
-										<option value="12">甜點</option>
+						</div>
+						<div class="form-group">
+							<label for="select1" class="col-sm-2 control-label">餐廳類型</label>
+							<div class="col-sm-6">
+								<select class="form-control" id="select1" name="st.shoptypeId">
+									<option value="1">素食</option>
+									<option value="2">速食店</option>
+									<option value="3">比薩</option>
+									<option value="4">飯</option>
+									<option value="5">麵</option>
+									<option value="6">糕點</option>
+									<option value="7">咖啡店</option>
+									<option value="8">自助餐</option>
+									<option value="9">小吃</option>
+									<option value="10">火鍋</option>
+									<option value="11">快炒</option>
+									<option value="12">甜點</option>
 
-									</select>
-								</div>
+								</select>
 							</div>
-							<div class="form-group">
-								<label for="select1" class="col-sm-2 control-label">價位類型</label>
-								<div class="col-sm-6">
-									<select class="form-control" id="select1" name="pt.pricetypeId">
-										<option value="1">99元以下</option>
-										<option value="2">100元~199元</option>
-										<option value="3">200元~299元</option>
-										<option value="4">300元以上</option>
-									</select>
-								</div>
+						</div>
+						<div class="form-group">
+							<label for="select1" class="col-sm-2 control-label">價位類型</label>
+							<div class="col-sm-6">
+								<select class="form-control" id="select1" name="pt.pricetypeId">
+									<option value="1">99元以下</option>
+									<option value="2">100元~199元</option>
+									<option value="3">200元~299元</option>
+									<option value="4">300元以上</option>
+								</select>
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="note" class="col-sm-2 control-label">備註</label>
-								<div class="col-sm-6">
-									<textarea class="form-control" rows="3" id="note"
-										name="bean.note" placeholder="備註" >${param['bean.note']}</textarea>
-								</div>
+						<div class="form-group">
+							<label for="note" class="col-sm-2 control-label">備註</label>
+							<div class="col-sm-6">
+								<textarea class="form-control" rows="3" id="note"
+									name="bean.note" placeholder="備註">${param['bean.note']}</textarea>
 							</div>
+						</div>
 
-							<div class="form-group">
-								<div class="col-md-6 col-md-offset-2">
-									<button type="reset" value="Clear" class="btn btn-default">重設</button>
-									<button type="submit" name="papaAction" value="Delete"
-										class="btn btn-primary btn-danger">刪除</button>
-									<button type="submit" name="papaAction" value="Update"
-										class="btn btn-primary">修改</button>
-								</div>
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-2">
+								<button type="reset" value="Clear" class="btn btn-default">重設</button>
+								<button type="submit" name="papaAction" value="Delete"
+									class="btn btn-primary btn-danger">刪除</button>
+								<button type="submit" name="papaAction" value="Update"
+									class="btn btn-primary">修改</button>
 							</div>
-						</fieldset>
-					</form>
-				</div>
+						</div>
+					</fieldset>
+				</form>
 			</div>
 		</div>
+	</div>
 	<!-- footer -->
 	<footer>
 	<div class="container">
