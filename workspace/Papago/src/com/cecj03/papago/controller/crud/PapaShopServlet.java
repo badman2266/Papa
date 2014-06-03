@@ -15,6 +15,7 @@ import com.cecj03.papago.model.*;
 import com.cecj03.papago.model.crud.services.PapaShopService;
 import com.cecj03.papago.model.crud.services.PriceTypeService;
 import com.cecj03.papago.model.crud.services.ShopTypeService;
+import com.cecj03.papago.model.crud.services.benchenService;
 
 @WebServlet(
 		urlPatterns={"/shop/papashop.controller"}
@@ -28,7 +29,7 @@ public class PapaShopServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		PapaShopService service = (PapaShopService) context.getBean("PapaShopService");
-		
+		benchenService bcservice =(benchenService) context.getBean("benchenService");
 	// 接收資料
 		String cols1 = request.getParameter("shopId");
 		String name = request.getParameter("name");
@@ -45,7 +46,7 @@ public class PapaShopServlet extends HttpServlet {
 		String cols4 = request.getParameter("pricetypeId");
 		String production = request.getParameter("production");
 		String cols5 = request.getParameter("rsn");
-		
+		String msgContent = request.getParameter("msgContent");
 	// 驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("ErrorsMsg", errors);
@@ -110,6 +111,7 @@ public class PapaShopServlet extends HttpServlet {
 		
 	// 呼叫Model,根據Model執行結果導向View
 		PapaShop bean = new PapaShop();
+		PapaMsg msgbean= new PapaMsg();
 		ShopType typebean = new ShopType();
 		typebean.setShoptypeId(shoptypeId);
 		ShopStatusType statusbean = new ShopStatusType();
@@ -133,6 +135,8 @@ public class PapaShopServlet extends HttpServlet {
 		bean.setWeb(web);
 		bean.setNote(note);
 		bean.setPriceType(pricetypebean);
+		msgbean.setPapaShop(bean);
+		msgbean.setMsgContent(msgContent);
 		
 		if (production != null && production.equals("SelectPrice")) {
 			PriceTypeService pt = (PriceTypeService) context.getBean("PriceTypeService");
@@ -157,6 +161,8 @@ public class PapaShopServlet extends HttpServlet {
 		} else if (production != null && production.equals("Select")) {
 			List<PapaShop> result = service.select(bean);
 			session.setAttribute("select", result);
+			List<PapaMsg> messageresult = bcservice.showMessage(shopId);
+			session.setAttribute("msg", messageresult);
 //			request.setAttribute("select", result);
 			request.getRequestDispatcher("/shop/restaurant.jsp").forward(request, response);
 		} else if (production != null && production.equals("Insert")) {
@@ -184,6 +190,18 @@ public class PapaShopServlet extends HttpServlet {
 			 }
 		
 		request.getRequestDispatcher("/admin/shop/PapaShop.jsp").forward(request, response);
+		}else if(production != null && production.equals("writemessage")){
+			List<PapaShop> resultt = service.select(bean);
+			session.setAttribute("select", resultt);
+			
+			PapaMsg result = bcservice.writeMessage(msgbean);
+			 if(result != null){
+				 session.setAttribute("insert", result);
+			 }else{
+				 errors.put("action", "新增失敗！");
+			 }
+				String path = request.getContextPath();
+				response.sendRedirect(path+"/shop/papashop.controller?production=Select&shopId="+ shopId);
 		} else {
 			errors.put("action", "未知的功能" + production);
 			request.getRequestDispatcher("/admin/message/PapaShop.jsp").forward(request, response);

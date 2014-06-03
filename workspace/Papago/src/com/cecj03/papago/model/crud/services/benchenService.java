@@ -77,13 +77,18 @@ public class benchenService {
 		public List<PapaMsg> findShopMessage(int shopId) {
 			return papaMsgDao.selectByHQL("from PapaMsg where shopId = ?", shopId);
 		}
-		
+		public List<PapaMsg> showMessage(int shopId) {
+			List <PapaMsg> result = papaMsgDao.selectByHQL("from PapaMsg where shopId = ?", shopId);
+			
+			return result;
+		}
 		public PapaMsg writeMessage(PapaMsg bean) {
 			PapaMsg result = null;
 			PapaMem pm = new PapaMem();
 			PapaShop ps = new PapaShop();
-			pm.setMemId(papaMemDao.findById(2).getMemId());
-			ps.setShopId(papaShopDao.select(9).getShopId());
+			
+			pm.setMemId(papaMemDao.findById(2).getMemId());//這段目前寫死
+			ps.setShopId(bean.getPapaShop().getShopId());
 			if (bean != null) {
 				bean.setMsgDate(new java.sql.Timestamp(System.currentTimeMillis()));
 				bean.setPapaMem(pm);
@@ -93,6 +98,8 @@ public class benchenService {
 			}
 			return result;
 		}
-		
+		public boolean deleteMessage(int msgId){
+			return papaMsgDao.delete(msgId);
+		}
 		
 }

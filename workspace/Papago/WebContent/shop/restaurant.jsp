@@ -238,6 +238,51 @@
 
 
 	</div>
+		<!--  留言部分-->
+	
+	<h2>對這個店家留個言吧，目前尚有  ${fn:length(msg)} 篇留言。</h2>
+	<c:if test="${not empty msg}">
+	<ul class="list-group">
+	<c:forEach var="bean" items="${msg}">
+	<li class="list-group-item">
+				
+				<a href="#">
+					<img src="#" class="avatar">
+				</a>
+				<p class="name" >
+					<a href="">${bean.papaMem.name}</a>
+					<span class="date" ><fmt:formatDate value="${bean.msgDate}" pattern="yyyy/MM/dd EEEE" /></span>
+				</p>
+					<div class="content">${bean.msgContent}</div>
+						<!-- 刪除留言 -->
+						<form action="<c:url value="/shop/deletemessage.controller" />"method="post">
+									<input type="hidden" name="msgId" value="${bean.msgId}">
+							<c:if test="${not empty select}">
+								<c:forEach var="bean" items="${select}">
+									<input type="hidden" name="shopId" value="${bean.shopId}">
+								</c:forEach>
+							</c:if>
+									<button type="submit" name="production" value="deletemessage"
+									class="btn btn-danger">刪除</button>
+						</form>
+			<!-- /刪除留言 -->
+		</li>
+	</c:forEach>
+	</ul>
+	</c:if>
+	<!--insert留言 -->
+	<form action="<c:url value="/shop/papashop.controller" />"method="post">
+		<c:if test="${not empty select}">
+			<c:forEach var="bean" items="${select}">
+				<input type="hidden" name="shopId" value="${bean.shopId}">
+			</c:forEach>
+		</c:if>
+			<textarea name="msgContent" class="form-control" rows="3" title="留言" placeholder="留言..."></textarea><br>
+			<button type="submit" name="production" value="writemessage" class="btn btn-primary" >送出</button>
+	</form>
+	<!-- /insert留言 -->
+	<!--  / 留言部份-->
+	
 	<!-- / body container -->
 
 	<!-- footer -->
@@ -288,7 +333,5 @@
 		</div>
 	</div>
 	<!-- End Modal 按下去才會顯示的內容-->
-
-
 </body>
 </html>
