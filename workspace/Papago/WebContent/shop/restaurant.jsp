@@ -90,31 +90,30 @@
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
 				<!-- <li><a href="#">最新消息</a></li> -->
-				<li class="active"><a href="search.jsp">店家搜尋</a></li>
-				<li><a href="map.jsp">地圖搜尋</a></li>
-				<li><a href="../rank/rank.jsp">店家排行</a></li>
-				<li><a href="../recommend/recommend.jsp">店家推薦</a></li>
+				<li class="active"><a href='<c:url value="search.jsp" />'>店家搜尋</a></li>
+				<li><a href='<c:url value="map.jsp" />'>地圖搜尋</a></li>
+				<li><a href='<c:url value="../rank/rank.jsp" />'>店家排行</a></li>
+				<li><a href='<c:url value="../recommend/recommend.jsp" />'>店家推薦</a></li>
 			</ul>
 			</nav>
 		</div>
 		
 		<div class="container">
 			<ul class="breadcrumb" style="margin-bottom: 5px; font-size: 18pX;">
-				<li><a href="search.jsp">美食趴趴Go評價網</a></li>
+				<li><a href='<c:url value="search.jsp" />'>美食趴趴Go評價網</a></li>
 				<c:if test="${not empty select}">
 					<c:forEach var="bean" items="${select}" >
-						<li><a href="#">${bean.shopType.shopType}</a></li>
+						<li><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=${bean.shopType.shoptypeId}" />'>${bean.shopType.shopType}</a></li>
 						<li class="active">${bean.name}</li>
 					</c:forEach>
 				</c:if>
 			</ul>
 		</div>
 				
-		<div class="map" id="m1"></div>
-		
 		<div class="col-md-8">
 			<c:if test="${not empty select}">
 				<div class="container">
+				<div class="map" id="m1"></div>
 				<table class="table table-hover">
 					<c:forEach var="bean" items="${select}" >
 						<tr>
@@ -146,7 +145,7 @@
 								<c:if test="${not empty bean.contactName}">聯絡人：${bean.contactName}　聯絡人電話：${bean.contactPhone}<br></c:if>
 								<div align="right">
 									最後更新日期：${bean.shopDate}<br>
-									<a href="" target="_blank" class="smalla">店家資料錯誤回報</a>
+									<a href='<c:url value="" />' target="_blank" class="smalla">店家資料錯誤回報</a>
 								</div>
 							</td>
 						</tr>
@@ -154,7 +153,11 @@
 				</table>
 				</div>
 			</c:if>
-			
+			<!-- Button trigger modal 頁面按鈕-->
+			<button class="btn btn-info" data-toggle="modal"
+				data-target="#myModal">店家資訊回報</button>
+				
+				
 			<!-- 這裡以下是顯示留言區 -->
 <%-- 			<c:if test="${not empty select}"> --%>
 <!-- 				<div class="container"> -->
@@ -244,6 +247,48 @@
 	</div>
 	</footer>
 	<!--end of footer -->
+
+	<!-- Modal 按下去才會顯示的內容-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">回報店家資訊內容</h4>
+				</div>
+				<div class="modal-body">
+					<form action="<c:url value='/admin/shop/updateshop.controller'/>"
+						class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">店家ID</label>
+							<div class="col-sm-10">
+								<c:forEach var="bean" items="${select}" ><input type="text" value="${bean.shopId}" name="shopId" class="form-control"></c:forEach>
+							</div>
+						</div>	
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">會員ID</label>
+							<div class="col-sm-10">
+								<input type="text" value="${user.memId}" name="memId" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">店家更新回報內容</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" rows="5" name="updateContent"></textarea>
+							</div>
+						</div>
+						<!-- dialog buttons -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+							<button type="submit" name="production" value="Insert" class="btn btn-primary btn-success">確認回報</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Modal 按下去才會顯示的內容-->
+
 
 </body>
 </html>

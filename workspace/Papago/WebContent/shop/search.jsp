@@ -54,10 +54,10 @@
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
 				<!-- <li><a href="#">最新消息</a></li> -->
-				<li class="active"><a href="#">店家搜尋</a></li>
-				<li><a href="map.jsp">地圖搜尋</a></li>
-				<li><a href="../rank/rank.jsp">店家排行</a></li>
-				<li><a href="../recommend/recommend.jsp">店家推薦</a></li>
+				<li class="active"><a href='<c:url value="#" />'>店家搜尋</a></li>
+				<li><a href='<c:url value="map.jsp" />'>地圖搜尋</a></li>
+				<li><a href='<c:url value="../rank/rank.jsp" />'>店家排行</a></li>
+				<li><a href='<c:url value="../recommend/recommend.jsp" />'>店家推薦</a></li>
 			</ul>
 			</nav>
 		</div>
@@ -116,11 +116,11 @@
             <div id="menuBox-1" class="menuBox-bg-color-2">
             
 			<h4 class="text-success">關鍵字店家搜尋</h4>
-			<form class="form-inline" role="search" action="<c:url value="/shop/papashop.controller" />" method="GET">
+			<form class="form-inline" role="search" action='<c:url value="papashop.controller" />' method="GET">
 				<div class="form-group">
 					<label class="control-label">店家:</label>
-					<input type="text" name="name" class="form-control" placeholder="" size="10" maxlength="10" onfocus="this.value=''">
-					<button type="submit" class="btn btn-default" name="production" value="charSelect" onclick="if(this.form.name.value == '搜尋餐廳名稱' || this.form.name.value == ''){alert('請輸入要搜尋的店家名稱');return false;}">搜尋</button>
+					<input type="text" name="name" class="form-control" placeholder="搜尋店家名稱" size="10" maxlength="10" onfocus="this.value=''">
+					<button type="submit" class="btn btn-default" name="production" value="CharSelect" onclick="if(this.form.name.value == '搜尋店家名稱' || this.form.name.value == ''){alert('請輸入要搜尋的店家名稱');return false;}">搜尋</button>
 				</div>
 			</form>
             
@@ -144,13 +144,13 @@
 				<tbody>
 					<tr>
 						<td rowspan="2" class="text-center">價位</td>
-						<td><a href="#">99元以下</a></td>
-						<td><a href="#">100元~199元</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectPrice&pricetypeId=1" />'>99元以下</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectPrice&pricetypeId=2" />'>100元~199元</a></td>
 					</tr>
 					<tr>
 
-						<td><a href="#">200元~299元</a></td>
-						<td><a href="#">300元以上</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectPrice&pricetypeId=3" />'>200元~299元</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectPrice&pricetypeId=4" />'>300元以上</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -175,28 +175,28 @@
 				<tbody>
 					<tr>
 						<td rowspan="4" class="text-center">類型</td>
-						<td><a href="#">飯</a></td>
-						<td><a href="#">麵</a></td>
-						<td><a href="#">速食店</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=4" />'>飯</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=5" />'>麵</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=2" />'>速食店</a></td>
 					</tr>
 					<tr>
 
-						<td><a href="#">素食</a></td>
-						<td><a href="#">糕點</a></td>
-						<td><a href="#">咖啡店</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=1" />'>素食</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=6" />'>糕點</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=7" />'>咖啡店</a></td>
 					</tr>
 					<tr>
 
-						<td><a href="#">甜點</a></td>
-						<td><a href="#">小吃</a></td>
-						<td><a href="#">快炒</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=12" />'>甜點</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=9" />'>小吃</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=11" />'>快炒</a></td>
 					</tr>
 
 					<tr>
 
-						<td><a href="#">火鍋</a></td>
-						<td><a href="#">自助餐</a></td>
-						<td><a href="#">比薩</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=10" />'>火鍋</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=8" />'>自助餐</a></td>
+						<td><a href='<c:url value="papashop.controller?production=SelectType&shoptypeId=3" />'>比薩</a></td>
 					</tr>
 				</tbody>
 			</table>

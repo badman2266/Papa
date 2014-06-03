@@ -13,20 +13,21 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.cecj03.papago.model.*;
 import com.cecj03.papago.model.crud.services.PapaShopService;
+import com.cecj03.papago.model.crud.services.PriceTypeService;
+import com.cecj03.papago.model.crud.services.ShopTypeService;
 
 @WebServlet(
 		urlPatterns={"/shop/papashop.controller"}
 		)
 
 public class PapaShopServlet extends HttpServlet {
-	private PapaShopService service = new PapaShopService();
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
-		service = (PapaShopService) context.getBean("PapaShopService");
+		PapaShopService service = (PapaShopService) context.getBean("PapaShopService");
 		
 	// 接收資料
 		String cols1 = request.getParameter("shopId");
@@ -133,10 +134,25 @@ public class PapaShopServlet extends HttpServlet {
 		bean.setNote(note);
 		bean.setPriceType(pricetypebean);
 		
-		if (production != null && production.equals("charSelect")) {
+		if (production != null && production.equals("SelectPrice")) {
+			PriceTypeService pt = (PriceTypeService) context.getBean("PriceTypeService");
+			String temp = pt.select(pricetypebean).get(0).getPriceType();
+			List<PapaShop> result = service.selectPrice(pricetypeId);
+			session.setAttribute("shoplist", result);
+			session.setAttribute("searchtype", temp);
+			request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+		} else if (production != null && production.equals("SelectType")) {
+			ShopTypeService st = (ShopTypeService) context.getBean("ShopTypeService");
+			String temp = st.select(typebean).get(0).getShopType();
+			List<PapaShop> result = service.selectType(shoptypeId);
+			session.setAttribute("shoplist", result);
+			session.setAttribute("searchtype", temp);
+			request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+		} else if (production != null && production.equals("CharSelect")) {
 			List<PapaShop> result = service.like(name);
 			session.setAttribute("shoplist", result);
-//			request.setAttribute("select", result);
+//			session.setAttribute("searchtype", "charselect");
+			request.setAttribute("select", result);
 			request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
 		} else if (production != null && production.equals("Select")) {
 			List<PapaShop> result = service.select(bean);

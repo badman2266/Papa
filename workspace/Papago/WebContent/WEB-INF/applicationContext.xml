@@ -192,11 +192,11 @@
 <!-- 			<ref bean="ShopStatusTypeDao" /> -->
 <!-- 		</property> -->
 <!-- 	</bean> -->
-<!-- 	<bean id="ShopTypeService" class="com.cecj03.papago.model.crud.services.ShopTypeService"> -->
-<!-- 		<property name="dao"> -->
-<!-- 			<ref bean="ShopTypeDao" /> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
+	<bean id="ShopTypeService" class="com.cecj03.papago.model.crud.services.ShopTypeService">
+		<property name="dao">
+			<ref bean="ShopTypeDao" />
+		</property>
+	</bean>
 	<bean id="UpdateShopService" class="com.cecj03.papago.model.crud.services.UpdateShopService">
 		<property name="dao">
 			<ref bean="UpdateShopDao" />

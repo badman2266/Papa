@@ -46,6 +46,20 @@ public class PapaShopService extends GenericCrudService<PapaShop>{
 	}
 	
 	@Transactional
+	public List<PapaShop> selectPrice(int pricetypeId) {
+		List <PapaShop> result = null;
+		result = dao.selectByHQL("from PapaShop where pricetypeId = ?", pricetypeId);
+		return result;
+	}
+	
+	@Transactional
+	public List<PapaShop> selectType(int shoptypeId) {
+		List <PapaShop> result = null;
+		result = dao.selectByHQL("from PapaShop where shoptypeId = ?", shoptypeId);
+		return result;
+	}
+	
+	@Transactional
 	public PapaShop insertShop(PapaShop bean) {
 		PapaShop result = dao.insert(bean);
 		if(result!=null) {
