@@ -77,7 +77,7 @@ public class PriceTypeServlet extends HttpServlet {
 		if (production != null && production.equals("Select")) {
 			List<PriceType> result = service.select(bean);
 			session.setAttribute("select", result);
-			request.getRequestDispatcher("/admin/shop/display.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/shop/DisplayPriceType.jsp").forward(request, response);
 		} else if (production != null && production.equals("Insert")) {
 			 PriceType result = service.insert(bean);
 			 if (result != null) {
