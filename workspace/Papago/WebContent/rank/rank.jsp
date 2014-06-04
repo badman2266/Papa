@@ -84,40 +84,40 @@
 			<table class="table table-striped table-hover ">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>Column heading</th>
-						<th>Column heading</th>
-						<th>Column heading</th>
+						<th>本週</th>
+						<th>上週</th>
+						<th>店家名稱</th>
+						<th>店家評分</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>1</td>
-						<td>Column content</td>
+						<td><span class="glyphicon glyphicon-star"></span>1</td>
+						<td><a href=""></a></td>
 						<td>Column content</td>
 						<td>Column content</td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>Column content</td>
+						<td><a href=""></a></td>
 						<td>Column content</td>
 						<td>Column content</td>
 					</tr>
 					<tr>
 						<td>3</td>
-						<td>Column content</td>
+						<td><a href=""></a></td>
 						<td>Column content</td>
 						<td>Column content</td>
 					</tr>
 					<tr>
 						<td>4</td>
-						<td>Column content</td>
+						<td><a href=""></a></td>
 						<td>Column content</td>
 						<td>Column content</td>
 					</tr>
 					<tr>
 						<td>5</td>
-						<td>Column content</td>
+						<td><a href=""></a></td>
 						<td>Column content</td>
 						<td>Column content</td>
 					</tr>
