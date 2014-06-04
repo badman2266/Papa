@@ -64,18 +64,22 @@
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
 				<!-- <li><a href="#">最新消息</a></li> -->
-				<li><a href="search.jsp">店家搜尋</a></li>
-				<li><a href="map.jsp">地圖搜尋</a></li>
-				<li><a href="../rank/rank.jsp">店家排行</a></li>
-				<li><a href="../recommend/recommend.jsp">店家推薦</a></li>
+				<li><a href='<c:url value="search.jsp" />'>店家搜尋</a></li>
+				<li><a href='<c:url value="map.jsp" />'>地圖搜尋</a></li>
+				<li><a href='<c:url value="../rank/rank.jsp" />'>店家排行</a></li>
+				<li><a href='<c:url value="../recommend/recommend.jsp" />'>店家推薦</a></li>
 			</ul>
 			</nav>
 		</div>
 		
 		<div class="container">
 			<ul class="breadcrumb" style="margin-bottom: 5px; font-size: 18pX;">
-				<li><a href="search.jsp">美食趴趴Go評價網</a></li>
-				<li class="active"><fmt:message bundle="${message}" key="shoplist"/></li>
+				<li><a href='<c:url value="search.jsp" />'>美食趴趴Go評價網</a></li>
+				<li><a href='<c:url value="search.jsp" />'><fmt:message bundle="${message}" key="shoplist"/></a></li>
+				<c:if test="${not empty searchtype}">
+					<li class="active">${searchtype}</li>
+				</c:if>
+				
 			</ul>
 		</div>
 		
@@ -86,9 +90,9 @@
 					<c:forEach var="bean" items="${shoplist}" >
 						<tr>
 							<td bgcolor="#F4F4F4">
-								<strong><a href="papashop.controller?production=Select&shopId=${bean.shopId}"><font size="4">${bean.name}</font></a></strong><br>
+								<strong><a href='<c:url value="papashop.controller?production=Select&shopId=${bean.shopId}" />'><font size="4">${bean.name}</font></a></strong><br>
 								類型：${bean.shopType.shopType}　價格：${bean.price}<br>
-								<span class="text-right"><a href="papashop.controller?production=Select&shopId=${bean.shopId}"><font color="#0000FF">更多【${bean.name}】的資料</font></a></span><br>
+								<span class="text-right"><a href='<c:url value="papashop.controller?production=Select&shopId=${bean.shopId}" />'><font color="#0000FF">更多【${bean.name}】的資料</font></a></span><br>
 <!-- 								<blockquote>最新食記<br> -->
 <!-- 									巧克力以及原味泡芙差別只在外酥皮的口味　內餡都是一樣的,基本上酥皮是吃不太出來有巧克力的味道　味覺很敏捷的人就另當別論了！！一盒總共有２０顆小泡芙　　大小與豆酥朋差不多<br> -->
 <!-- 								</blockquote> -->
@@ -107,26 +111,7 @@
 <%-- 								${bean.priceType.priceType} --%>
 							</td>
 						</tr>
-							
-<!-- 							<tr> -->
-<!-- 								<td> -->
-<!-- 									<strong><a href="restaurant.php?rsn=269"><font size="4">提拉米蘇精緻蛋糕 - 台中店</font></a></strong> -->
-<!-- 									<a href="JavaScript:ShowLogin();"><img src="images/11.png" width="108" height="21" border="0" align="absmiddle"></a> -->
-<!-- 									<br> -->
-<%-- 									類型：${bean.shopType.shopType}　價格：${bean.price}<br> --%>
-<%-- 									<span class="label label-primary"><a href="restaurant.php?rsn=269"><font color="#0000FF">更多【${bean.name}】的資料</font></a></span> --%>
-<!-- 									<span class="label label-default"> -->
-<!-- 										最新食記<br> -->
-<!-- 										巧克力以及原味泡芙差別只在外酥皮的口味　內餡都是一樣的,基本上酥皮是吃不太出來有巧克力的味道　味覺很敏捷的人就另當別論了！！一盒總共有２０顆小泡芙　　大小與豆酥朋差不多<br> -->
-<!-- 									</span> -->
-									
-<!-- 									<span class="bg1"> -->
-<!-- 										09-08-01 <a href="http://www.wretch.cc/blog/r5951817/12662471" target="_blank"> [台中] 花蓮提拉米蘇PART2</a><br> -->
-<!-- 										摘錄自 <a href="http://www.wretch.cc/blog/r5951817/12662471" target="_blank">小丸子吃喝玩樂篇!!</a> -->
-<!-- 									</span> -->
-<!-- 								</td> -->
-<!-- 							</tr> -->
-						</c:forEach>
+					</c:forEach>
 				</table>
 			</c:if>
 		</div>

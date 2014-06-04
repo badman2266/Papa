@@ -7,7 +7,6 @@ import com.cecj03.papago.model.PapaMem;
 import com.cecj03.papago.model.PapaRec;
 import com.cecj03.papago.model.ShopType;
 import com.cecj03.papago.model.dao.GenericDao;
-import com.cecj03.papago.model.dao.PapaRecDao;
 
 public class PapaRecService extends GenericCrudService<PapaRec> {
 
