@@ -31,13 +31,13 @@
 	<package name="login" namespace="/login" extends="struts-default">
 		<action name="login" class="LoginAction">
 			<result name="input" type="dispatcher">/login/login.jsp</result>
-			<result name="success" type="redirect">/enter.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
 			<result name="adminSuccess" type="redirect">/admin/inform/news.jsp
 			</result>
 		</action>
 		<action name="logout" class="LoginAction" method="logout">
 			<result name="success" type="redirect">/login/login.jsp</result>
-			<result name="input" type="dispatcher">/enter.jsp</result>
+			<result name="input" type="dispatcher">/index.jsp</result>
 		</action>
 	</package>
 
@@ -45,7 +45,7 @@
 	<package name="ChangePwd" namespace="/account" extends="struts-default">
 		<action name="changpwd" class="ChangePwdAction">
 			<result name="input" type="dispatcher">/account/password.jsp</result>
-			<result name="success" type="redirect">/enter.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
 		</action>
 	</package>
 

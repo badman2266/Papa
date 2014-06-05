@@ -27,7 +27,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">美食趴趴Go評價網</a>
+			<a class="navbar-brand" href="../index.jsp">美食趴趴Go評價網</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,12 +37,16 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">${user.account}會員<b class="caret"></b></a>
+					data-toggle="dropdown">${user.account}${user.memType.memType}<b
+						class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">會員設定</a></li>
-						<li><a href="#">更改密碼</a></li>
+						<li><a href="password.jsp">更改密碼</a></li>
+						<c:set value="${user.memType.memtypeId}" var="admin"></c:set>
+						<c:if test="${admin==2}">
+							<li><a href="../admin/inform/news.jsp" target="_blank">管理頁面</a></li>
+						</c:if>
 						<li class="divider"></li>
-						<li><a href="#">登出</a></li>
+						<li><a href="<c:url value='/login/logout.action'/>">登出</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -65,25 +69,33 @@
 		<div class="container">
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
-				<!-- <li><a href="#">最新消息</a></li> -->
-				<li><a href="#">商家搜尋</a></li>
-				<li class="active"><a href="#">地圖搜尋</a></li>
-				<li><a href="#">商家排行</a></li>
-				<li><a href="#">店家推薦</a></li>
+				<li><a href="../shop/search.jsp">商家搜尋</a></li>
+				<li><a href="../shop/map.jsp">地圖搜尋</a></li>
+				<!-- <li><a href="#">商家排行</a></li>-->
+				<li><a href="../recommend/recommend.jsp">店家推薦</a></li>
 			</ul>
 			</nav>
 		</div>
-		
+
 
 	</div>
 	<!-- / body container -->
 	<div class="container">
 		<form class="form-horizontal" role="form"
-			action="<c:url value='/account/changpwd.action'/>"
-			 method="post">
+			action="<c:url value='/account/changpwd.action'/>" method="post">
 			<fieldset>
 				<legend>更改密碼</legend>
-					<input type="hidden" id="disabledTextInput" class="form-control" placeholder="${user.account}" name="account" value="${user.account}" >
+				<div class="form-group">
+					<label for="inputAddr" class="col-sm-2 control-label">會員帳號</label>
+					<div class="col-sm-6">
+						<p class="form-control-static">
+							<input type="text" id="disabledTextInput" class="form-control"
+								placeholder="${user.account}" name="account"
+								value="${user.account}">
+						</p>
+					</div>
+				</div>
+
 				<div class="form-group">
 					<label for="inputAddr" class="col-sm-2 control-label">舊密碼</label>
 					<div class="col-sm-6">
@@ -106,7 +118,9 @@
 						<button type="submit" class="btn btn-primary" name="crudAction"
 							value="Change">Submit</button>
 					</div>
-					<div class="text-center alert"><p style="color:red">${errors.changepwd[0]}</p></div>
+					<div class="text-center alert">
+						<p style="color: red">${errors.changepwd[0]}</p>
+					</div>
 				</div>
 			</fieldset>
 		</form>
@@ -116,7 +130,7 @@
 	<!-- footer -->
 	<footer>
 	<div class="container">
-		<p class="pull-right">&copy; PaPaGo Team</p>
+		<p class="pull-right">&copy; Copyright 2013-2014 PaPaGo 美食團隊</p>
 	</div>
 	</footer>
 	<!--end of footer -->

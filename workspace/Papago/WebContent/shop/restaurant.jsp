@@ -51,7 +51,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">美食趴趴Go評價網</a>
+			<a class="navbar-brand" href="../index.jsp">美食趴趴Go評價網</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,12 +61,15 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">會員<b class="caret"></b></a>
+					data-toggle="dropdown">${user.account}${user.memType.memType}<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">會員設定</a></li>
-						<li><a href="#">更改密碼</a></li>
+						<li><a href="../account/password.jsp">更改密碼</a></li>
+						<c:set value="${user.memType.memtypeId}" var="admin"></c:set>
+						<c:if test="${admin==2}">
+							<li><a href="../admin/inform/news.jsp" target="_blank">管理頁面</a></li>
+						</c:if>
 						<li class="divider"></li>
-						<li><a href="#">登出</a></li>
+						<li><a href="<c:url value='/login/logout.action'/>">登出</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -92,7 +95,7 @@
 				<!-- <li><a href="#">最新消息</a></li> -->
 				<li class="active"><a href='<c:url value="search.jsp" />'>店家搜尋</a></li>
 				<li><a href='<c:url value="map.jsp" />'>地圖搜尋</a></li>
-				<li><a href='<c:url value="../rank/rank.jsp" />'>店家排行</a></li>
+				<!-- <li><a href="../rank/rank.jsp">商家排行</a></li>-->
 				<li><a href='<c:url value="../recommend/recommend.jsp" />'>店家推薦</a></li>
 			</ul>
 			</nav>
