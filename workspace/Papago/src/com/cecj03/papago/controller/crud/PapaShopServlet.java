@@ -44,9 +44,14 @@ public class PapaShopServlet extends HttpServlet {
 		String web = request.getParameter("web");
 		String note = request.getParameter("note");
 		String cols4 = request.getParameter("pricetypeId");
-		String production = request.getParameter("production");
-		String cols5 = request.getParameter("rsn");
 		String msgContent = request.getParameter("msgContent");
+		String randshop = request.getParameter("randshop");
+//		String[] choosetype = request.getParameterValues("choosetype");
+//		String[] optprice = request.getParameterValues("optprice");
+		String cols5 = request.getParameter("choosetype");
+		String cols6 = request.getParameter("optprice");
+		String production = request.getParameter("production");
+		
 	// 驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("ErrorsMsg", errors);
@@ -104,11 +109,27 @@ public class PapaShopServlet extends HttpServlet {
 			}
 		}
 		
+		int choosetype = 0;
+		if (cols5 != null && cols5.trim().length() != 0) {		
+			choosetype = service.convertInt(cols5);
+			if (choosetype == -1000) {
+				errors.put("chooseErr", "未預期的錯誤！");
+			}
+		}
+		
+		int optprice = 0;
+		if (cols6 != null && cols6.trim().length() != 0) {		
+			optprice = service.convertInt(cols6);
+			if (optprice == -1000) {
+				errors.put("chooseErr", "未預期的錯誤！");
+			}
+		}
+		
 		if (errors != null && !errors.isEmpty()) {
 			request.getRequestDispatcher("/admin/shop/InsertShop.jsp").forward(request, response);
 			return;
 		}
-		
+				
 	// 呼叫Model,根據Model執行結果導向View
 		PapaShop bean = new PapaShop();
 		PapaMsg msgbean= new PapaMsg();
@@ -138,7 +159,86 @@ public class PapaShopServlet extends HttpServlet {
 		msgbean.setPapaShop(bean);
 		msgbean.setMsgContent(msgContent);
 		
-		if (production != null && production.equals("SelectPrice")) {
+		
+		if (production != null && production.equals("RecMe")) {
+			ShopTypeService st0 = (ShopTypeService) context.getBean("ShopTypeService");
+			PriceTypeService pt0 = (PriceTypeService) context.getBean("PriceTypeService");
+						
+//			for (String stp : choosetype) {
+//			System.out.println(stp);
+//		}
+//		for (String ptp : optprice) {
+//			System.out.println(ptp);
+//		}
+//			System.out.println(choosetype);
+//			System.out.println(optprice);
+//			System.out.println(randshop);
+			
+			if (randshop != null && randshop.length() != 0 && randshop.equals("rndd")) {
+				// randshop = true
+				if (choosetype == 200 && optprice == 200) {
+					// Random All
+					List<PapaShop> temp = service.select(null);
+					List<PapaShop> result = service.giveRand(temp);
+					session.setAttribute("shoplist", result);
+					request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+				} else if (choosetype != 200) {
+					// ShopType Selected (Random)
+					typebean.setShoptypeId(choosetype);
+					String ss = st0.select(typebean).get(0).getShopType();
+					List<PapaShop> temp = service.selectType(choosetype);
+					List<PapaShop> result = service.giveRand(temp);
+					session.setAttribute("shoplist", result);
+					session.setAttribute("searchtype", ss);
+					request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+				} else if (optprice != 200) {
+					// PriceType Selected (Random)
+					pricetypebean.setPricetypeId(optprice);
+					String pp = pt0.select(pricetypebean).get(0).getPriceType();
+					List<PapaShop> temp = service.selectPrice(optprice);
+					List<PapaShop> result = service.giveRand(temp);
+					session.setAttribute("shoplist", result);
+					session.setAttribute("searchtype", pp);
+					request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+				}
+			} else {
+				// randshop = false
+				if (choosetype != 200 && optprice != 200) {
+					// 將choosetype丟進typebean(ShopType實體)物件，然後使用該物件將店家型別找出。
+					typebean.setShoptypeId(choosetype);
+					String ss = st0.select(typebean).get(0).getShopType();
+					
+					// 將optprice丟進pricetypebean(PriceType實體)物件，然後使用該物件將價位型別找出。
+					pricetypebean.setPricetypeId(optprice);
+					String pp = pt0.select(pricetypebean).get(0).getPriceType();
+					
+					List<PapaShop> result = service.selectShopPrice(choosetype, optprice);
+					session.setAttribute("shoplist", result);
+					session.setAttribute("searchtype", ss + " - " + pp);
+					request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+				} else if (choosetype != 200) {
+					// ShopType Selected (Nomal)
+					typebean.setShoptypeId(choosetype);
+					String ss = st0.select(typebean).get(0).getShopType();
+					
+					List<PapaShop> result = service.selectType(choosetype);
+					
+					session.setAttribute("shoplist", result);
+					session.setAttribute("searchtype", ss);
+					request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+				} else if (optprice != 200) {
+					// PriceType Selected (Nomal)
+					pricetypebean.setPricetypeId(optprice);
+					String pp = pt0.select(pricetypebean).get(0).getPriceType();
+					
+					List<PapaShop> result = service.selectPrice(optprice);
+					
+					session.setAttribute("shoplist", result);
+					session.setAttribute("searchtype", pp);
+					request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
+				}
+			}
+		} else if (production != null && production.equals("SelectPrice")) {
 			PriceTypeService pt = (PriceTypeService) context.getBean("PriceTypeService");
 			String temp = pt.select(pricetypebean).get(0).getPriceType();
 			List<PapaShop> result = service.selectPrice(pricetypeId);
