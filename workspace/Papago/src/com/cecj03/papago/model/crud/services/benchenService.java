@@ -87,7 +87,7 @@ public class benchenService {
 			PapaMem pm = new PapaMem();
 			PapaShop ps = new PapaShop();
 			
-			pm.setMemId(papaMemDao.findById(3).getMemId());//這段目前寫死
+			pm.setMemId(bean.getPapaMem().getMemId());
 			ps.setShopId(bean.getPapaShop().getShopId());
 			if (bean != null) {
 				bean.setMsgDate(new java.sql.Timestamp(System.currentTimeMillis()));

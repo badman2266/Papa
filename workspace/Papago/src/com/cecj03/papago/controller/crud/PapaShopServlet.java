@@ -47,6 +47,7 @@ public class PapaShopServlet extends HttpServlet {
 		String production = request.getParameter("production");
 		String cols5 = request.getParameter("rsn");
 		String msgContent = request.getParameter("msgContent");
+		
 	// 驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("ErrorsMsg", errors);
@@ -112,6 +113,7 @@ public class PapaShopServlet extends HttpServlet {
 	// 呼叫Model,根據Model執行結果導向View
 		PapaShop bean = new PapaShop();
 		PapaMsg msgbean= new PapaMsg();
+		PapaMem membean= new PapaMem();
 		ShopType typebean = new ShopType();
 		typebean.setShoptypeId(shoptypeId);
 		ShopStatusType statusbean = new ShopStatusType();
@@ -119,7 +121,7 @@ public class PapaShopServlet extends HttpServlet {
 		PriceType pricetypebean = new PriceType();
 		pricetypebean.setPricetypeId(pricetypeId);
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
-		
+		membean.setMemId(3);
 		bean.setShopId(shopId);
 		bean.setName(name);
 		bean.setPhone(phone);
@@ -137,7 +139,7 @@ public class PapaShopServlet extends HttpServlet {
 		bean.setPriceType(pricetypebean);
 		msgbean.setPapaShop(bean);
 		msgbean.setMsgContent(msgContent);
-		
+		msgbean.setPapaMem(membean);
 		if (production != null && production.equals("SelectPrice")) {
 			PriceTypeService pt = (PriceTypeService) context.getBean("PriceTypeService");
 			String temp = pt.select(pricetypebean).get(0).getPriceType();
