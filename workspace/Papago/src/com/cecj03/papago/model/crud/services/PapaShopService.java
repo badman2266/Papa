@@ -37,6 +37,18 @@ public class PapaShopService extends GenericCrudService<PapaShop>{
 	}
 	
 	@Transactional
+	public List<PapaShop> giveRand(List<PapaShop> temp) {
+		List<PapaShop> result = new ArrayList<PapaShop>(); 
+			try {
+				int num = (int)(Math.random() * temp.size());
+				result.add(temp.get(num));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return result;
+	}
+	
+	@Transactional
 	public List<PapaShop> like(String name) {
 		List <PapaShop> result = null;
 		if (name != null && name.length() != 0) {
@@ -56,6 +68,13 @@ public class PapaShopService extends GenericCrudService<PapaShop>{
 	public List<PapaShop> selectType(int shoptypeId) {
 		List <PapaShop> result = null;
 		result = dao.selectByHQL("from PapaShop where shoptypeId = ?", shoptypeId);
+		return result;
+	}
+	
+	@Transactional
+	public List<PapaShop> selectShopPrice(int shoptypeId, int pricetypeId) {
+		List <PapaShop> result = null;
+		result = dao.selectByHQL("from PapaShop where shoptypeId = ? and pricetypeId = ?", shoptypeId, pricetypeId);
 		return result;
 	}
 	
