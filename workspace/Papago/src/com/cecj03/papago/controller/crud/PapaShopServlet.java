@@ -46,8 +46,6 @@ public class PapaShopServlet extends HttpServlet {
 		String cols4 = request.getParameter("pricetypeId");
 		String msgContent = request.getParameter("msgContent");
 		String randshop = request.getParameter("randshop");
-//		String[] choosetype = request.getParameterValues("choosetype");
-//		String[] optprice = request.getParameterValues("optprice");
 		String cols5 = request.getParameter("choosetype");
 		String cols6 = request.getParameter("optprice");
 		String production = request.getParameter("production");
@@ -163,16 +161,6 @@ public class PapaShopServlet extends HttpServlet {
 		if (production != null && production.equals("RecMe")) {
 			ShopTypeService st0 = (ShopTypeService) context.getBean("ShopTypeService");
 			PriceTypeService pt0 = (PriceTypeService) context.getBean("PriceTypeService");
-						
-//			for (String stp : choosetype) {
-//			System.out.println(stp);
-//		}
-//		for (String ptp : optprice) {
-//			System.out.println(ptp);
-//		}
-//			System.out.println(choosetype);
-//			System.out.println(optprice);
-//			System.out.println(randshop);
 			
 			if (randshop != null && randshop.length() != 0 && randshop.equals("rndd")) {
 				// randshop = true
@@ -255,7 +243,6 @@ public class PapaShopServlet extends HttpServlet {
 		} else if (production != null && production.equals("CharSelect")) {
 			List<PapaShop> result = service.like(name);
 			session.setAttribute("shoplist", result);
-//			session.setAttribute("searchtype", "charselect");
 			request.setAttribute("select", result);
 			request.getRequestDispatcher("/shop/list.jsp").forward(request, response);
 		} else if (production != null && production.equals("Select")) {
@@ -263,7 +250,6 @@ public class PapaShopServlet extends HttpServlet {
 			session.setAttribute("select", result);
 			List<PapaMsg> messageresult = bcservice.showMessage(shopId);
 			session.setAttribute("msg", messageresult);
-//			request.setAttribute("select", result);
 			request.getRequestDispatcher("/shop/restaurant.jsp").forward(request, response);
 		} else if (production != null && production.equals("Insert")) {
 			 PapaShop result = service.insertShop(bean);
