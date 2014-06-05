@@ -45,13 +45,11 @@ public class PapaShopServlet extends HttpServlet {
 		String note = request.getParameter("note");
 		String cols4 = request.getParameter("pricetypeId");
 		String msgContent = request.getParameter("msgContent");
-<<<<<<< HEAD
-=======
 		String randshop = request.getParameter("randshop");
 		String cols5 = request.getParameter("choosetype");
 		String cols6 = request.getParameter("optprice");
+		String cols7 = request.getParameter("memId");
 		String production = request.getParameter("production");
->>>>>>> e81be6ab150e3c01edf0185faa418c6aeaf40e5a
 		
 	// 驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
@@ -125,7 +123,13 @@ public class PapaShopServlet extends HttpServlet {
 				errors.put("chooseErr", "未預期的錯誤！");
 			}
 		}
-		
+		int memId = 0;
+		if (cols7 != null && cols7.trim().length() != 0) {		
+			memId = service.convertInt(cols7);
+			if (memId == -1000) {
+				
+			}
+		}
 		if (errors != null && !errors.isEmpty()) {
 			request.getRequestDispatcher("/admin/shop/InsertShop.jsp").forward(request, response);
 			return;
@@ -136,13 +140,13 @@ public class PapaShopServlet extends HttpServlet {
 		PapaMsg msgbean= new PapaMsg();
 		PapaMem membean= new PapaMem();
 		ShopType typebean = new ShopType();
+		membean.setMemId(memId);
 		typebean.setShoptypeId(shoptypeId);
 		ShopStatusType statusbean = new ShopStatusType();
 		statusbean.setShopstatusId(shopstatusId);
 		PriceType pricetypebean = new PriceType();
 		pricetypebean.setPricetypeId(pricetypeId);
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
-		membean.setMemId(3);
 		bean.setShopId(shopId);
 		bean.setName(name);
 		bean.setPhone(phone);
@@ -160,11 +164,7 @@ public class PapaShopServlet extends HttpServlet {
 		bean.setPriceType(pricetypebean);
 		msgbean.setPapaShop(bean);
 		msgbean.setMsgContent(msgContent);
-<<<<<<< HEAD
 		msgbean.setPapaMem(membean);
-		if (production != null && production.equals("SelectPrice")) {
-=======
-		
 		
 		if (production != null && production.equals("RecMe")) {
 			ShopTypeService st0 = (ShopTypeService) context.getBean("ShopTypeService");
@@ -235,7 +235,6 @@ public class PapaShopServlet extends HttpServlet {
 				}
 			}
 		} else if (production != null && production.equals("SelectPrice")) {
->>>>>>> e81be6ab150e3c01edf0185faa418c6aeaf40e5a
 			PriceTypeService pt = (PriceTypeService) context.getBean("PriceTypeService");
 			String temp = pt.select(pricetypebean).get(0).getPriceType();
 			List<PapaShop> result = service.selectPrice(pricetypeId);
