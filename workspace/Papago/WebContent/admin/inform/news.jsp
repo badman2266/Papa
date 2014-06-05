@@ -68,7 +68,7 @@
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
 				<!-- <li><a href="#">最新消息</a></li> -->
-				<li class="active"><a href="#">訊息通知</a></li>
+				<li class="active"><a href="#">主頁面</a></li>
 				<li ><a href="#">會員系統</a></li>
 				<li ><a href="#">商家系統</a></li>
 				<li ><a href="#">排名系統</a></li>
@@ -79,11 +79,13 @@
 
 		<!-- subbar list 看自己需不需要-->
 		<div class="col-sm-3">
-			<ul class="nav nav-tabs nav-stacked navbar-default">
-				<li class="active text-success"><a href="#">ABCD</a></li>
-				<li><a href="#">ABCD</a></li>
-				<li><a href="#">ABCD</a></li>
-				<li><a href="#">ABCD</a></li>
+			<ul class="nav nav-stacked nav-pills">
+				<li class="active text-success"><a href="#" style="text-align:center">商家系統</a></li>
+				<li><a href="Insert_shop.jsp">新增店家</a></li>
+				<li><a href="RUD_shop.jsp">查詢及刪除修改店家</a></li>
+				<li class="active text-success"><a href="#" style="text-align:center">會員系統</a></li>
+				<li><a href="Insert_shop.jsp">新增會員</a></li>
+				<li><a href="RUD_shop.jsp">查詢修改及刪除會員</a></li>
 			</ul>
 		</div>
 		<!--end of subbar list -->
