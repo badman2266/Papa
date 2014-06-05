@@ -56,7 +56,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">美食趴趴Go評價網</a>
+			<a class="navbar-brand" href="../index.jsp">美食趴趴Go評價網</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,12 +66,15 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">會員<b class="caret"></b></a>
+					data-toggle="dropdown">${user.account}${user.memType.memType}<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">會員設定</a></li>
-						<li><a href="#">更改密碼</a></li>
+						<li><a href="../account/password.jsp">更改密碼</a></li>
+						<c:set value="${user.memType.memtypeId}" var="admin"></c:set>
+						<c:if test="${admin==2}">
+							<li><a href="../admin/inform/news.jsp" target="_blank">管理頁面</a></li>
+						</c:if>
 						<li class="divider"></li>
-						<li><a href="#">登出</a></li>
+						<li><a href="<c:url value='/login/logout.action'/>">登出</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -97,7 +100,7 @@
 				<!-- <li><a href="#">最新消息</a></li> -->
 				<li class="active"><a href='<c:url value="search.jsp" />'>店家搜尋</a></li>
 				<li><a href='<c:url value="map.jsp" />'>地圖搜尋</a></li>
-				<li><a href='<c:url value="../rank/rank.jsp" />'>店家排行</a></li>
+				<!-- <li><a href="../rank/rank.jsp">商家排行</a></li>-->
 				<li><a href='<c:url value="../recommend/recommend.jsp" />'>店家推薦</a></li>
 			</ul>
 			</nav>
@@ -155,6 +158,7 @@
 				</div>
 			</c:if>
 			<!-- Button trigger modal 頁面按鈕-->
+<<<<<<< HEAD
 			<button class="btn btn-info" data-toggle="modal"
 				data-target="#myModal">店家資訊回報</button>
 
@@ -289,6 +293,133 @@
 	<!-- /insert留言 -->
 	<!--  / 留言部份-->
 
+=======
+			<button class="btn btn-info" data-toggle="modal" data-target="#myModal">店家資訊回報</button>
+				
+				
+			<!-- 這裡以下是顯示留言區 -->
+<%-- 			<c:if test="${not empty select}"> --%>
+<!-- 				<div class="container"> -->
+<!-- 				<table class="table table-hover"> -->
+<%-- 					<c:forEach var="bean" items="${select}" > --%>
+<!-- 						<tr> -->
+<!-- 							<td> -->
+<%-- 								<strong><font size="4">${bean.name}</font></strong> --%>
+<!-- 									<figure style="float: right;"> -->
+<%-- 										<c:if test="${not empty bean.shopPic}"> --%>
+<%-- 											<img src="${bean.shopPic}" width="100" border="0"> --%>
+<%-- 										</c:if> --%>
+<!-- 									</figure><br> -->
+<%-- 								類型：${bean.shopType.shopType}　店家狀態：${bean.shopStatusType.shopStatus}<br> --%>
+<%-- 								地址：<span id="address">${bean.shopAddress}</span><br> --%>
+<%-- 								電子信箱：${bean.email}<br> --%>
+<%--  								<c:if test="${not empty bean.web}"> --%>
+<%--  									官方網站：<a href="${bean.web}" target="_blank">有</a><br> --%>
+<%--  								</c:if> --%>
+<%--  								電話：${bean.phone}<br> --%>
+<%-- 								價格：${bean.price}　價位區間：${bean.priceType.priceType}<br> --%>
+<%-- 								<c:if test="${not empty bean.note}"> --%>
+<!-- 									<blockquote>店家備註<br> -->
+<%-- 										${bean.note}<br> --%>
+<!-- 									</blockquote> -->
+<%-- 								</c:if> --%>
+<!-- 							</td> -->
+<!-- 						</tr> -->
+						
+<!-- 						<tr> -->
+<!-- 							<td> -->
+<%-- 								<c:if test="${not empty bean.contactName}">聯絡人：${bean.contactName}　聯絡人電話：${bean.contactPhone}<br></c:if> --%>
+<!-- 								<div align="right"> -->
+<%-- 									最後更新日期：${bean.shopDate}<br> --%>
+<!-- 									<a href="guest.php?do=report&amp;rsn=269" target="_blank" class="smalla">店家資料錯誤回報</a> -->
+<!-- 								</div> -->
+<!-- 							</td> -->
+<!-- 						</tr> -->
+<%-- 					</c:forEach> --%>
+<!-- 				</table> -->
+<!-- 				</div> -->
+				
+<!-- 				<ul class="pagination"> -->
+			
+<%-- 				<c:if test="${pageNo > 1}"> --%>
+<%-- 					<li><a href="list.do?pageNo=${pageNo-1}">«</a></li> --%>
+<%-- 				</c:if> --%>
+<%-- 				<c:if test="${pageNo <= 1}"> --%>
+<!-- 					<li class="disabled">«</li> -->
+<%-- 				</c:if> --%>
+				
+<%-- 				<c:forEach items="${pages}" var="page"> --%>
+<%-- 					<c:choose> --%>
+<%-- 						<c:when test="${page == pageNo}"> --%>
+<%-- 							<li class="active"><a href="list.do?pageNo=${page}">${page}</a></li> --%>
+<%-- 						</c:when> --%>
+						
+<%-- 						<c:otherwise> --%>
+<%-- 							<li><a href="list.do?pageNo=${page}">${page}</a></li> --%>
+<%-- 						</c:otherwise> --%>
+<%-- 					</c:choose> --%>
+<%-- 				</c:forEach> --%>
+				
+<%-- 				<c:if test="${pageNo < totalPages}"> --%>
+<%-- 					<a href="list.do?pageNo=${pageNo+1}">»</a> --%>
+<%-- 				</c:if> --%>
+				
+<%-- 				<c:if test="${pageNo < totalPages}"> --%>
+<%-- 					<li><a href="list.do?pageNo=${pageNo+1}">»</a></li> --%>
+<%-- 				</c:if> --%>
+<%-- 				<c:if test="${pageNo >= totalPages}"> --%>
+<!-- 					<li class="disabled">»</li> -->
+<%-- 				</c:if> --%>
+<!-- 			</ul> -->
+				
+<%-- 			</c:if> --%>
+			
+			
+			
+			<!-- 留言部分 -->
+			<h2>對這個店家留個言吧，目前尚有  ${fn:length(msg)} 篇留言。</h2>
+			<c:if test="${not empty msg}">
+				<ul class="list-group">
+				<c:forEach var="bean" items="${msg}">
+					<li class="list-group-item">
+						<a href="#"><img src="#" class="avatar"></a>
+						<p class="name" >
+							<a href="">${bean.papaMem.name}</a>
+							<span class="date" ><fmt:formatDate value="${bean.msgDate}" pattern="yyyy/MM/dd EEEE" /></span>
+						</p>
+						<div class="content">${bean.msgContent}</div>
+						
+						<!-- 刪除留言 -->
+						<form action="<c:url value="/shop/deletemessage.controller" />"method="post">
+							<input type="hidden" name="msgId" value="${bean.msgId}">
+								<c:if test="${not empty select}">
+									<c:forEach var="bean" items="${select}">
+										<input type="hidden" name="shopId" value="${bean.shopId}">
+									</c:forEach>
+								</c:if>
+							<button type="submit" name="production" value="deletemessage" class="btn btn-danger">刪除</button>
+						</form>
+						<!-- / 刪除留言 -->
+					</li>
+				</c:forEach>
+				</ul>
+			</c:if>
+			
+			<!-- insert留言 -->
+			<form action="<c:url value="/shop/papashop.controller" />"method="post">
+				<c:if test="${not empty select}">
+					<c:forEach var="bean" items="${select}">
+						<input type="hidden" name="shopId" value="${bean.shopId}">
+					</c:forEach>
+				</c:if>
+				<textarea name="msgContent" class="form-control" rows="3" title="留言" placeholder="留言..."></textarea><br>
+				<button type="submit" name="production" value="writemessage" class="btn btn-primary" >送出</button>
+			</form>
+			<!-- / insert留言 -->
+		<!-- / 留言部份 -->
+		</div>
+	</div>
+>>>>>>> e81be6ab150e3c01edf0185faa418c6aeaf40e5a
 	<!-- / body container -->
 
 	<!-- footer -->

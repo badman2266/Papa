@@ -21,10 +21,10 @@
 			<div class="modal-content">
 				<!-- dialog body -->
 				<div class="modal-body">
-					<legend>確定要刪除推薦嗎?</legend>
+					<legend>確定要刪除會員推薦嗎?</legend>
 					<form action="<c:url value='/admin/shop/rec.action'/>" class="form-horizontal" role="form">
 						<div class="form-group">
-							<label for="inputName" class="col-sm-2 control-label">店家ID</label>
+							<label for="inputName" class="col-sm-2 control-label">會員店家ID</label>
 							<div class="col-sm-6">
 								<input type="text" value="${param['bean.recId']}"
 									name="bean.recId" class="form-control">

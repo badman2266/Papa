@@ -26,7 +26,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">美食趴趴Go評價網 管理員</a>
+			<a class="navbar-brand" href="../inform/news.jsp">美食趴趴Go評價網 管理員系統</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,11 +39,10 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">${user.account}管理員<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">網站首頁</a></li>
-						<li><a href="#">管理員頁面</a></li>
-						<li><a href="#">訊息通知</a></li>
+						<li><a href="../../index.jsp"  target="_blank">網站首頁</a></li>
+						<li><a href="../inform/news.jsp">管理員頁面</a></li>
 						<li class="divider"></li>
-						<li><a href="#">登出</a></li>
+						<li><a href="<c:url value='/login/logout.action'/>">登出</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -53,7 +52,7 @@
 	<div class="container">
 		<div class="page-header">
 			<h1>
-				美食趴趴Go評價網 <small>今天想吃什麼？</small>
+				美食趴趴Go評價網 <small>管理系統</small>
 			</h1>
 		</div>
 	</div>
@@ -63,16 +62,14 @@
 		<div class="container">
 			<nav class="navbar" role="navigation">
 			<ul class="nav nav-tabs nav-justified">
-				<!-- <li><a href="#">最新消息</a></li> -->
-				<li><a href="#">訊息通知</a></li>
+				<li><a href="../inform/news.jsp">主頁面</a></li>
 				<li><a href="#">會員系統</a></li>
-				<li class="active"><a href="#">商家系統</a></li>
-				<li><a href="#">排名系統</a></li>
-				<li><a href="#">留言系統</a></li>
+				<li class="active"><a href="Insert_shop.jsp">商家系統</a></li>
 			</ul>
 			</nav>
 		</div>
 		<!--end of subnavbar -->
+		
 		<!-- subbar list 看自己需不需要-->
 		<div class="col-sm-3">
 			<ul class="nav nav-stacked nav-pills">
@@ -80,6 +77,7 @@
 					style="text-align: center">商家系統</a></li>
 				<li><a href="Insert_shop.jsp">新增店家</a></li>
 				<li><a href="RUD_shop.jsp">查詢及刪除修改店家</a></li>
+				<li><a href="PriceType.jsp">價位類型表單</a></li>
 			</ul>
 		</div>
 		<!--end of subbar list -->

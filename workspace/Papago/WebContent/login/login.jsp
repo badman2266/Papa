@@ -90,25 +90,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
-				<h1 class="text-center login-title">登入PapaGo 評價網</h1>
+				<h1 class="text-center login-title">登入PapaGo美食評價資訊網</h1>
 				<div class="account-wall">
-					<img class="profile-img"
-						src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-						alt="">
+					<img class="profile-img" src="../images/logo.jpg" alt="">
 					<form class="form-signin" method="post"
 						action="<c:url value='/login/login.action'/>">
 						<input type="text" class="form-control" placeholder="Account"
 							name="memAccount"> <input type="password"
 							class="form-control" placeholder="Password" name="memPassword">
-						<div class="text-center alert"><p style="color:red">${errors.password[0]}</p></div>
+						<div class="text-center alert">
+							<p style="color: red">${errors.password[0]}</p>
+						</div>
 						<button class="btn btn-lg btn-primary btn-block" type="submit"
 							value="Login">Sign in</button>
-						<label class="checkbox pull-left"> <input type="checkbox"
-							value="remember-me"> Remember me
-						</label> <a href="#" class="pull-right need-help">Need help? </a><span
-							class="clearfix"></span>
 					</form>
-
+					<a href="../index.jsp" class="text-center new-account">回到首頁</a>
 				</div>
 			</div>
 		</div>
