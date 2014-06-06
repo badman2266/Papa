@@ -72,7 +72,8 @@
             
             <div id="menuBox-1" class="menuBox-bg-color-1">
             
-            <h4 class="text-success">不知道今天要吃什麼嗎？</h4>
+            <h4 class="text-success"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp
+			不知道今天要吃什麼嗎？</h4>
 			<form class="form-inline" action='<c:url value="papashop.controller" />' method="POST">
 				<div class="form-group">
 					<label class="control-label">種類 ： </label>
@@ -123,7 +124,7 @@
             
             <div id="menuBox-1" class="menuBox-bg-color-2">
             
-			<h4 class="text-success">關鍵字店家搜尋</h4>
+			<h4 class="text-success"><span class="glyphicon glyphicon-search"></span>&nbsp關鍵字店家搜尋</h4>
 			<form class="form-inline" role="search" action='<c:url value="papashop.controller" />' method="POST">
 				<div class="form-group">
 					<label class="control-label">店家:</label>
@@ -142,7 +143,7 @@
             
             <div id="menuBox-1" class="menuBox-bg-color-3">
             
-			<h4 class="text-success">價位搜尋</h4>
+			<h4 class="text-success"><span class="glyphicon glyphicon-usd"></span>&nbsp價位搜尋</h4>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -173,7 +174,7 @@
             
             <div id="menuBox-1" class="menuBox-bg-color-3">
             
-			<h4 class="text-success">類型搜尋</h4>
+			<h4 class="text-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp類型搜尋</h4>
 			<table class="table table-hover">
 				<thead>
 					<tr>
