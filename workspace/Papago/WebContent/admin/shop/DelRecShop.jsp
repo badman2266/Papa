@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
+<link rel="shortcut icon" href="../../images/papago.ico" type="image/x-icon" />
 <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <link href="../../css/bootstrap-theme.min.css" rel="stylesheet"
@@ -25,7 +26,7 @@
 					<legend>確定要刪除會員推薦嗎?</legend>
 					<form action="<c:url value='/admin/shop/rec.action'/>" class="form-horizontal" role="form">
 						<div class="form-group">
-							<label for="inputName" class="col-sm-2 control-label">會員店家ID</label>
+							<label for="inputName" class="col-sm-2 control-label">店家推薦ID</label>
 							<div class="col-sm-6">
 								<input type="text" value="${param['bean.recId']}"
 									name="bean.recId" class="form-control">

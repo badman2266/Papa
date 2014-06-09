@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>【美食趴趴Go評價網】今天想吃什麼？</title>
+<link rel="shortcut icon" href="../images/papago.ico" type="image/x-icon" />
 <style type="text/css">
 .map {
 	width: 100%;
@@ -153,10 +154,16 @@
 										<tr>
 											<th>地址：</th>
 											<td><span id="address">${bean.shopAddress}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-											<c:if test="${not empty bean.web}">
-												<th>官方網站：</th>
-												<td><a href="${bean.web}" target="_blank">有</a></td>
-											</c:if>
+											<c:choose>
+												<c:when test="${not empty bean.web}">
+													<th>官方網站：</th>
+													<td><a href="${bean.web}" target="_blank">有</a></td>
+												</c:when>
+												<c:otherwise>
+													<th>官方網站：</th>
+													<td>無</td>
+												</c:otherwise>
+											</c:choose>
 										</tr>
 										<tr>
 											<th>價格：</th>
@@ -286,28 +293,27 @@
 				<c:if test="${not empty msg}">
 					<ul class="list-group">
 						<c:forEach var="bean" items="${msg}">
-							<li class="list-group-item"><a href='<c:url value="#" />'><img
-									src='<c:url value="../images/icon_avatar.jpg" />'
-									class="avatar" width="50"></a>
+							<li class="list-group-item">
+								<a href='<c:url value="#" />'>
+									<img src='<c:url value="../images/icon_avatar.jpg" />' class="avatar" width="50">
+								</a>
 								<p class="name">
-									<a href='<c:url value="#" />'>${bean.papaMem.name}</a> <span
-										class="date"><fmt:formatDate value="${bean.msgDate}"
-											pattern="yyyy/MM/dd EEEE" /></span>
+									<a href='<c:url value="#" />'>${bean.papaMem.name}</a>
+									<span class="date"><fmt:formatDate value="${bean.msgDate}" pattern="yyyy/MM/dd EEEE" /></span>
 								</p>
-								<div class="content">${bean.msgContent}</div> <!-- 刪除留言 --> <c:if
-									test="${prior==2}">
-									<form action='<c:url value="/shop/deletemessage.controller" />'
-										method="post">
+								<div class="content">${bean.msgContent}</div> <!-- 刪除留言 --> 
+									<c:if test="${prior==2}">
+									<form action='<c:url value="/shop/deletemessage.controller" />' method="post">
 										<input type="hidden" name="msgId" value="${bean.msgId}">
 										<c:if test="${not empty select}">
 											<c:forEach var="bean" items="${select}">
 												<input type="hidden" name="shopId" value="${bean.shopId}">
 											</c:forEach>
 										</c:if>
-										<button type="submit" name="production" value="deletemessage"
-											class="btn btn-danger">刪除</button>
+										<button type="submit" name="production" value="deletemessage" class="btn btn-danger">刪除</button>
 									</form>
-								</c:if> <!-- / 刪除留言 --></li>
+								</c:if> <!-- / 刪除留言 -->
+							</li>
 						</c:forEach>
 					</ul>
 				</c:if>
@@ -355,21 +361,22 @@
 					<form action="<c:url value='/admin/shop/updateshop.controller'/>"
 						class="form-horizontal" role="form">
 						<div class="form-group">
-							<label for="inputName" class="col-sm-2 control-label">店家ID</label>
+							<label for="inputName" class="col-sm-2 control-label">店家名稱</label>
 							<div class="col-sm-10">
 								<c:forEach var="bean" items="${select}">
-									<input type="text" value="${bean.shopId}" name="shopId"
-										class="form-control">
+									<input type="hidden" value="${bean.shopId}" name="shopId" class="form-control">
+									<p class="form-control">${bean.name}</p>
 								</c:forEach>
 							</div>
-						</div>
+						</div><!--  
 						<div class="form-group">
 							<label for="inputName" class="col-sm-2 control-label">會員ID</label>
 							<div class="col-sm-10">
-								<input type="text" value="${user.memId}" name="memId"
-									class="form-control">
+								
 							</div>
-						</div>
+						</div>-->
+						<input type="hidden" value="${user.memId}" name="memId"
+									class="form-control">
 						<div class="form-group">
 							<label for="inputName" class="col-sm-2 control-label">店家更新回報內容</label>
 							<div class="col-sm-10">

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,11 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>訊息通知</title>
+<link rel="shortcut icon" href="../../images/papago.ico" type="image/x-icon" />
 <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="../../css/bootstrap-theme.min.css" rel="stylesheet"
-	media="screen">
-<link href="../../css/bootstrap-datetimepicker.css" rel="stylesheet"
-	media="screen">
+<link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<link href="../../css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 <link href="../../css/website.css" rel="stylesheet" media="screen">
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -25,11 +23,13 @@
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">
+					Toggle navigation
+				</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="news.jsp">美食趴趴Go評價網 管理員系統</a>
 		</div>
@@ -41,8 +41,11 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<!-- 管理員 -->
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">${user.account}管理員<b class="caret"></b></a>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						${user.account}管理員
+						<b class="caret"></b>
+					</a>
 					<ul class="dropdown-menu">
 						<li><a href="../../index.jsp" target="_blank">網站首頁</a></li>
 						<li><a href="news.jsp">管理員頁面</a></li>

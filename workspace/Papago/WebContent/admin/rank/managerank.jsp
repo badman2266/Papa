@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>排名系統</title>
+<link rel="shortcut icon" href="../../images/papago.ico" type="image/x-icon" />
 <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../../css/bootstrap-theme.min.css" rel="stylesheet"
 	media="screen">

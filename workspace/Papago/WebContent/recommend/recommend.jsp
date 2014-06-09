@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>推薦商家</title>
+<link rel="shortcut icon" href="../images/papago.ico" type="image/x-icon" />
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet"
 	media="screen">
@@ -88,8 +89,8 @@
 					<div class="form-group">
 						<label for="inputName" class="col-sm-2 control-label">推薦會員ID</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="inputName"
-								name="memId" placeholder="推薦會員" value="${user.memId}">
+						<p class="form-control">${user.memId}</p>
+							<input type="hidden" class="form-control" id="inputName" name="memId" placeholder="推薦會員" value="${user.memId}">
 						</div>
 					</div>
 
